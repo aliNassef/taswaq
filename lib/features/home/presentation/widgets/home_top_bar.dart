@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
- import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/search/presentation/views/search_view.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 
@@ -12,7 +13,8 @@ class HomeTopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: kHorizantalpadding),
+      padding:
+          EdgeInsets.symmetric(vertical: 12.h, horizontal: kHorizantalpadding),
       child: Row(
         children: [
           Text(
@@ -20,10 +22,15 @@ class HomeTopBar extends StatelessWidget {
             style: AppStyles.textStyle16SB,
           ),
           const Spacer(),
-          SvgPicture.asset(
-            AppSvgs.searchIcon,
-            width: 32.w,
-            height: 32.h,
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, SearchView.routeName);
+            },
+            icon: SvgPicture.asset(
+              AppSvgs.searchIcon,
+              width: 32.w,
+              height: 32.h,
+            ),
           ),
           const HorizantalSpace(12),
           InkWell(
