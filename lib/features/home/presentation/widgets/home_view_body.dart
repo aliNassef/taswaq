@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
- import 'categories_header.dart';
+import 'categories_header.dart';
 import 'categories_horizantl_list.dart';
 import 'home_top_bar.dart';
 import 'offer_horizantal_list.dart';
