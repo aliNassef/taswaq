@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
-
 import 'categories_header.dart';
 import 'categories_horizantl_list.dart';
 import 'home_top_bar.dart';
+import 'offer_horizantal_list.dart';
 import 'product_section_grid_view.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -17,26 +17,7 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         const HomeTopBar(),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width,
-          height: 148.h,
-          child: CarouselView(
-            itemExtent: 330,
-            shrinkExtent: 200,
-            children: [
-              Container(
-                color: Colors.red,
-                height: 148.h,
-                width: double.infinity,
-              ),
-              Container(
-                color: Colors.red,
-                height: 148.h,
-                width: double.infinity,
-              )
-            ],
-          ),
-        ),
+        const OfferHorizantalList(),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 20.h),
           child: HeaderRow(
@@ -49,7 +30,10 @@ class HomeViewBody extends StatelessWidget {
           child: CategoriesHorizantalList(),
         ),
         const VerticalSpace(24),
-        HeaderRow(title: 'Latest Products', onTap: () {}),
+        HeaderRow(
+          title: 'Latest Products',
+          onTap: () {},
+        ),
         const ProductSectionGridView(),
       ],
     );

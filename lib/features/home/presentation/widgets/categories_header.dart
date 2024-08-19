@@ -15,7 +15,7 @@ class HeaderRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:     EdgeInsets.symmetric(horizontal: kHorizantalpadding),
+      padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,8 +27,8 @@ class HeaderRow extends StatelessWidget {
             onTap: onTap,
             child: Text(
               'See All',
-              style:
-                  AppStyles.textStyle14SB.copyWith(color: AppColors.primaryColor),
+              style: AppStyles.textStyle14SB
+                  .copyWith(color: AppColors.primaryColor),
             ),
           ),
         ],
