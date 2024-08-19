@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
@@ -6,8 +5,8 @@ import 'package:taswaq/core/utils/app_images.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
 
 class ProductTopBar extends StatelessWidget {
-  const ProductTopBar({super.key});
-
+  const ProductTopBar({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +19,7 @@ class ProductTopBar extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios),
         ),
         Text(
-          'SmartPhones',
+          title,
           style: AppStyles.textStyle14M.copyWith(
             color: AppColors.blackColor,
           ),

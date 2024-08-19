@@ -23,9 +23,7 @@ class HomeViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 20.h),
           child: HeaderRow(
             title: 'Categories',
-            onTap: () {
-              Navigator.pushNamed(context, ProductView.routeName);
-            },
+            onTap: () {},
           ),
         ),
         const Padding(

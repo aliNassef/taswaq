@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,7 +30,6 @@ class ProductSectionGridView extends StatelessWidget {
                 crossAxisSpacing: 8.w,
               ),
               itemBuilder: (context, index) {
-                log(state.productList[index].toString());
                 return ProductItem(
                   instance: state.productList[index],
                 );
@@ -49,7 +46,8 @@ class ProductSectionGridView extends StatelessWidget {
 
         return Expanded(
           child: GridView.builder(
-            padding: EdgeInsets.symmetric(vertical: 12.h),
+            padding: EdgeInsets.symmetric(
+                vertical: 12.h, horizontal: kHorizantalpadding),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 12.h,
