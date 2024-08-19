@@ -24,6 +24,7 @@ class Taswaq extends StatelessWidget {
         onGenerateRoute: onGenerateRoute,
         initialRoute: HomeView.routeName,
         theme: ThemeData(
+          fontFamily: 'PlusJakartaSans',
           scaffoldBackgroundColor: Colors.white,
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         ),

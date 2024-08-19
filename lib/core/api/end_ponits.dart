@@ -2,16 +2,19 @@ class EndPoints {
   static const baseUrl = 'https://dummyjson.com/';
 
   static const products = 'products';
+
   static const categories = 'products/category-list';
+
+  static const getProductsByCategory = 'products/category/';
 }
 
 class ApiKey {
   static const token = 'token';
-  
+
   static const products = 'products';
-  
+
   static const limit = 'limit';
-  
+
   static const skip = 'skip';
 
   static const total = 'total';
@@ -61,12 +64,12 @@ class ApiKey {
   static const minimumOrderQuantity = 'minimumOrderQuantity';
 
   static const meta = 'meta';
-  
-  static const width  = 'width';
+
+  static const width = 'width';
 
   static const height = 'height';
-  
-  static const depth  = 'depth';
+
+  static const depth = 'depth';
 
   static const createdAt = 'createdAt';
 
@@ -75,13 +78,12 @@ class ApiKey {
   static const barcode = 'barcode';
 
   static const qrCode = 'qrCode';
-  
+
   static const comment = 'comment';
-  
+
   static const date = 'date';
 
   static const reviewerEmail = 'reviewerEmail';
-  
-  static const reviewerName = 'reviewerName';
 
+  static const reviewerName = 'reviewerName';
 }

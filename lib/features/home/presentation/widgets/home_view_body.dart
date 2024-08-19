@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
+import 'package:taswaq/features/products/presentation/views/product_view.dart';
 import 'categories_header.dart';
 import 'categories_horizantl_list.dart';
 import 'home_top_bar.dart';
@@ -22,7 +23,9 @@ class HomeViewBody extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 20.h),
           child: HeaderRow(
             title: 'Categories',
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, ProductView.routeName);
+            },
           ),
         ),
         const Padding(
