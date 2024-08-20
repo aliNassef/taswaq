@@ -2,9 +2,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/cache/cache_helper.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/taswaq.dart';
+import 'core/cache/cache_helper.dart';
+import 'core/di/dependency_injuction.dart';
+import 'taswaq.dart';
 
 import 'core/shared/widgets/custom_bloc_observer.dart';
 

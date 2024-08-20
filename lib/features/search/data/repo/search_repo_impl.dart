@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/errors/exceptions.dart';
+import '../../../../core/errors/exceptions.dart';
 
-import 'package:taswaq/core/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 
-import 'package:taswaq/features/search/domain/entities/search_entity/search_entity.dart';
+import '../../domain/entities/search_entity/search_entity.dart';
 
 import '../../domain/repo/search_repo.dart';
 import '../source/search_remote_source.dart';

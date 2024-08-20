@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/errors/failure.dart';
-import 'package:taswaq/features/home/data/source/home_remote_source.dart';
-import 'package:taswaq/features/home/domain/entities/product_entity/product_entity.dart';
-import 'package:taswaq/features/home/domain/repo/home_repo.dart';
+import '../../../../core/errors/failure.dart';
+import '../source/home_remote_source.dart';
+import '../../domain/entities/product_entity/product_entity.dart';
+import '../../domain/repo/home_repo.dart';
 
 import '../../../../core/errors/exceptions.dart';
 

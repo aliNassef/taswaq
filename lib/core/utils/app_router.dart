@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/search/presentation/views/search_view.dart';
+import '../../features/search/presentation/views/search_view.dart';
 
 import '../../features/home/presentation/view/home_view.dart';
 import '../../features/products/presentation/views/product_view.dart';

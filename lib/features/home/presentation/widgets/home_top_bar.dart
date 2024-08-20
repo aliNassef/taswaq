@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/search/presentation/views/search_view.dart';
+import '../../../search/presentation/views/search_view.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 

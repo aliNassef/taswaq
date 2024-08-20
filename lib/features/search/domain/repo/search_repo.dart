@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/errors/failure.dart';
-import 'package:taswaq/features/search/domain/entities/search_entity/search_entity.dart';
+import '../../../../core/errors/failure.dart';
+import '../entities/search_entity/search_entity.dart';
 
 abstract class SearchRepo {
   Future<Either<Failure, List<SearchEntity>>> getSearchResults(

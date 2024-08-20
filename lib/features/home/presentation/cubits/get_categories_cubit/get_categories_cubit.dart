@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/home/domain/repo/home_repo.dart';
+import '../../../domain/repo/home_repo.dart';
 
 import 'get_categories_state.dart';
 

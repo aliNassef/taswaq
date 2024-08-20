@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/search/domain/entities/search_entity/search_entity.dart';
+import '../../../../../core/api/end_ponits.dart';
+import '../../../domain/entities/search_entity/search_entity.dart';
 
 import 'dimensions.dart';
 import 'meta.dart';

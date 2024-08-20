@@ -1,6 +1,6 @@
-import 'package:taswaq/core/api/api_consumer.dart';
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/home/data/models/product_model/product_model.dart';
+import '../../../../core/api/api_consumer.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../models/product_model/product_model.dart';
 
 class HomeRemoteSource {
   final ApiConsumer api;

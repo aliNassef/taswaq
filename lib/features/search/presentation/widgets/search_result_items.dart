@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
+import '../../../../core/shared/widgets/spacers.dart';
 import '../cubits/get_search_result_cubit/get_search_result_cubit.dart';
 import 'search_item.dart';
 

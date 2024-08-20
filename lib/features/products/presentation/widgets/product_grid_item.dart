@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/products/domain/entities/product_entity/product_entity.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../domain/entities/product_entity/product_entity.dart';
 
 class ProductGridItem extends StatelessWidget {
   const ProductGridItem({

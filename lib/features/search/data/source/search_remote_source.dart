@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/api_consumer.dart';
-import 'package:taswaq/features/search/data/models/search_model/search_model.dart';
+import '../../../../core/api/api_consumer.dart';
+import '../models/search_model/search_model.dart';
 
 import '../../../../core/api/end_ponits.dart';
 

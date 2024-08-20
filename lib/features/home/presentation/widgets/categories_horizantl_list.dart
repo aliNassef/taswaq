@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:taswaq/features/home/presentation/cubits/get_categories_cubit/get_categories_cubit.dart';
-import 'package:taswaq/features/home/presentation/cubits/get_categories_cubit/get_categories_state.dart';
+import '../cubits/get_categories_cubit/get_categories_cubit.dart';
+import '../cubits/get_categories_cubit/get_categories_state.dart';
 
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';

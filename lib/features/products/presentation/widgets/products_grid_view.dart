@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:taswaq/features/products/presentation/cubits/get_product_by_category_cubit/getproductsbycategory_cubit.dart';
-import 'package:taswaq/features/products/presentation/cubits/get_product_by_category_cubit/getproductsbycategory_state.dart';
-import 'package:taswaq/features/products/presentation/widgets/product_grid_item.dart';
+import '../cubits/get_product_by_category_cubit/getproductsbycategory_cubit.dart';
+import '../cubits/get_product_by_category_cubit/getproductsbycategory_state.dart';
+import 'product_grid_item.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/home/domain/entities/product_entity/product_entity.dart';
+import '../../../domain/entities/product_entity/product_entity.dart';
 import '../../../domain/repo/home_repo.dart';
 part 'get_products_state.dart';
 

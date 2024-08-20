@@ -1,4 +1,4 @@
-import 'package:taswaq/features/products/domain/entities/product_entity/product_entity.dart';
+import '../../../domain/entities/product_entity/product_entity.dart';
 
 class GetProductsByCategoryState {}
 

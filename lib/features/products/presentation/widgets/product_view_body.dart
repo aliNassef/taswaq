@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/products/presentation/widgets/product_view_top_bar.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import 'product_view_top_bar.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import 'products_grid_view.dart';
 

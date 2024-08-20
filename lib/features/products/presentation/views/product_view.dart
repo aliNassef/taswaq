@@ -1,10 +1,10 @@
  
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/features/products/domain/repo/product_repo.dart';
-import 'package:taswaq/features/products/presentation/cubits/get_product_by_category_cubit/getproductsbycategory_cubit.dart';
-import 'package:taswaq/features/products/presentation/widgets/product_view_body.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../domain/repo/product_repo.dart';
+import '../cubits/get_product_by_category_cubit/getproductsbycategory_cubit.dart';
+import '../widgets/product_view_body.dart';
 
 class ProductView extends StatelessWidget {
   const ProductView({super.key, required this.category});

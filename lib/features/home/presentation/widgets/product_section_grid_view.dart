@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/features/home/presentation/cubits/get_products_cubit/get_products_cubit.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../cubits/get_products_cubit/get_products_cubit.dart';
 
 import 'product_item.dart';
 

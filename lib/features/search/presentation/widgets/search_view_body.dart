@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/search/presentation/cubits/get_search_result_cubit/get_search_result_cubit.dart';
-import 'package:taswaq/features/search/presentation/widgets/search_bar.dart';
-import 'package:taswaq/features/search/presentation/widgets/search_result_items.dart';
-import 'package:taswaq/features/search/presentation/widgets/search_top_bar.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../cubits/get_search_result_cubit/get_search_result_cubit.dart';
+import 'search_bar.dart';
+import 'search_result_items.dart';
+import 'search_top_bar.dart';
 
 
 class SearchViewBody extends StatelessWidget {
