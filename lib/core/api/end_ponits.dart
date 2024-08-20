@@ -6,6 +6,8 @@ class EndPoints {
   static const categories = 'products/category-list';
 
   static const getProductsByCategory = 'products/category/';
+
+  static const search = 'products/search?q=';
 }
 
 class ApiKey {

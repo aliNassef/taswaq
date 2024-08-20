@@ -5,6 +5,9 @@ import 'package:taswaq/features/home/data/source/home_remote_source.dart';
 import 'package:taswaq/features/home/domain/repo/home_repo.dart';
 import 'package:taswaq/features/products/data/source/produt_remote_source.dart';
 import 'package:taswaq/features/products/domain/repo/product_repo.dart';
+import 'package:taswaq/features/search/data/repo/search_repo_impl.dart';
+import 'package:taswaq/features/search/data/source/search_remote_source.dart';
+import 'package:taswaq/features/search/domain/repo/search_repo.dart';
 import '../../features/products/data/repo/product_repo_impl.dart';
 import '../api/dio_consumer.dart';
 import '../cache/cache_helper.dart';
@@ -36,4 +39,15 @@ setupGetIt() async {
       getIt.get<ProductRemoteSource>(),
     ),
   );
+  getIt.registerSingleton<SearchRemoteSource>(
+    SearchRemoteSource(
+      api: getIt<DioConsumer>(),
+    ),
+  );
+  getIt.registerSingleton<SearchRepo>(
+    SearchRepoImpl(
+      getIt.get<SearchRemoteSource>(),
+    ),
+  );
+
 }
