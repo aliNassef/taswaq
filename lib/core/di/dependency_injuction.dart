@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/features/product_deatails/data/repo/product_details_repo_impl.dart';
+import 'package:taswaq/features/product_deatails/data/source/product_details_remote_source.dart';
+import 'package:taswaq/features/product_deatails/domain/repo/product_details_repo.dart';
 import '../../features/home/data/repo/home_repo_impl.dart';
 import '../../features/home/data/source/home_remote_source.dart';
 import '../../features/home/domain/repo/home_repo.dart';
@@ -49,5 +52,15 @@ setupGetIt() async {
       getIt.get<SearchRemoteSource>(),
     ),
   );
+  getIt.registerSingleton<ProductDetailsRemoteSource>(
+    ProductDetailsRemoteSource(
+      api: getIt<DioConsumer>(),
+    ),
+  );
 
+  getIt.registerSingleton<ProductDetailsRepo>(
+    ProductDetailsRepoImpl(
+      getIt.get<ProductDetailsRemoteSource>(),
+    ),
+  );
 }

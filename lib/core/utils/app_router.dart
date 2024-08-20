@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import '../../features/product_deatails/presentation/views/product_details_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
 
 import '../../features/home/presentation/view/home_view.dart';
@@ -25,6 +26,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case SearchView.routeName:
       return MaterialPageRoute(
         builder: (_) => const SearchView(),
+      );
+    case ProductDetailsView.routeName:
+      return MaterialPageRoute(
+        builder: (_) => const ProductDetailsView(),
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());
