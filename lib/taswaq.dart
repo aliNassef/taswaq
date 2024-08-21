@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/utils/app_colors.dart';
@@ -24,6 +25,9 @@ class Taswaq extends StatelessWidget {
         onGenerateRoute: onGenerateRoute,
         initialRoute: HomeView.routeName,
         theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle(),
+          ),
           fontFamily: 'PlusJakartaSans',
           scaffoldBackgroundColor: Colors.white,
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),

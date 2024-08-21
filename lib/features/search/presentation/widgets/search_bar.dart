@@ -7,7 +7,8 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key, required this.searchController, this.onSubmitted});
+  const CustomSearchBar(
+      {super.key, required this.searchController, this.onSubmitted});
   final TextEditingController searchController;
   final void Function(String)? onSubmitted;
   @override
@@ -24,7 +25,7 @@ class CustomSearchBar extends StatelessWidget {
         prefixIcon: Padding(
           padding: const EdgeInsets.all(10.0),
           child: SvgPicture.asset(
-            AppSvgs.searchbarIcin,
+            AppSvgs.searchbarIcon,
             height: 24.h,
             width: 24.w,
           ),

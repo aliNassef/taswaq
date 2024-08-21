@@ -14,11 +14,15 @@ abstract class AppStyles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
+  static final textStyle14R = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+  );
   static final textStyle12R = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
-    static final textStyle12SB = TextStyle(
+  static final textStyle12SB = TextStyle(
     fontSize: 12.sp,
     fontWeight: FontWeight.w600,
   );
@@ -30,5 +34,10 @@ abstract class AppStyles {
   static final textStyle10SB = TextStyle(
     fontSize: 10.sp,
     fontWeight: FontWeight.w600,
+  );
+
+  static final textStyle16M = TextStyle(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w500,
   );
 }
