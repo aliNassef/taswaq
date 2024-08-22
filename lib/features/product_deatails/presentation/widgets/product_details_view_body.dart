@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/product_deatails/presentation/widgets/add_to_cart_or_buy_now.dart';
 import '../cubits/get_product_details_cubit/get_product_detaisl_cubit.dart';
 import 'product_details_content.dart';
 
@@ -26,8 +25,8 @@ class ProductDetailsViewBody extends StatelessWidget {
                   [
                     Stack(
                       children: [
-                        
-
+                        // show carsural slider for images
+                        // show back and love button
                         Image.network(
                           product.images![0],
                           fit: BoxFit.fill,
