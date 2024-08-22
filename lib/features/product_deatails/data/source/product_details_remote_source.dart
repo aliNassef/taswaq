@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/api_consumer.dart';
-import 'package:taswaq/features/product_deatails/data/models/product_detsails_mode/product_details_model.dart';
+import '../../../../core/api/api_consumer.dart';
+import '../models/product_detsails_mode/product_details_model.dart';
 
 import '../../../../core/api/end_ponits.dart';
 

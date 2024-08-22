@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/product_deatails/domain/entity/sub_entities/review_entity.dart';
+import '../../../../../core/api/end_ponits.dart';
+import '../sub_entities/review_entity.dart';
 
 class ProductDetailsEntity {
   final int? id;

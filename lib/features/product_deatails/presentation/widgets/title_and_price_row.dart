@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
 
 class TitleAndPriceRow extends StatelessWidget {
   const TitleAndPriceRow({

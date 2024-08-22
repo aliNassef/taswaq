@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:taswaq/features/product_deatails/domain/repo/product_details_repo.dart';
+import '../../../domain/repo/product_details_repo.dart';
 
 import '../../../domain/entity/product_detais_entity/product_details_entity.dart';
 

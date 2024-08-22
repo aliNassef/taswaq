@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/product_deatails/presentation/views/product_details_view.dart';
+import '../../../product_deatails/presentation/views/product_details_view.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
 
 import '../../../../core/utils/app_colors.dart';

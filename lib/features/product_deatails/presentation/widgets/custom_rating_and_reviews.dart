@@ -1,9 +1,9 @@
 import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
 
 class CustomRatingAndReviews extends StatelessWidget {
   const CustomRatingAndReviews({

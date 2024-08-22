@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/features/product_deatails/data/repo/product_details_repo_impl.dart';
-import 'package:taswaq/features/product_deatails/domain/repo/product_details_repo.dart';
-import 'package:taswaq/features/product_deatails/presentation/widgets/product_details_view_body.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../data/repo/product_details_repo_impl.dart';
+import '../../domain/repo/product_details_repo.dart';
+import '../widgets/product_details_view_body.dart';
 
 import '../cubits/get_product_details_cubit/get_product_detaisl_cubit.dart';
 
