@@ -11,6 +11,10 @@ class ProductDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetProductDetailsCubit, GetProductDetailsState>(
+      buildWhen: (previous, current) =>
+          current is GetProductDetaislFailure ||
+          current is GetProductDetaislLoading ||
+          current is GetProductDetaislLoaded,
       builder: (context, state) {
         if (state is GetProductDetaislFailure) {
           return Center(
