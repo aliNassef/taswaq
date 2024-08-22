@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/core/shared/widgets/custom_fav_icon.dart';
 import '../../../product_deatails/presentation/views/product_details_view.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
 
@@ -47,15 +48,7 @@ class ProductItem extends StatelessWidget {
                 Positioned(
                   top: 8.h,
                   right: 8.h,
-                  child: CircleAvatar(
-                    radius: 20.h,
-                    // backgroundColor: Colors.white,
-                    backgroundColor: AppColors.blackColor,
-                    child: const Icon(
-                      Icons.favorite_outline_rounded,
-                      color: Colors.white,
-                    ),
-                  ),
+                  child: const CustomFavIcon(),
                 )
               ],
             ),

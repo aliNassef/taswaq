@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/core/utils/app_colors.dart';
 import '../cubits/get_product_details_cubit/get_product_detaisl_cubit.dart';
 import 'product_details_content.dart';
+import 'product_details_images.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key});
@@ -23,18 +25,7 @@ class ProductDetailsViewBody extends StatelessWidget {
               SliverList(
                 delegate: SliverChildListDelegate(
                   [
-                    Stack(
-                      children: [
-                        // show carsural slider for images
-                        // show back and love button
-                        Image.network(
-                          product.images![0],
-                          fit: BoxFit.fill,
-                          height: MediaQuery.of(context).size.height * .32,
-                          width: MediaQuery.of(context).size.width,
-                        ),
-                      ],
-                    ),
+                    PrdouctDetailsImages(product: product),
                     ProductDetailsContent(
                       instance: product,
                     ),
@@ -46,7 +37,9 @@ class ProductDetailsViewBody extends StatelessWidget {
         }
         // handle loading data
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: AppColors.primaryColor,
+          ),
         );
       },
     );

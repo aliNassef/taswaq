@@ -34,9 +34,10 @@ class ProductDetailsContent extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 20.h,
-            horizontal: kHorizantalpadding,
+          padding: EdgeInsets.only(
+            top: 20.h,
+            left: kHorizantalpadding,
+            right: kHorizantalpadding,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
