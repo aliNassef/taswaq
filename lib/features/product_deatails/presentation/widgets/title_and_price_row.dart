@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -7,15 +6,20 @@ import '../../../../core/utils/app_styles.dart';
 class TitleAndPriceRow extends StatelessWidget {
   const TitleAndPriceRow({
     super.key,
+    required this.title,
+    required this.price,
+    required this.discountPercentage,
   });
-
+  final String title;
+  final double price;
+  final double discountPercentage;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: Text(
-            'Loop Silicone Strong Magnetic watch',
+            title,
             style: AppStyles.textStyle18B.copyWith(
               color: AppColors.blackColor,
             ),
@@ -25,12 +29,12 @@ class TitleAndPriceRow extends StatelessWidget {
         Column(
           children: [
             Text(
-              'EGP 120.00',
+              'EGP $price',
               style:
                   AppStyles.textStyle18B.copyWith(color: AppColors.blackColor),
             ),
             Text(
-              'EGP 120.00',
+              'EGP ${(price / (1 - (discountPercentage / 100))).round()}',
               style: AppStyles.textStyle14R.copyWith(
                 color: AppColors.gray150Color,
                 decoration: TextDecoration.lineThrough,

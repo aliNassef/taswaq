@@ -6,11 +6,8 @@ import 'meta.dart';
 import 'review.dart';
 
 class Product extends ProductEntity {
-  int? id;
-
   String? description;
   String? category;
-
   double? rating;
   int? stock;
   List<String>? tags;
@@ -28,7 +25,7 @@ class Product extends ProductEntity {
   List<String>? images;
 
   Product({
-    this.id,
+    super.id,
     super.title,
     this.description,
     this.category,

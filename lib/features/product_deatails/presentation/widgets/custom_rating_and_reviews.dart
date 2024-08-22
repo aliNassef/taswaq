@@ -8,8 +8,11 @@ import '../../../../core/utils/app_styles.dart';
 class CustomRatingAndReviews extends StatelessWidget {
   const CustomRatingAndReviews({
     super.key,
+    required this.rating,
+    required this.reviews,
   });
-
+  final double rating;
+  final int reviews;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,12 +23,12 @@ class CustomRatingAndReviews extends StatelessWidget {
           isHalfAllowed: true,
           filledIcon: Icons.star,
           emptyIcon: Icons.star_border,
-          initialRating: 4.5,
+          initialRating: rating,
           maxRating: 5,
         ),
         const HorizantalSpace(10),
         Text(
-          '4.5 (2,495 reviews) ',
+          '$rating ($reviews reviews) ',
           style: AppStyles.textStyle10SB.copyWith(
             color: AppColors.blackColor,
           ),

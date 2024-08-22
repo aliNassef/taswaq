@@ -29,7 +29,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case ProductDetailsView.routeName:
       return MaterialPageRoute(
-        builder: (_) => const ProductDetailsView(),
+        builder: (_) {
+          final productId = settings.arguments as int;
+          return ProductDetailsView(
+            productId: productId,
+          );
+        },
       );
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

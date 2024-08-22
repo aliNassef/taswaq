@@ -1,24 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:readmore/readmore.dart';
+import 'package:taswaq/features/product_deatails/domain/entity/product_detais_entity/product_details_entity.dart';
+import 'package:taswaq/features/product_deatails/presentation/widgets/add_to_cart_or_buy_now.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import 'counter_widget.dart';
 import 'custom_rating_and_reviews.dart';
 import 'tag_item.dart';
 import 'title_and_price_row.dart';
 
-import '../../../../core/shared/widgets/default_app_button.dart';
-
 class ProductDetailsContent extends StatelessWidget {
   const ProductDetailsContent({
     super.key,
+    required this.instance,
   });
-
+  final ProductDetailsEntity instance;
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
@@ -36,28 +35,38 @@ class ProductDetailsContent extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: 20.h, horizontal: kHorizantalpadding),
+            vertical: 20.h,
+            horizontal: kHorizantalpadding,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Row(
-                children: [
-                  TagItem(
-                    title: 'data',
-                  ),
-                  HorizantalSpace(10),
-                  TagItem(
-                    title: 'data',
-                  ),
-                ],
+              const VerticalSpace(20),
+              SizedBox(
+                height: 30.h,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (cxt, index) {
+                    return TagItem(title: instance.tags![index]);
+                  },
+                  separatorBuilder: (cxt, index) => const HorizantalSpace(10),
+                  itemCount: instance.tags!.length,
+                ),
               ),
               const VerticalSpace(6),
-              const TitleAndPriceRow(),
+              TitleAndPriceRow(
+                title: instance.title!,
+                price: instance.price!,
+                discountPercentage: instance.discountPercentage!,
+              ),
               const VerticalSpace(12),
-              const CustomRatingAndReviews(),
+              CustomRatingAndReviews(
+                rating: instance.rating!,
+                reviews: instance.reviews!.length,
+              ),
               const VerticalSpace(12),
               ReadMoreText(
-                'Constructed with high-quality silicone material, the Loop Silicone Strong Magnetic Watch ensures a comfortable and secure fit on your wrist. The soft and flexible silicone is gentle on the skin, making it ideal for',
+                instance.description!,
                 trimMode: TrimMode.Line,
                 trimLines: 3,
                 style: AppStyles.textStyle14R.copyWith(
@@ -80,31 +89,9 @@ class ProductDetailsContent extends StatelessWidget {
               const VerticalSpace(12),
               const CounterWidget(),
               const VerticalSpace(12),
-              Row(
-                children: [
-                  Expanded(
-                    child: DefaultAppButton(
-                      backgroundColor: Colors.white,
-                      text: 'Buy Now',
-                      textColor: AppColors.blackColor,
-                      onPressed: () {},
-                    ),
-                  ),
-                  const HorizantalSpace(12),
-                  Expanded(
-                    child: DefaultAppButton(
-                      backgroundColor: AppColors.blackColor,
-                      text: 'Add to Cart',
-                      icon: Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: SvgPicture.asset(AppSvgs.shoppingCart),
-                      ),
-                      textColor: Colors.white,
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              )
+              const Spacer(),
+              const AddToCartOrBuyNow(),
+              const VerticalSpace(30),
             ],
           ),
         ),

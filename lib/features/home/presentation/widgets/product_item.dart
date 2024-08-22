@@ -16,7 +16,13 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetailsView.routeName);
+        // pass id here
+
+        Navigator.pushNamed(
+          context,
+          ProductDetailsView.routeName,
+          arguments: instance.id,
+        );
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 3.w),

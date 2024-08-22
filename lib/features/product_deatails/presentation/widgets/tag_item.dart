@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/core/shared/widgets/constants.dart';
 
 import '../../../../core/utils/app_styles.dart';
 
@@ -12,6 +13,7 @@ class TagItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 24.h,
       alignment: Alignment.center,
       padding: const EdgeInsets.all(6),
       decoration: const BoxDecoration(
