@@ -1,3 +1,3 @@
 abstract class CartRepo {
-   Future<void> getUserCart();
+  Future<void> getUserCart();
 }
