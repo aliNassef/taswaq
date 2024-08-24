@@ -5,16 +5,16 @@ import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
 import 'package:taswaq/core/shared/widgets/default_app_button.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
-import 'package:taswaq/features/signup/presentation/widgets/signup_form_title.dart';
-import 'package:taswaq/features/signup/presentation/widgets/signup_with_google.dart';
+import 'package:taswaq/features/login/presentation/cubit/login_cubit/login_cubit.dart';
+import 'package:taswaq/features/login/presentation/widgets/login_form_title.dart';
+import 'package:taswaq/features/login/presentation/widgets/login_with_goolge.dart';
 
-class SignupForm extends StatelessWidget {
-  const SignupForm({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<SignupCubit>();
+    final cubit = BlocProvider.of<LoginCubit>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
       child: Form(
@@ -22,17 +22,8 @@ class SignupForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SignupFormTitle(
-              title: 'Full Name ',
-            ),
-            const VerticalSpace(8),
-            CustomTextFormField(
-              controller: cubit.nameController,
-              hintText: 'Enter your name',
-            ),
-            const VerticalSpace(16),
-            const SignupFormTitle(
-              title: 'Email',
+            const LoginFormTitle(
+              title: 'Email ',
             ),
             const VerticalSpace(8),
             CustomTextFormField(
@@ -40,11 +31,12 @@ class SignupForm extends StatelessWidget {
               hintText: 'Enter your email',
             ),
             const VerticalSpace(16),
-            const SignupFormTitle(
+            const LoginFormTitle(
               title: 'Password ',
             ),
             const VerticalSpace(8),
             CustomTextFormField(
+              isPassword: true,
               controller: cubit.passwordController,
               hintText: 'Enter your password',
             ),
@@ -53,15 +45,15 @@ class SignupForm extends StatelessWidget {
               padding: 0,
               onPressed: () {
                 if (cubit.formKey.currentState!.validate()) {
-                  cubit.signUp();
+                  cubit.login();
                 }
               },
-              text: 'Create Account',
+              text: 'Login',
               backgroundColor: AppColors.blackColor,
               textColor: Colors.white,
             ),
             const VerticalSpace(24),
-            const SignUpWithGoogle(),
+            const LoginWithGoogle(),
           ],
         ),
       ),

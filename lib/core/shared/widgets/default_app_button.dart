@@ -10,16 +10,18 @@ class DefaultAppButton extends StatelessWidget {
     required this.backgroundColor,
     required this.textColor,
     this.icon = const SizedBox(),
+    this.padding = 16,
   });
   final String text;
   final void Function()? onPressed;
   final Color backgroundColor;
   final Color textColor;
   final Widget icon;
+  final double padding;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      padding: EdgeInsets.symmetric(horizontal: padding.w),
       child: ElevatedButton(
         style: ButtonStyle(
           padding:
@@ -35,6 +37,18 @@ class DefaultAppButton extends StatelessWidget {
         onPressed: onPressed,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
+
+          ///             text,
+          ///             style: AppStyles.textStyle14SB.copyWith(
+          ///               color: textColor,
+          ///             ),
+          ///           ),
+          ///           icon
+          ///         ],
+          ///       ),
+          ///     ),
+          ///   );
+          /// }
           children: [
             Text(
               text,

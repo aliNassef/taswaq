@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/features/login/data/repo/login_repo_impl.dart';
+import 'package:taswaq/features/login/data/source/login_remote_source.dart';
+import 'package:taswaq/features/login/domain/repo/login_repo.dart';
 import 'package:taswaq/features/signup/data/repo/signup_repo_impl.dart';
 import 'package:taswaq/features/signup/domain/repo/signup_repo.dart';
 import '../../features/product_deatails/data/repo/product_details_repo_impl.dart';
@@ -75,6 +78,18 @@ setupGetIt() async {
   getIt.registerSingleton<SignupRepo>(
     SignupRepoImpl(
       getIt.get<SignupRemoteSource>(),
+    ),
+  );
+
+  getIt.registerSingleton<LoginRemoteSource>(
+    LoginRemoteSource(
+      api: getIt<DioConsumer>(),
+    ),
+  );
+
+  getIt.registerSingleton<LoginRepo>(
+    LoginRepoImpl(
+      getIt.get<LoginRemoteSource>(),
     ),
   );
 }

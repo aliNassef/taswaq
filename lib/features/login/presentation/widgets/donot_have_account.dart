@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/login/presentation/views/login_view.dart';
+import 'package:taswaq/features/signup/presentation/views/signup_view.dart';
 
-class HaveAccount extends StatelessWidget {
-  const HaveAccount({
-    super.key,
-  });
+class DonotHaveAccount extends StatelessWidget {
+  const DonotHaveAccount({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class HaveAccount extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: 'Already have an account? ',
+              text: 'Don’t have an account? ',
               style: AppStyles.textStyle14R.copyWith(
                 color: AppColors.gray150Color,
               ),
@@ -26,9 +24,9 @@ class HaveAccount extends StatelessWidget {
             TextSpan(
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Navigator.pushNamed(context, LoginView.routeName);
+                  Navigator.of(context).pushNamed(SignupView.routeName);
                 },
-              text: 'Login',
+              text: 'Signup',
               style: AppStyles.textStyle14R.copyWith(
                 color: AppColors.primaryColor,
               ),
