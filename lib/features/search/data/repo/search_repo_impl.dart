@@ -13,7 +13,6 @@ class SearchRepoImpl extends SearchRepo {
 
   SearchRepoImpl(this._searchRemoteSource);
 
- 
   @override
   Future<Either<Failure, List<SearchEntity>>> getSearchResults(
       {required String query}) async {

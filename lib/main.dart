@@ -17,7 +17,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => const Taswaq(), // Wrap your app
+      builder: (context) => const Taswaq(),
     ),
   );
 }

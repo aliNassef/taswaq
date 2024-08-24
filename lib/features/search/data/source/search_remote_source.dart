@@ -8,7 +8,6 @@ class SearchRemoteSource {
 
   SearchRemoteSource({required this.api});
 
-
   Future<SearchModel> getSearchResults({required String query}) async {
     final response = await api.get(EndPoints.search + query);
     return SearchModel.fromJson(response);

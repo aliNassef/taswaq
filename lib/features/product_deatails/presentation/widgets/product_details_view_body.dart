@@ -39,7 +39,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             ],
           );
         }
-        // handle loading data
+
         return const Center(
           child: CircularProgressIndicator(
             color: AppColors.primaryColor,

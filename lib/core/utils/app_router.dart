@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
+import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/view/home_view.dart';
 import '../../features/product_deatails/presentation/views/product_details_view.dart';
 import '../../features/products/presentation/views/product_view.dart';
@@ -34,6 +35,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           return ProductDetailsView(
             productId: productId,
           );
+        },
+      );
+
+    case CartView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const CartView();
         },
       );
     default:

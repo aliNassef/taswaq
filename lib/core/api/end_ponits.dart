@@ -8,6 +8,8 @@ class EndPoints {
   static const getProductsByCategory = 'products/category/';
 
   static const search = 'products/search?q=';
+
+  static const cart = 'carts';
 }
 
 class ApiKey {
@@ -88,4 +90,16 @@ class ApiKey {
   static const reviewerEmail = 'reviewerEmail';
 
   static const reviewerName = 'reviewerName';
+
+  static const discountedTotal = 'discountedTotal';
+
+  static const totalProducts = 'totalProducts';
+
+  static const userId = 'userId';
+
+  static const totalQuantity = 'totalQuantity';
+
+  static const quantity = 'quantity';
+
+  static const carts = 'carts';
 }

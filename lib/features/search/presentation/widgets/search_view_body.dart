@@ -9,7 +9,6 @@ import 'search_bar.dart';
 import 'search_result_items.dart';
 import 'search_top_bar.dart';
 
-
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({
     super.key,

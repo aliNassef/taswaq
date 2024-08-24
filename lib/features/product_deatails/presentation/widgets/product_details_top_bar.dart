@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/custom_fav_icon.dart';

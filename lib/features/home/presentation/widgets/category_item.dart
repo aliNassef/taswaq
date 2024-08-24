@@ -15,7 +15,8 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-       Navigator.pushNamed(context, ProductView.routeName, arguments: categoryName);
+        Navigator.pushNamed(context, ProductView.routeName,
+            arguments: categoryName);
       },
       child: Container(
         alignment: Alignment.center,

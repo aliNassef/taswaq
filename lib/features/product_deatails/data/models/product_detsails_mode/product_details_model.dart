@@ -2,7 +2,7 @@ import '../../../../../core/api/end_ponits.dart';
 import '../../../domain/entity/product_detais_entity/product_details_entity.dart';
 import '../sub_models/dimension_model.dart';
 import '../sub_models/meta_model.dart';
- 
+
 class ProductDetailsModel extends ProductDetailsEntity {
   String? category;
   int? stock;
