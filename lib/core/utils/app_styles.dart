@@ -40,4 +40,9 @@ abstract class AppStyles {
     fontSize: 16.sp,
     fontWeight: FontWeight.w500,
   );
+
+  static final textStyle24B = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w700,
+  );
 }
