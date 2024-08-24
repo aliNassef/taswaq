@@ -10,6 +10,10 @@ class EndPoints {
   static const search = 'products/search?q=';
 
   static const cart = 'carts';
+
+  static const login = 'auth/login';
+
+  static const signup = 'auth/login';
 }
 
 class ApiKey {
@@ -97,9 +101,23 @@ class ApiKey {
 
   static const userId = 'userId';
 
+  static const image = 'image';
+
   static const totalQuantity = 'totalQuantity';
 
   static const quantity = 'quantity';
 
   static const carts = 'carts';
+
+  static const refreshToken = 'refreshToken';
+
+  static const firstName = 'firstName';
+
+  static const username = 'username';
+
+  static const lastName = 'lastName';
+
+  static const gender = 'gender';
+
+  static const email = 'email';
 }

@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/features/signup/data/repo/signup_repo_impl.dart';
+import 'package:taswaq/features/signup/domain/repo/signup_repo.dart';
 import '../../features/product_deatails/data/repo/product_details_repo_impl.dart';
 import '../../features/product_deatails/data/source/product_details_remote_source.dart';
 import '../../features/product_deatails/domain/repo/product_details_repo.dart';
@@ -12,6 +14,7 @@ import '../../features/search/data/repo/search_repo_impl.dart';
 import '../../features/search/data/source/search_remote_source.dart';
 import '../../features/search/domain/repo/search_repo.dart';
 import '../../features/products/data/repo/product_repo_impl.dart';
+import '../../features/signup/data/source/signup_remote_source.dart';
 import '../api/dio_consumer.dart';
 import '../cache/cache_helper.dart';
 
@@ -61,6 +64,17 @@ setupGetIt() async {
   getIt.registerSingleton<ProductDetailsRepo>(
     ProductDetailsRepoImpl(
       getIt.get<ProductDetailsRemoteSource>(),
+    ),
+  );
+  getIt.registerSingleton<SignupRemoteSource>(
+    SignupRemoteSource(
+      api: getIt<DioConsumer>(),
+    ),
+  );
+
+  getIt.registerSingleton<SignupRepo>(
+    SignupRepoImpl(
+      getIt.get<SignupRemoteSource>(),
     ),
   );
 }

@@ -11,7 +11,6 @@ import 'core/shared/widgets/custom_bloc_observer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper().init();
-
   Bloc.observer = CustomBlocObserver();
   await setupGetIt();
   runApp(

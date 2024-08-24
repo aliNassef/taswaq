@@ -32,7 +32,7 @@ class Cart extends CartEntity {
       );
 
   Map<String, dynamic> toJson() => {
-        ApiKey.id : id,
+        ApiKey.id: id,
         ApiKey.products: products?.map((e) => e.toJson()).toList(),
         ApiKey.total: total,
         ApiKey.discountedTotal: discountedTotal,

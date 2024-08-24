@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';

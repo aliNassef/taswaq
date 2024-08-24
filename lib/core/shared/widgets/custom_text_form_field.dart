@@ -15,6 +15,12 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Field is required';
+        }
+        return null;
+      },
       controller: controller,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
