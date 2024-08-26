@@ -18,7 +18,7 @@ class CounterWidget extends StatelessWidget {
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
-            spreadRadius: 3,
+            spreadRadius: 1.2,
             color: AppColors.gray50Color,
           ),
         ],

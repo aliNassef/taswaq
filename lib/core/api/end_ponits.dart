@@ -9,7 +9,7 @@ class EndPoints {
 
   static const search = 'products/search?q=';
 
-  static const cart = 'carts';
+  static const cartByUser = 'carts/user/';
 
   static const login = 'auth/login';
 

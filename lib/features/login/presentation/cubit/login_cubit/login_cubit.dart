@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -43,6 +45,7 @@ class LoginCubit extends Cubit<LoginState> {
 }
 
 void saveUserInfo(UserEntity r) {
+  log(r.toString());
   getIt<CacheHelper>().saveData(
     key: ApiKey.username,
     value: r.firstName,

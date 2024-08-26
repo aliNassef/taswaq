@@ -6,7 +6,6 @@ import 'product.dart';
 class Cart extends CartEntity {
   int? id;
   int? userId;
-
   int? totalQuantity;
 
   Cart({

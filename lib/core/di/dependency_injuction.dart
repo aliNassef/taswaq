@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/features/cart/data/repo/cart_repo_impl.dart';
+import 'package:taswaq/features/cart/data/source/cart_remote_source.dart';
+import 'package:taswaq/features/cart/domain/repo/cart_repo.dart';
 import 'package:taswaq/features/login/data/repo/login_repo_impl.dart';
 import 'package:taswaq/features/login/data/source/login_remote_source.dart';
 import 'package:taswaq/features/login/domain/repo/login_repo.dart';
@@ -25,12 +28,14 @@ GetIt getIt = GetIt.instance;
 
 setupGetIt() async {
   await CacheHelper().init();
+  // general
   getIt.registerSingleton<DioConsumer>(
     DioConsumer(
       dio: Dio(),
     ),
   );
   getIt.registerSingleton(CacheHelper());
+  // home
   getIt.registerSingleton<HomeRemoteSource>(HomeRemoteSource(
     api: getIt<DioConsumer>(),
   ));
@@ -38,6 +43,7 @@ setupGetIt() async {
     HomeRepoImpl(homeRemoteSource: getIt<HomeRemoteSource>()),
   );
 
+  // product
   getIt.registerSingleton<ProductRemoteSource>(
     ProductRemoteSource(
       api: getIt<DioConsumer>(),
@@ -48,6 +54,8 @@ setupGetIt() async {
       getIt.get<ProductRemoteSource>(),
     ),
   );
+
+  // search
   getIt.registerSingleton<SearchRemoteSource>(
     SearchRemoteSource(
       api: getIt<DioConsumer>(),
@@ -58,6 +66,7 @@ setupGetIt() async {
       getIt.get<SearchRemoteSource>(),
     ),
   );
+  // product details
   getIt.registerSingleton<ProductDetailsRemoteSource>(
     ProductDetailsRemoteSource(
       api: getIt<DioConsumer>(),
@@ -69,6 +78,8 @@ setupGetIt() async {
       getIt.get<ProductDetailsRemoteSource>(),
     ),
   );
+
+  // signup
   getIt.registerSingleton<SignupRemoteSource>(
     SignupRemoteSource(
       api: getIt<DioConsumer>(),
@@ -80,7 +91,7 @@ setupGetIt() async {
       getIt.get<SignupRemoteSource>(),
     ),
   );
-
+  // login
   getIt.registerSingleton<LoginRemoteSource>(
     LoginRemoteSource(
       api: getIt<DioConsumer>(),
@@ -90,6 +101,17 @@ setupGetIt() async {
   getIt.registerSingleton<LoginRepo>(
     LoginRepoImpl(
       getIt.get<LoginRemoteSource>(),
+    ),
+  );
+  // carts
+  getIt.registerSingleton<CartRemoteSource>(
+    CartRemoteSource(
+      api: getIt<DioConsumer>(),
+    ),
+  );
+  getIt.registerSingleton<CartRepo>(
+    CartRepoImpl(
+      getIt.get<CartRemoteSource>(),
     ),
   );
 }
