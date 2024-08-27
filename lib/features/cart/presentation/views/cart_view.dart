@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/core/api/end_ponits.dart';
+import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
@@ -13,11 +15,13 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildCartAppBar(),
+      appBar: buildCartAppBar(context),
       body: BlocProvider(
         create: (context) => GetCartItemsCubit(
           getIt<CartRepo>(),
-        )..getCartItems(id: '11'),
+        )..getCartItems(
+            id: getIt<CacheHelper>().getData(key: ApiKey.userId),
+          ),
         child: const SafeArea(
           child: CartViewBody(),
         ),
@@ -25,12 +29,14 @@ class CartView extends StatelessWidget {
     );
   }
 
-  AppBar buildCartAppBar() {
+  AppBar buildCartAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       centerTitle: true,
       leading: IconButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context);
+        },
         icon: const Icon(Icons.arrow_back_ios),
       ),
       title: Text(

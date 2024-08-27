@@ -5,6 +5,7 @@ import 'package:taswaq/features/signup/presentation/views/signup_view.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/view/home_view.dart';
+import '../../features/layout/presentation/views/layout_view.dart';
 import '../../features/login/presentation/views/login_view.dart';
 import '../../features/product_deatails/presentation/views/product_details_view.dart';
 import '../../features/products/presentation/views/product_view.dart';
@@ -56,6 +57,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const LoginView();
+        },
+      );
+    case LayoutView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const LayoutView();
         },
       );
     default:

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
- import 'package:taswaq/features/cart/presentation/widgets/title_and_delete_button.dart';
+import 'package:taswaq/features/cart/presentation/widgets/title_and_delete_button.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/counter_widget.dart';
 
 import '../../data/models/cart_model/product.dart';
@@ -34,7 +34,11 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const CartItemTitleAndDeleteButton(),
+              CartItemTitleAndDeleteButton(
+                discountPercentage: cart.discountPercentage!,
+                price: cart.price!,
+                title: cart.title!,
+              ),
               Text(
                 '\$${cart.price}',
                 style: AppStyles.textStyle12SB
@@ -48,6 +52,7 @@ class CartItem extends StatelessWidget {
                   color: AppColors.gray150Color,
                 ),
               ),
+              const VerticalSpace(6),
               const CounterWidget(),
             ],
           ),
