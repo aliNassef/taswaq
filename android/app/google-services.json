@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "608967414741",
+    "project_id": "taswaq-9e149",
+    "storage_bucket": "taswaq-9e149.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608967414741:android:96f414a3a08093c09b235c",
+        "android_client_info": {
+          "package_name": "com.example.taswaq"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-LrSbF9ASomfS_1IaVJWNLR85waRypK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

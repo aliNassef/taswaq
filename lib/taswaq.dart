@@ -2,11 +2,10 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/cart/presentation/views/cart_view.dart';
-import 'package:taswaq/features/signup/presentation/views/signup_view.dart';
+import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_router.dart';
- 
+
 class Taswaq extends StatelessWidget {
   const Taswaq({super.key});
 
@@ -23,7 +22,7 @@ class Taswaq extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
-        initialRoute: CartView.routeName,
+        initialRoute: LayoutView.routeName,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
             systemOverlayStyle: SystemUiOverlayStyle(),

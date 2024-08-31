@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
+import 'package:taswaq/features/cart/presentation/views/cart_view.dart';
 
 import '../../../../core/shared/widgets/default_app_button.dart';
 
@@ -33,7 +34,9 @@ class AddToCartOrBuyNow extends StatelessWidget {
               child: SvgPicture.asset(AppSvgs.shoppingCart),
             ),
             textColor: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, CartView.routeName);
+            },
           ),
         ),
       ],
