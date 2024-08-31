@@ -32,6 +32,43 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
 
+  @override
+  Widget build(BuildContext context) {
+    return PersistentTabView(
+      bottomScreenMargin: 0,
+      context,
+      controller: _controller,
+      screens: _buildScreens(),
+      items: _navBarsItems(),
+      // padding: const EdgeInsets.symmetric(vertical: 10),
+      handleAndroidBackButtonPress: true, // Default is true.
+      resizeToAvoidBottomInset: false,
+      stateManagement: true,
+      hideNavigationBarWhenKeyboardAppears: true,
+      // decoration: buildNavBarDecoration(),
+      popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
+      backgroundColor: Colors.white,
+      isVisible: true,
+      animationSettings: const NavBarAnimationSettings(
+        navBarItemAnimation: ItemAnimationSettings(
+          // Navigation Bar's items animation properties.
+          duration: Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        ),
+        screenTransitionAnimation: ScreenTransitionAnimationSettings(
+          // Screen transition animation on change of selected tab.
+          animateTabTransition: true,
+          duration: Duration(milliseconds: 200),
+          screenTransitionAnimationType: ScreenTransitionAnimationType.fadeIn,
+        ),
+      ),
+      confineToSafeArea: true,
+      navBarHeight: 40.h,
+      navBarStyle:
+          NavBarStyle.style5, // Choose the nav bar style with this property
+    );
+  }
+
   List<Widget> _buildScreens() {
     return [
       const HomeView(),
@@ -110,43 +147,6 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
         inactiveColorPrimary: Colors.grey,
       ),
     ];
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return PersistentTabView(
-      bottomScreenMargin: 0,
-      context,
-      controller: _controller,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      // padding: const EdgeInsets.symmetric(vertical: 10),
-      handleAndroidBackButtonPress: true, // Default is true.
-      resizeToAvoidBottomInset: false,
-      stateManagement: true,
-      hideNavigationBarWhenKeyboardAppears: true,
-      // decoration: buildNavBarDecoration(),
-      popBehaviorOnSelectedNavBarItemPress: PopBehavior.all,
-      backgroundColor: Colors.white,
-      isVisible: true,
-      animationSettings: const NavBarAnimationSettings(
-        navBarItemAnimation: ItemAnimationSettings(
-          // Navigation Bar's items animation properties.
-          duration: Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        ),
-        screenTransitionAnimation: ScreenTransitionAnimationSettings(
-          // Screen transition animation on change of selected tab.
-          animateTabTransition: true,
-          duration: Duration(milliseconds: 200),
-          screenTransitionAnimationType: ScreenTransitionAnimationType.fadeIn,
-        ),
-      ),
-      confineToSafeArea: true,
-      navBarHeight: 40,
-      navBarStyle:
-          NavBarStyle.style5, // Choose the nav bar style with this property
-    );
   }
 
   NavBarDecoration buildNavBarDecoration() {
