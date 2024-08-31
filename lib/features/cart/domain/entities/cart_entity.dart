@@ -23,4 +23,22 @@ class CartEntity {
       totalProducts: json[ApiKey.totalProducts],
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        ApiKey.products: products?.map((e) => e.toJson()).toList(), 
+        ApiKey.total: total,
+        ApiKey.discountedTotal: discountedTotal,
+        ApiKey.totalProducts: totalProducts,  
+      };
+
 }
+/*
+  userId
+  productId
+  quantity
+  title
+  price
+  total
+  discountedTotal
+  discountPercentage
+ */

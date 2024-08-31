@@ -18,7 +18,6 @@ class ProductDetailsView extends StatelessWidget {
           getIt.get<ProductDetailsRepo>(),
         )..getProductDetails(productId: productId),
         child: const SafeArea(
-          bottom: false,
           child: ProductDetailsViewBody(),
         ),
       ),

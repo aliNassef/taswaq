@@ -68,7 +68,9 @@ class ProductDetailsContent extends StatelessWidget {
               const CounterWidget(),
               const VerticalSpace(12),
               const Spacer(),
-              const AddToCartOrBuyNow(),
+              AddToCartOrBuyNow(
+                instance: instance,
+              ),
               const VerticalSpace(30),
             ],
           ),
