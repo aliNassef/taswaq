@@ -34,35 +34,10 @@ class SignupCubit extends Cubit<SignupState> {
     result.fold(
       (l) => emit(SignupFailure(errMessage: l.errMessage)),
       (r) {
-        // name , id , email, image, token
-        saveUserInfo(r);
-
         emit(SignupSuccess());
       },
     );
   }
 
-  void saveUserInfo(UserEntity r) {
-    getIt<CacheHelper>().saveData(
-      key: ApiKey.username,
-      value: r.firstName,
-    );
-    getIt<CacheHelper>().saveData(
-      key: ApiKey.userId,
-      value: r.id.toString(),
-    );
-    getIt<CacheHelper>().saveData(
-      key: ApiKey.email,
-      value: r.email,
-    );
-    getIt<CacheHelper>().saveData(
-      key: ApiKey.token,
-      value: r.token,
-    );
-
-    getIt<CacheHelper>().saveData(
-      key: ApiKey.image,
-      value: r.image,
-    );
-  }
+   
 }

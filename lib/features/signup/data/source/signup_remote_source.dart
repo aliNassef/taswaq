@@ -2,18 +2,19 @@ import 'package:taswaq/core/api/api_consumer.dart';
 import 'package:taswaq/features/signup/data/models/user_model.dart';
 
 import '../../../../core/api/end_ponits.dart';
+import '../../../../core/services/firebase_auth_service.dart';
 
 class SignupRemoteSource {
-  final ApiConsumer api;
-
-  const SignupRemoteSource({required this.api});
+  final FirebaseAuthService firebaseAuthService;
+  const SignupRemoteSource({required this.firebaseAuthService});
 
   Future<UserModel> signup(
-      {required String name, required String password}) async {
-    final response = await api.post(EndPoints.signup, data: {
-      'username': name,
-      'password': password,
-    });
+      {required String email, required String password}) async {
+    final response = await firebaseAuthService.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
     return UserModel.fromJson(response);
   }
 }

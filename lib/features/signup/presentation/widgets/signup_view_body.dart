@@ -22,7 +22,7 @@ class SignupViewBody extends StatelessWidget {
           if (state is SignupSuccess) {
             // navigate to home screen
             Navigator.pop(context);
-            Navigator.of(context).pushReplacementNamed(HomeView.routeName);
+            //     Navigator.of(context).pushReplacementNamed(HomeView.routeName);
           }
 
           if (state is SignupFailure) {

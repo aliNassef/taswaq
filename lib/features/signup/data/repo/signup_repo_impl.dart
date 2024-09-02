@@ -11,14 +11,13 @@ class SignupRepoImpl extends SignupRepo {
 
   SignupRepoImpl(this._signupRemoteSource);
   @override
-  Future<Either<Failure, UserEntity>> signup(
+Future<Either<Failure, UserEntity>> signup(
       {required String name,
       required String email,
       required String password}) async {
     try {
       var data =
-          await _signupRemoteSource.signup(name: name, password: password);
-
+          await _signupRemoteSource.signup(email: email, password: password);
       return Right(data);
     } on ServerException catch (e) {
       return Left(

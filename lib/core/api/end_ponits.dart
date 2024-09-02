@@ -19,6 +19,8 @@ class EndPoints {
 class ApiKey {
   static const token = 'token';
 
+  static const name = 'name';
+
   static const products = 'products';
 
   static const limit = 'limit';
