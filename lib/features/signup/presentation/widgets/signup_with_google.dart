@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
@@ -14,29 +14,32 @@ class SignUpWithGoogle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
-      height: 60.h,
-      width: MediaQuery.sizeOf(context).width,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: AppColors.gray50Color,
-        ),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Signup with Google',
-            style: AppStyles.textStyle14SB.copyWith(
-              color: AppColors.blackColor,
-            ),
+    return InkWell(
+      onTap: () {},
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
+        height: 60.h,
+        width: MediaQuery.sizeOf(context).width,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: AppColors.gray50Color,
           ),
-          const HorizantalSpace(10),
-          SvgPicture.asset(AppSvgs.googleIcon),
-        ],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Signup with Google',
+              style: AppStyles.textStyle14SB.copyWith(
+                color: AppColors.blackColor,
+              ),
+            ),
+            const HorizantalSpace(10),
+            SvgPicture.asset(AppSvgs.googleIcon),
+          ],
+        ),
       ),
     );
   }

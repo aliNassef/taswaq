@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:taswaq/core/errors/exceptions.dart';
 import 'package:taswaq/core/errors/failure.dart';
@@ -20,6 +22,29 @@ class LoginRepoImpl extends LoginRepo {
       return Right(response);
     } on ServerException catch (e) {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> loginWithGoogle() async {
+    try {
+      final response = await _loginRemoteSource.loginWithGoogle();
+      return Right(response);
+    } on ServerException catch (e) {
+      return Left(Failure(errMessage: e.errorModel.errorMessage));
+    } on CustomException catch (e) {
+      log('google signin error: ${e.toString()}');
+      return Left(
+        Failure(
+          errMessage: 'there is something wrong, please try again',
+        ),
+      );
+    } catch (e) {
+      return Left(
+        Failure(
+          errMessage: 'there is something wrong, please try again',
+        ),
+      );
     }
   }
 }

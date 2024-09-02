@@ -15,4 +15,9 @@ class LoginRemoteSource {
     );
     return UserModel.fromJson(user);
   }
+
+  Future<UserModel> loginWithGoogle() async {
+    final user = await firebaseAuthService.signInWithGoogle();
+    return UserModel.fromJson(user.user!);
+  }
 }

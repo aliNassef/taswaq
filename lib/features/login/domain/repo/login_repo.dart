@@ -8,4 +8,6 @@ abstract class LoginRepo {
     required String email,
     required String password,
   });
+
+  Future<Either<Failure, UserEntity>> loginWithGoogle();
 }

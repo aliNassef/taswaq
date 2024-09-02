@@ -44,6 +44,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
   get_it: ^7.7.0
+  google_sign_in: ^6.2.1
   persistent_bottom_nav_bar: ^6.2.1
   pretty_dio_logger: ^1.4.0
   readmore: ^3.0.0
