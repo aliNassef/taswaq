@@ -7,7 +7,6 @@ import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:taswaq/features/signup/presentation/widgets/signup_form_title.dart';
-import 'package:taswaq/features/signup/presentation/widgets/signup_with_google.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});
@@ -61,7 +60,6 @@ class SignupForm extends StatelessWidget {
               textColor: Colors.white,
             ),
             const VerticalSpace(24),
-            const SignUpWithGoogle(),
           ],
         ),
       ),

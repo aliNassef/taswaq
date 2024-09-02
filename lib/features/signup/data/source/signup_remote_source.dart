@@ -17,4 +17,5 @@ class SignupRemoteSource {
 
     return UserModel.fromJson(response);
   }
+  
 }
