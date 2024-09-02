@@ -14,6 +14,14 @@ class CacheExeption implements Exception {
   CacheExeption({required this.errorMessage});
 }
 
+class CustomException implements Exception {
+  final String errorMessage;
+
+  CustomException({required this.errorMessage});
+  @override
+  String toString() => errorMessage;
+}
+
 class BadCertificateException extends ServerException {
   BadCertificateException(super.errorModel);
 }
