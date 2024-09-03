@@ -1,5 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
@@ -7,8 +6,7 @@ import 'package:taswaq/core/services/firestore_database.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/features/cart/presentation/views/cart_view.dart';
-import 'package:taswaq/features/product_deatails/domain/entity/product_detais_entity/product_details_entity.dart';
+ import 'package:taswaq/features/product_deatails/domain/entity/product_detais_entity/product_details_entity.dart';
 
 import '../../../../core/shared/widgets/default_app_button.dart';
 

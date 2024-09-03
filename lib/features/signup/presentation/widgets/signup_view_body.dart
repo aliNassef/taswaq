@@ -6,7 +6,6 @@ import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/home/presentation/view/home_view.dart';
 import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:taswaq/features/signup/presentation/widgets/have_accoount.dart';
 import 'package:taswaq/features/signup/presentation/widgets/signup_form.dart';

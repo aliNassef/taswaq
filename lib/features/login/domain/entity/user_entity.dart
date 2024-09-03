@@ -1,5 +1,3 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-
 class UserEntity {
   final String? email;
   final String? name;

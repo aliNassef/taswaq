@@ -1,7 +1,5 @@
-import 'package:taswaq/core/api/api_consumer.dart';
 import 'package:taswaq/features/signup/data/models/user_model.dart';
 
-import '../../../../core/api/end_ponits.dart';
 import '../../../../core/services/firebase_auth_service.dart';
 
 class SignupRemoteSource {
@@ -17,5 +15,4 @@ class SignupRemoteSource {
 
     return UserModel.fromJson(response);
   }
-  
 }
