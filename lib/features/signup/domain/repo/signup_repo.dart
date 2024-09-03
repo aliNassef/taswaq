@@ -8,4 +8,6 @@ abstract class SignupRepo {
     required String email,
     required String password,
   });
+  Future<void> addUserData({required UserEntity user});
+  // Future<void> deleteUserData();
 }

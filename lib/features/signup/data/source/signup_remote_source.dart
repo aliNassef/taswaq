@@ -6,13 +6,16 @@ class SignupRemoteSource {
   final FirebaseAuthService firebaseAuthService;
   const SignupRemoteSource({required this.firebaseAuthService});
 
-  Future<UserModel> signup(
-      {required String email, required String password}) async {
+  Future<UserModel> signup({
+    required String email,
+    required String password,
+  }) async {
     final response = await firebaseAuthService.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
-
     return UserModel.fromJson(response);
   }
+
+   
 }

@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/core/services/database_service.dart';
 import 'package:taswaq/core/services/firebase_auth_service.dart';
+import 'package:taswaq/core/services/firestore_database.dart';
 import 'package:taswaq/features/cart/data/repo/cart_repo_impl.dart';
 import 'package:taswaq/features/cart/data/source/cart_remote_source.dart';
 import 'package:taswaq/features/cart/domain/repo/cart_repo.dart';
@@ -36,7 +38,8 @@ setupGetIt() async {
     ),
   );
   getIt.registerSingleton<FirebaseAuthService>(FirebaseAuthService());
-  getIt.registerSingleton(CacheHelper());
+  getIt.registerSingleton<CacheHelper>(CacheHelper());
+  getIt.registerSingleton<DatabaseService>(FirestoreDatabase());
   // home
   getIt.registerSingleton<HomeRemoteSource>(HomeRemoteSource(
     api: getIt<DioConsumer>(),
@@ -90,7 +93,8 @@ setupGetIt() async {
 
   getIt.registerSingleton<SignupRepo>(
     SignupRepoImpl(
-      getIt.get<SignupRemoteSource>(),
+      signupRemoteSource: getIt.get<SignupRemoteSource>(),
+      dataBaseService: getIt<DatabaseService>(),
     ),
   );
   // login
@@ -102,7 +106,8 @@ setupGetIt() async {
 
   getIt.registerSingleton<LoginRepo>(
     LoginRepoImpl(
-      getIt.get<LoginRemoteSource>(),
+      loginRemoteSource: getIt.get<LoginRemoteSource>(),
+      dataBaseService: getIt.get<DatabaseService>(),
     ),
   );
   // carts

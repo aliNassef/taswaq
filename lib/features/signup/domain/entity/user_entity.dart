@@ -16,4 +16,10 @@ class UserEntity {
         id: json[ApiKey.id] as String?,
         name: json[ApiKey.name] as String?,
       );
+
+  toMap() => {
+        ApiKey.email: email,
+        ApiKey.name: name,
+        ApiKey.id: id,
+      };
 }

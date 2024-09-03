@@ -1,5 +1,5 @@
 abstract class DatabaseService {
-  Future<void> addData({
+  Future<void> addData( {
     required String path,
     required Map<String, dynamic> data,
   });

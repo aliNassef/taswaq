@@ -10,15 +10,15 @@ class UserModel extends UserEntity {
     super.id,
   });
 
-  factory UserModel.fromJson(User json) {
+  factory UserModel.fromJson(User user) {
     return UserModel(
-      email: json.email,
+      email: user.email,
       name: '',
-      id: json.uid,
+      id: user.uid,
     );
   }
-
-  Map<String, dynamic> toJson() => {
+  @override
+  Map<String, dynamic> toMap() => {
         ApiKey.email: email,
         ApiKey.name: name,
         ApiKey.id: id,

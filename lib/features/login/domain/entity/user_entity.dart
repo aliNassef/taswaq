@@ -1,3 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:taswaq/core/api/end_ponits.dart';
+
 class UserEntity {
   final String? email;
   final String? name;
@@ -9,9 +12,15 @@ class UserEntity {
     this.name,
   });
 
-  // factory UserEntity.fromJson(Map<String, dynamic> json) => UserEntity(
-  //       email: json[ApiKey.email] as String?,
-  //       id: json[ApiKey.id] as String?,
-  //       name: json[ApiKey.name] as String?,
-  //     );
+  factory UserEntity.fromJson(User user) => UserEntity(
+        email: user.email,
+        id: user.uid,
+        name: '',
+      );
+
+  toMap() => {
+        ApiKey.email: email,
+        ApiKey.name: name,
+        ApiKey.id: id,
+      };
 }

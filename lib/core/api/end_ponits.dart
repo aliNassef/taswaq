@@ -11,9 +11,7 @@ class EndPoints {
 
   static const cartByUser = 'carts/user/';
 
-  static const login = 'auth/login';
-
-  static const signup = 'auth/login';
+  static const addUserData = 'users';
 }
 
 class ApiKey {

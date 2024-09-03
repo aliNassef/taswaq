@@ -44,6 +44,7 @@ class SignupForm extends StatelessWidget {
             ),
             const VerticalSpace(8),
             CustomTextFormField(
+              isPassword: true,
               controller: cubit.passwordController,
               hintText: 'Enter your password',
             ),

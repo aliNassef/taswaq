@@ -6,6 +6,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../errors/exceptions.dart';
 
 class FirebaseAuthService {
+   
+
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
