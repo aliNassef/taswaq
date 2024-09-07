@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:taswaq/core/errors/exceptions.dart';
 import 'package:taswaq/core/errors/failure.dart';
 import 'package:taswaq/core/services/firebase_auth_service.dart';

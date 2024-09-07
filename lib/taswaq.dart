@@ -2,8 +2,8 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/login/presentation/views/login_view.dart';
-import 'core/utils/app_colors.dart';
+import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
+ import 'core/utils/app_colors.dart';
 import 'core/utils/app_router.dart';
 
 class Taswaq extends StatelessWidget {
@@ -22,10 +22,9 @@ class Taswaq extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
-        initialRoute: LoginView.routeName,
+        initialRoute: LayoutView.routeName,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            
             systemOverlayStyle: SystemUiOverlayStyle(),
           ),
           fontFamily: 'PlusJakartaSans',
