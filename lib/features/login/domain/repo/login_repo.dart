@@ -11,4 +11,5 @@ abstract class LoginRepo {
 
   Future<Either<Failure, UserEntity>> loginWithGoogle();
   Future<void> addUserData({required UserEntity user});
+  Future<UserEntity> getUserData({required String uid});
 }

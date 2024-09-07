@@ -5,9 +5,11 @@ import 'package:taswaq/core/api/end_ponits.dart';
 import 'package:taswaq/core/errors/exceptions.dart';
 import 'package:taswaq/core/errors/failure.dart';
 import 'package:taswaq/core/services/database_service.dart';
+import 'package:taswaq/core/services/firebase_auth_service.dart';
 import 'package:taswaq/features/login/domain/entity/user_entity.dart';
 
 import '../../domain/repo/login_repo.dart';
+import '../models/user_model.dart';
 import '../source/login_remote_source.dart';
 
 class LoginRepoImpl extends LoginRepo {
@@ -21,21 +23,28 @@ class LoginRepoImpl extends LoginRepo {
     try {
       final response =
           await loginRemoteSource.login(email: email, password: password);
-      addUserData(user: response);
-      return Right(response);
-    } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.errorMessage));
+      var data = await getUserData(uid: response.uid);
+      return Right(data);
+    } on CustomException catch (e) {
+      return Left(Failure(errMessage: e.errorMessage));
+    } catch (e) {
+      log(e.toString());
+      return Left(
+          Failure(errMessage: 'there is something wrong, please try again'));
     }
   }
 
   @override
   Future<Either<Failure, UserEntity>> loginWithGoogle() async {
+    UserModel? user;
     try {
-      final response = await loginRemoteSource.loginWithGoogle();
-      return Right(response);
-    } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.errorMessage));
+      user = await loginRemoteSource.loginWithGoogle();
+
+      return Right(user);
     } on CustomException catch (e) {
+      if (user != null) {
+        FirebaseAuthService.deleteUser();
+      }
       log('google signin error: ${e.toString()}');
       return Left(
         Failure(
@@ -43,6 +52,9 @@ class LoginRepoImpl extends LoginRepo {
         ),
       );
     } catch (e) {
+      if (user != null) {
+        FirebaseAuthService.deleteUser();
+      }
       return Left(
         Failure(
           errMessage: 'there is something wrong, please try again',
@@ -53,9 +65,26 @@ class LoginRepoImpl extends LoginRepo {
 
   @override
   Future<void> addUserData({required UserEntity user}) async {
-    await dataBaseService.addData(
-      path: EndPoints.addUserData,
-      data: user.toMap(),
-    );
+    try {
+      await dataBaseService.addData(
+        path: EndPoints.addUserData,
+        data: user.toMap(),
+      );
+    } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
+  }
+
+  @override
+  Future<UserEntity> getUserData({required String uid}) async {
+    try {
+      final response = await dataBaseService.getData(
+        path: EndPoints.getUserData,
+        docuementId: uid,
+      );
+      return UserModel.fromJson(response);
+    } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
   }
 }

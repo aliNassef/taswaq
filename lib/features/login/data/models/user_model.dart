@@ -10,11 +10,11 @@ class UserModel extends UserEntity {
     super.id,
   });
 
-  factory UserModel.fromJson(User user) {
+  factory UserModel.fromJson(user) {
     return UserModel(
-      email: user.email,
-      name: '',
-      id: user.uid,
+      email: user[ApiKey.email],
+      name: user[ApiKey.name],
+      id: user[ApiKey.id],
     );
   }
   @override

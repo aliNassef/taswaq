@@ -12,10 +12,10 @@ class UserEntity {
     this.name,
   });
 
-  factory UserEntity.fromJson(User user) => UserEntity(
-        email: user.email,
-        id: user.uid,
-        name: '',
+  factory UserEntity.fromJson(user) => UserEntity(
+        email: user[ApiKey.email],
+        id: user[ApiKey.id],
+        name: user[ApiKey.name],
       );
 
   toMap() => {

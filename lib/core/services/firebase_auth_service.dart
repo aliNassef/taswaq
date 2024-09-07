@@ -6,8 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../errors/exceptions.dart';
 
 class FirebaseAuthService {
-   
-
   Future<User> createUserWithEmailAndPassword(
       {required String email, required String password}) async {
     try {
@@ -54,8 +52,7 @@ class FirebaseAuthService {
         throw CustomException(errorMessage: 'check internet connection');
       } else {
         throw CustomException(
-            errorMessage:
-                'there is something wrong with your email, try again');
+            errorMessage: 'this is an invalid email, try again');
       }
     } catch (e) {
       log("Exception in FirebaseAuthService.signInWithEmailAndPassword: ${e.toString()}");
@@ -80,4 +77,10 @@ class FirebaseAuthService {
     );
     return await FirebaseAuth.instance.signInWithCredential(credential);
   }
+
+  static Future<void> deleteUser() async {
+    await FirebaseAuth.instance.currentUser?.delete();
+  }
+
+  
 }

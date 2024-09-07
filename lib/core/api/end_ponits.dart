@@ -12,6 +12,7 @@ class EndPoints {
   static const cartByUser = 'carts/user/';
 
   static const addUserData = 'users';
+  static const getUserData = 'users';
 }
 
 class ApiKey {
