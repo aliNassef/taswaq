@@ -1,44 +1,38 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-
-import '../../data/models/cart_model/product.dart';
-
+ 
 class CartEntity {
-  final List<ProductCart>? products;
-  final double? total;
-  final double? discountedTotal;
-  final int? totalProducts;
+  final String title;
+  final String image;
+  final double price;
+  final int quantity;
+  final String productId;
+  final String discountPercentage;
 
-  const CartEntity({
-    this.products,
-    this.total,
-    this.discountedTotal,
-    this.totalProducts,
+  CartEntity({
+    required this.title,
+    required this.image,
+    required this.price,
+    required this.quantity,
+    required this.productId,
+    required this.discountPercentage,
   });
 
   factory CartEntity.fromJson(Map<String, dynamic> json) {
     return CartEntity(
-      products: json[ApiKey.products],
-      total: json[ApiKey.total],
-      discountedTotal: json[ApiKey.discountedTotal],
-      totalProducts: json[ApiKey.totalProducts],
+      title: json['title'],
+      image: json['image'],
+      price: json['price'],
+      quantity: json['quantity'],
+      productId: json['productId'],
+      discountPercentage: json['discountPercentage'],
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        ApiKey.products: products?.map((e) => e.toJson()).toList(), 
-        ApiKey.total: total,
-        ApiKey.discountedTotal: discountedTotal,
-        ApiKey.totalProducts: totalProducts,  
+  toJson() => {
+        "title": title,
+        "image": image,
+        "price": price,
+        "quantity": quantity,
+        "productId": productId,
+        "discountPercentage": discountPercentage
       };
-
 }
-/*
-  userId
-  productId
-  quantity
-  title
-  price
-  total
-  discountedTotal
-  discountPercentage
- */

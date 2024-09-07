@@ -6,14 +6,10 @@ import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/cart/presentation/widgets/title_and_delete_button.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/counter_widget.dart';
 
-import '../../data/models/cart_model/product.dart';
-
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
-    required this.cart,
   });
-  final ProductCart cart;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,7 +18,7 @@ class CartItem extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
           child: Image.network(
-            cart.thumbnail!,
+            ' cart.thumbnail!',
             width: 120.w,
             height: 120.h,
             fit: BoxFit.fill,
@@ -34,18 +30,18 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CartItemTitleAndDeleteButton(
-                discountPercentage: cart.discountPercentage!,
-                price: cart.price!,
-                title: cart.title!,
+              const CartItemTitleAndDeleteButton(
+                discountPercentage: 0,
+                price: 0,
+                title: 'cart.title!',
               ),
               Text(
-                '\$${cart.price}',
+                '\${cart.price}',
                 style: AppStyles.textStyle12SB
                     .copyWith(color: AppColors.blackColor),
               ),
               Text(
-                '\$${(cart.price! / (1 - (cart.discountPercentage! / 100))).round()}',
+                '\${(cart.price! / (1 - (cart.discountPercentage! / 100))).round()}',
                 style: AppStyles.textStyle10R.copyWith(
                   decoration: TextDecoration.lineThrough,
                   decorationColor: AppColors.gray150Color,
@@ -53,7 +49,11 @@ class CartItem extends StatelessWidget {
                 ),
               ),
               const VerticalSpace(6),
-              const CounterWidget(),
+              CounterWidget(
+                quantity: 1,
+                decrement: () {},
+                increment: () {},
+              ),
             ],
           ),
         ),

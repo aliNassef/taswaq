@@ -6,4 +6,9 @@ abstract class ProductDetailsRepo {
   Future<Either<Failure, ProductDetailsEntity>> getProductDetails({
     required int id,
   });
+  Future<void> addToCart({
+    required ProductDetailsEntity product,
+    required String userId,
+    int? quantity,
+  });
 }

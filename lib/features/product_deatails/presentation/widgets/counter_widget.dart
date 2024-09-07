@@ -7,8 +7,13 @@ import '../../../../core/utils/app_styles.dart';
 class CounterWidget extends StatelessWidget {
   const CounterWidget({
     super.key,
+    this.increment,
+    this.decrement,
+    required this.quantity,
   });
-
+  final void Function()? increment;
+  final void Function()? decrement;
+  final int quantity;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +37,7 @@ class CounterWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: decrement,
             child: const Icon(
               Icons.remove,
               color: AppColors.blackColor,
@@ -40,14 +45,14 @@ class CounterWidget extends StatelessWidget {
           ),
           const HorizantalSpace(10),
           Text(
-            '1',
+            '$quantity',
             style: AppStyles.textStyle16M.copyWith(
               color: AppColors.blackColor,
             ),
           ),
           const HorizantalSpace(10),
           InkWell(
-            onTap: () {},
+            onTap: increment,
             child: const Icon(
               Icons.add,
               color: AppColors.blackColor,

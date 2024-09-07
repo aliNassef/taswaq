@@ -1,6 +1,9 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/features/product_deatails/domain/entity/product_detais_entity/product_details_entity.dart';
+import 'package:taswaq/features/product_deatails/presentation/cubits/add_product_to_cart_cubit/add_product_to_cart_cubit.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/add_to_cart_or_buy_now.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/discription_product_widget.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/list_of_tags.dart';
@@ -65,7 +68,24 @@ class ProductDetailsContent extends StatelessWidget {
                 ),
               ),
               const VerticalSpace(12),
-              const CounterWidget(),
+              BlocBuilder<AddProductToCartCubit, AddProductToCartState>(
+                buildWhen: (previous, current) =>
+                    current is QuantityIncremented ||
+                    current is QuantityDecremented,
+                builder: (context, state) {
+                  final cubit = context.read<AddProductToCartCubit>();
+                  return CounterWidget(
+                    increment: () {
+                      log('message');
+                      cubit.incrementQuantity();
+                    },
+                    quantity: cubit.quantity,
+                    decrement: () {
+                      cubit.decrementQuantity();
+                    },
+                  );
+                },
+              ),
               const VerticalSpace(12),
               const Spacer(),
               AddToCartOrBuyNow(

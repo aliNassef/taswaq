@@ -80,7 +80,8 @@ setupGetIt() async {
 
   getIt.registerSingleton<ProductDetailsRepo>(
     ProductDetailsRepoImpl(
-      getIt.get<ProductDetailsRemoteSource>(),
+      productDetailsRemoteSource: getIt.get<ProductDetailsRemoteSource>(),
+      databaseService: getIt<DatabaseService>(),
     ),
   );
 
