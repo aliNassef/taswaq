@@ -39,6 +39,7 @@ class ProductDetailsContent extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(
             top: 20.h,
+            bottom: 30.h,
             left: kHorizantalpadding,
             right: kHorizantalpadding,
           ),
@@ -86,7 +87,6 @@ class ProductDetailsContent extends StatelessWidget {
                   );
                 },
               ),
-              const VerticalSpace(12),
               const Spacer(),
               AddToCartOrBuyNow(
                 instance: instance,

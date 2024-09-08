@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:taswaq/core/services/database_service.dart';
 
+import '../api/end_ponits.dart';
+
 class FirestoreDatabase implements DatabaseService {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -44,7 +46,8 @@ class FirestoreDatabase implements DatabaseService {
         .collection(path)
         .doc(docId)
         .collection(subCollectionName)
-        .add(data);
+        .doc(data[ApiKey.id].toString())
+        .set(data);
   }
 
   @override
