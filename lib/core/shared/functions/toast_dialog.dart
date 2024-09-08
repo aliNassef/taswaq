@@ -10,6 +10,6 @@ void showToast({required String text}) {
     gravity: ToastGravity.BOTTOM,
     backgroundColor: AppColors.blackColor,
     textColor: Colors.white,
-    fontSize: 16.sp,
+    fontSize: 12.sp,
   );
 }

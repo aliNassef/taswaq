@@ -1,9 +1,8 @@
+import 'package:taswaq/core/api/end_ponits.dart';
 import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
 
 class CartModel extends CartEntity {
-  final String userId;
   CartModel({
-    required this.userId,
     required super.title,
     required super.image,
     required super.price,
@@ -14,24 +13,22 @@ class CartModel extends CartEntity {
 
   factory CartModel.fromJson(Map<String, dynamic> json) {
     return CartModel(
-      userId: json['userId'],
-      title: json['title'],
-      image: json['image'],
-      price: json['price'],
-      quantity: json['quantity'],
-      productId: json['productId'],
-      discountPercentage: json['discountPercentage'],
+      title: json[ApiKey.title],
+      image: json[ApiKey.image],
+      price: json[ApiKey.price],
+      quantity: json[ApiKey.quantity],
+      productId: json[ApiKey.id],
+      discountPercentage: json[ApiKey.discountPercentage],
     );
   }
 
   @override
   Map<String, dynamic> toJson() => {
-        "userId": userId,
-        "title": title,
-        "image": image,
-        "price": price,
-        "quantity": quantity,
-        "productId": productId,
-        "discountPercentage": discountPercentage
+        ApiKey.title: title,
+        ApiKey.image: image,
+        ApiKey.price: price,
+        ApiKey.quantity: quantity,
+        ApiKey.id: productId,
+        ApiKey.discountPercentage: discountPercentage
       };
 }

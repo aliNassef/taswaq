@@ -5,6 +5,7 @@ import 'package:taswaq/core/shared/functions/build_loading_box.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/features/home/presentation/view/home_view.dart';
+import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
 import 'package:taswaq/features/login/presentation/cubit/login_cubit/login_cubit.dart';
 import 'package:taswaq/features/login/presentation/widgets/donot_have_account.dart';
 import 'package:taswaq/features/login/presentation/widgets/login_form.dart';
@@ -29,7 +30,7 @@ class LoginViewBody extends StatelessWidget {
           }
           if (state is LoginSuccess) {
             Navigator.pop(context);
-            Navigator.of(context).pushReplacementNamed(HomeView.routeName);
+            Navigator.of(context).pushReplacementNamed(LayoutView.routeName);
           }
         },
         child: Column(
@@ -54,4 +55,3 @@ class LoginViewBody extends StatelessWidget {
     );
   }
 }
- 

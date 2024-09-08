@@ -25,4 +25,39 @@ class FirestoreDatabase implements DatabaseService {
     var data = await firestore.collection(path).doc(docuementId).get();
     return data.data() as Map<String, dynamic>;
   }
+
+  @override
+  Future<bool> isUserExists(
+      {required String path, required String docuementId}) async {
+    var data = await firestore.collection(path).doc(docuementId).get();
+    return data.exists;
+  }
+
+  @override
+  Future<void> addToSubCollection({
+    required String path,
+    required String subCollectionName,
+    required String docId,
+    required Map<String, dynamic> data,
+  }) async {
+    await firestore
+        .collection(path)
+        .doc(docId)
+        .collection(subCollectionName)
+        .add(data);
+  }
+
+  @override
+  Stream<List<Map<String, dynamic>>> getSubCollectionData({
+    required String path,
+    required String subCollectionName,
+    required String docId,
+  }) {
+    var data =
+        firestore.collection(path).doc(docId).collection(subCollectionName);
+    return data.snapshots().map((snapshot) {
+      // Convert each document in the snapshot to a Map<String, dynamic>
+      return snapshot.docs.map((doc) => doc.data()).toList();
+    });
+  }
 }

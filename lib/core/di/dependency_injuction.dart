@@ -114,7 +114,7 @@ setupGetIt() async {
   // carts
   getIt.registerSingleton<CartRemoteSource>(
     CartRemoteSource(
-      api: getIt<DioConsumer>(),
+      databaseService: getIt<DatabaseService>(),
     ),
   );
   getIt.registerSingleton<CartRepo>(

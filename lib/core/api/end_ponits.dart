@@ -9,7 +9,7 @@ class EndPoints {
 
   static const search = 'products/search?q=';
 
-  static const cartByUser = 'carts/user/';
+  static const cartByUser = 'carts';
 
   static const addUserData = 'users';
 
@@ -17,8 +17,9 @@ class EndPoints {
 
   static const addToCart = 'carts';
 
-    static const carts = 'carts';
+  static const carts = 'carts';
 
+  static const users = 'users';
 }
 
 class ApiKey {

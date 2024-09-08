@@ -51,9 +51,12 @@ class CartListItems extends StatelessWidget {
           )
         : Expanded(
             child: ListView.separated(
-              itemCount: carts.isEmpty ? 0 : 0 ?? 0,
+              itemCount: carts.length,
               itemBuilder: (context, index) {
-                return const CartItem();
+                final cart = carts[index];
+                return CartItem(
+                  instance: cart,
+                );
               },
               separatorBuilder: (context, index) {
                 return const VerticalSpace(16);

@@ -13,13 +13,15 @@ class CartRepoImpl extends CartRepo {
 
   CartRepoImpl(this._cartRemoteSource);
   @override
-  Future<Either<Failure, List<CartEntity>>> getUserCart(
-      {required String id}) async {
+  Stream<Either<Failure, List<CartEntity>>> getUserCart(
+      {required String id}) async* {
     try {
-      final response = await _cartRemoteSource.getUserCart(id: id);
-      return Right(response);
+      final response = _cartRemoteSource.getUserCart(id: id);
+      await for (final data in response) {
+        yield Right(data);
+      }
     } on ServerException catch (e) {
-      return Left(Failure(errMessage: e.errorModel.errorMessage));
+      yield Left(Failure(errMessage: e.errorModel.errorMessage));
     }
   }
 }

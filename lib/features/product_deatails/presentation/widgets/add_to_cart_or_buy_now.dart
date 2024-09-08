@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:taswaq/core/api/end_ponits.dart';
+import 'package:taswaq/core/cache/cache_helper.dart';
+import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
@@ -55,7 +58,7 @@ class AddToCartOrBuyNow extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () async {
                 context.read<AddProductToCartCubit>().addProductToCart(
-                      userId: '1',
+                      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
                       product: instance,
                     );
               },

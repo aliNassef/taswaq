@@ -15,18 +15,23 @@ class GetCartItemsCubit extends Cubit<GetCartItemsState> {
   final CartRepo _cartRepo;
 
   Future<void> getCartItems({required String id}) async {
-    log(getIt.get<CacheHelper>().getData(key: ApiKey.userId).toString());
     emit(GetCartItemsLoading());
-    final result = await _cartRepo.getUserCart(id: id);
-    result.fold(
-      (l) => emit(
-        GetCartItemsFailure(errMessage: l.errMessage),
-      ),
-      (r) => emit(
-        GetCartItemsLoaded(
-          cartItems: r,
-        ),
-      ),
-    );
+    try {
+      final stream = _cartRepo.getUserCart(id: id);
+      await for (final result in stream) {
+        result.fold(
+          (failure) {
+            emit(GetCartItemsFailure(errMessage: failure.errMessage));
+          },
+          (cartItems) {
+            emit(GetCartItemsLoaded(cartItems: cartItems));
+          },
+        );
+      }
+    } catch (error) {
+      log('Error getting cart items: $error');
+      emit(GetCartItemsFailure(
+          errMessage: 'Error occurred while fetching cart items'));
+    }
   }
 }

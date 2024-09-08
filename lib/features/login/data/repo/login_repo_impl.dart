@@ -39,7 +39,16 @@ class LoginRepoImpl extends LoginRepo {
     UserModel? user;
     try {
       user = await loginRemoteSource.loginWithGoogle();
-
+      log('user: ${user.id}');
+      var isUserExists = await dataBaseService.isUserExists(
+        path: EndPoints.users,
+        docuementId: user.id!,
+      );
+      if (isUserExists) {
+        await getUserData(uid: user.id!);
+      } else {
+        await addUserData(user: user);
+      }
       return Right(user);
     } on CustomException catch (e) {
       if (user != null) {
@@ -52,6 +61,7 @@ class LoginRepoImpl extends LoginRepo {
         ),
       );
     } catch (e) {
+      log(e.toString());
       if (user != null) {
         FirebaseAuthService.deleteUser();
       }
@@ -68,6 +78,7 @@ class LoginRepoImpl extends LoginRepo {
     try {
       await dataBaseService.addData(
         path: EndPoints.addUserData,
+        docId: user.id,
         data: user.toMap(),
       );
     } catch (e) {

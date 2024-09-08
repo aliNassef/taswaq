@@ -1,11 +1,12 @@
- 
+import 'package:taswaq/core/api/end_ponits.dart';
+
 class CartEntity {
   final String title;
   final String image;
   final double price;
   final int quantity;
-  final String productId;
-  final String discountPercentage;
+  final int productId;
+  final double discountPercentage;
 
   CartEntity({
     required this.title,
@@ -18,21 +19,21 @@ class CartEntity {
 
   factory CartEntity.fromJson(Map<String, dynamic> json) {
     return CartEntity(
-      title: json['title'],
-      image: json['image'],
-      price: json['price'],
-      quantity: json['quantity'],
-      productId: json['productId'],
-      discountPercentage: json['discountPercentage'],
+      title: json[ApiKey.title],
+      image: json[ApiKey.image],
+      price: json[ApiKey.price],
+      quantity: json[ApiKey.quantity],
+      productId: json[ApiKey.id],
+      discountPercentage: json[ApiKey.discountPercentage],
     );
   }
 
   toJson() => {
-        "title": title,
-        "image": image,
-        "price": price,
-        "quantity": quantity,
-        "productId": productId,
-        "discountPercentage": discountPercentage
+        ApiKey.title: title,
+        ApiKey.image: image,
+        ApiKey.price: price,
+        ApiKey.quantity: quantity,
+        ApiKey.id: productId,
+        ApiKey.discountPercentage: discountPercentage
       };
 }

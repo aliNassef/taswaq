@@ -23,9 +23,9 @@ class SignupCubit extends Cubit<SignupState> {
   Future<void> signUp() async {
     emit(SignupLoading());
     var result = await _signupRepo.signup(
-      name: nameController.text,
-      email: emailController.text,
-      password: passwordController.text,
+      name: nameController.text.trim(),
+      email: emailController.text.trim(),
+      password: passwordController.text.trim(),
     );
     result.fold(
       (l) => emit(SignupFailure(errMessage: l.errMessage)),
