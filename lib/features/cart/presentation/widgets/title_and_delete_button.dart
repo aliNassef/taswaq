@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../cubits/cart_cubit/cart_cubit.dart';
 
 class CartItemTitleAndDeleteButton extends StatelessWidget {
   const CartItemTitleAndDeleteButton({

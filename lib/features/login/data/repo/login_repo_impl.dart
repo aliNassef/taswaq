@@ -1,12 +1,12 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/core/errors/exceptions.dart';
-import 'package:taswaq/core/errors/failure.dart';
-import 'package:taswaq/core/services/database_service.dart';
-import 'package:taswaq/core/services/firebase_auth_service.dart';
-import 'package:taswaq/features/login/domain/entity/user_entity.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../../../../core/services/database_service.dart';
+import '../../../../core/services/firebase_auth_service.dart';
+import '../../domain/entity/user_entity.dart';
 
 import '../../domain/repo/login_repo.dart';
 import '../models/user_model.dart';

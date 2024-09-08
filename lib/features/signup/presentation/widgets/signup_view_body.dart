@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/functions/build_error_message.dart';
-import 'package:taswaq/core/shared/functions/build_loading_box.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
-import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
-import 'package:taswaq/features/signup/presentation/widgets/have_accoount.dart';
-import 'package:taswaq/features/signup/presentation/widgets/signup_form.dart';
+import '../../../../core/shared/functions/build_error_message.dart';
+import '../../../../core/shared/functions/build_loading_box.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../layout/presentation/views/layout_view.dart';
+import '../cubits/signup_cubit/signup_cubit.dart';
+import 'have_accoount.dart';
+import 'signup_form.dart';
 
 class SignupViewBody extends StatelessWidget {
   const SignupViewBody({super.key});

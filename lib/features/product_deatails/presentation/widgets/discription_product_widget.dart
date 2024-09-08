@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/product_deatails/domain/entity/product_detais_entity/product_details_entity.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../domain/entity/product_detais_entity/product_details_entity.dart';
 
 class DescriptionProductWidget extends StatelessWidget {
   const DescriptionProductWidget({

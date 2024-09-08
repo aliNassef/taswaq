@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/signup/presentation/views/signup_view.dart';
+import '../../features/signup/presentation/views/signup_view.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/view/home_view.dart';

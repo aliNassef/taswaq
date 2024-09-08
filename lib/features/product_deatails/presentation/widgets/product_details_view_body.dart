@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
+import '../../../../core/utils/app_colors.dart';
 import '../cubits/get_product_details_cubit/get_product_detaisl_cubit.dart';
 import 'product_details_content.dart';
 import 'product_details_images.dart';

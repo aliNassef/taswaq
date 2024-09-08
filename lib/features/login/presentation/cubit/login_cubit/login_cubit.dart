@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/features/login/domain/repo/login_repo.dart';
+import '../../../../../core/api/end_ponits.dart';
+import '../../../../../core/di/dependency_injuction.dart';
+import '../../../domain/repo/login_repo.dart';
 
 import '../../../../../core/cache/cache_helper.dart';
 

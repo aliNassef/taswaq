@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
-import 'package:taswaq/features/cart/presentation/widgets/cart_list_items.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../cubits/cart_cubit/cart_cubit.dart';
+import 'cart_list_items.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});

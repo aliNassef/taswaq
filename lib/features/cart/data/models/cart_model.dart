@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../domain/entities/cart_entity.dart';
 
 class CartModel extends CartEntity {
   CartModel({

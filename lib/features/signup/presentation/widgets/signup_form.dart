@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
-import 'package:taswaq/features/signup/presentation/widgets/signup_form_title.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../cubits/signup_cubit/signup_cubit.dart';
+import 'signup_form_title.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});

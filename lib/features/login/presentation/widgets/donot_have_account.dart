@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/signup/presentation/views/signup_view.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../../signup/presentation/views/signup_view.dart';
 
 class DonotHaveAccount extends StatelessWidget {
   const DonotHaveAccount({super.key});

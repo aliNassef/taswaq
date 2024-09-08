@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
-import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
-import 'package:taswaq/features/cart/presentation/widgets/title_and_delete_button.dart';
-import 'package:taswaq/features/product_deatails/presentation/widgets/counter_widget.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../domain/entities/cart_entity.dart';
+import '../cubits/cart_cubit/cart_cubit.dart';
+import 'title_and_delete_button.dart';
+import '../../../product_deatails/presentation/widgets/counter_widget.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({

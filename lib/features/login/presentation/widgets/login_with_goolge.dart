@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/login/presentation/cubit/login_cubit/login_cubit.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../cubit/login_cubit/login_cubit.dart';
 
 class LoginWithGoogle extends StatelessWidget {
   const LoginWithGoogle({super.key});

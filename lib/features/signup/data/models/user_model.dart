@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:taswaq/core/api/end_ponits.dart';
+import '../../../../core/api/end_ponits.dart';
 
 import '../../domain/entity/user_entity.dart';
 

@@ -2,7 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
+import 'features/layout/presentation/views/layout_view.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_router.dart';
 

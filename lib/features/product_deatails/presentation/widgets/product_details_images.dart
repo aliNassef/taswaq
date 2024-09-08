@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/product_deatails/presentation/widgets/product_details_top_bar.dart';
+import 'product_details_top_bar.dart';
 import '../../domain/entity/product_detais_entity/product_details_entity.dart';
 
 class PrdouctDetailsImages extends StatelessWidget {

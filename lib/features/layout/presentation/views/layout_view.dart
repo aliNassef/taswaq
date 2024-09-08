@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart'; 
-import 'package:taswaq/features/layout/presentation/widgets/layoutview_body.dart';
+import '../widgets/layoutview_body.dart';
 
  
 class LayoutView extends StatelessWidget {

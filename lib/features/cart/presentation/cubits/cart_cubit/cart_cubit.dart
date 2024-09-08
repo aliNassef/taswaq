@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
-import 'package:taswaq/features/cart/domain/repo/cart_repo.dart';
+import '../../../domain/entities/cart_entity.dart';
+import '../../../domain/repo/cart_repo.dart';
 
 part 'cart_state.dart';
 

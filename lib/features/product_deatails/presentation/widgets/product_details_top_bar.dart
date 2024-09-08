@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/custom_fav_icon.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/custom_fav_icon.dart';
 
 class ProductDetailsTopBar extends StatelessWidget {
   const ProductDetailsTopBar({

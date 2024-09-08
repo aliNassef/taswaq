@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:taswaq/core/services/firebase_auth_service.dart';
+import '../../../../core/services/firebase_auth_service.dart';
 
 import '../models/user_model.dart';
 

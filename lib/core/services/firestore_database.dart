@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:taswaq/core/services/database_service.dart';
+import 'database_service.dart';
 
 import '../api/end_ponits.dart';
 

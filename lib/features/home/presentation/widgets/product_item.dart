@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/custom_fav_icon.dart';
+import '../../../../core/shared/widgets/custom_fav_icon.dart';
 import '../../../product_deatails/presentation/views/product_details_view.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
 

@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/firebase_options.dart';
+import 'firebase_options.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/di/dependency_injuction.dart';
 import 'taswaq.dart';

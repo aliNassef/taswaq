@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/features/login/presentation/cubit/login_cubit/login_cubit.dart';
-import 'package:taswaq/features/login/presentation/widgets/login_form_title.dart';
-import 'package:taswaq/features/login/presentation/widgets/login_with_goolge.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../cubit/login_cubit/login_cubit.dart';
+import 'login_form_title.dart';
+import 'login_with_goolge.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});

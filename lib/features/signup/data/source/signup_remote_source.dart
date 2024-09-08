@@ -1,4 +1,4 @@
-import 'package:taswaq/features/signup/data/models/user_model.dart';
+import '../models/user_model.dart';
 
 import '../../../../core/services/firebase_auth_service.dart';
 

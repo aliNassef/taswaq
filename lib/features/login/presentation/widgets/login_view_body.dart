@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/functions/build_error_message.dart';
-import 'package:taswaq/core/shared/functions/build_loading_box.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/layout/presentation/views/layout_view.dart';
-import 'package:taswaq/features/login/presentation/cubit/login_cubit/login_cubit.dart';
-import 'package:taswaq/features/login/presentation/widgets/donot_have_account.dart';
-import 'package:taswaq/features/login/presentation/widgets/login_form.dart';
+import '../../../../core/shared/functions/build_error_message.dart';
+import '../../../../core/shared/functions/build_loading_box.dart';
+import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../layout/presentation/views/layout_view.dart';
+import '../cubit/login_cubit/login_cubit.dart';
+import 'donot_have_account.dart';
+import 'login_form.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

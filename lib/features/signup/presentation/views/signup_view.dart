@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/features/signup/domain/repo/signup_repo.dart';
-import 'package:taswaq/features/signup/presentation/cubits/signup_cubit/signup_cubit.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../domain/repo/signup_repo.dart';
+import '../cubits/signup_cubit/signup_cubit.dart';
 
 import '../widgets/signup_view_body.dart';
 

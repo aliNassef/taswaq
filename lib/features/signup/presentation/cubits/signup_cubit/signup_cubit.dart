@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:taswaq/features/signup/domain/repo/signup_repo.dart';
+import '../../../domain/repo/signup_repo.dart';
 
 part 'signup_state.dart';
 

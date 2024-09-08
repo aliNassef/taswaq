@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/core/services/database_service.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/services/database_service.dart';
 import '../../../../core/errors/exceptions.dart';
 
 import '../../../../core/errors/failure.dart';

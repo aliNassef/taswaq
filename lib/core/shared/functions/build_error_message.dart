@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
+import '../../utils/app_colors.dart';
+import '../../utils/app_styles.dart';
 
 void buildErrorMessage(BuildContext context, {required String errMessage}) {
   ScaffoldMessenger.of(context).showSnackBar(

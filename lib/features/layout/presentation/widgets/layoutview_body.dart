@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
- import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/features/cart/presentation/views/cart_view.dart';
-import 'package:taswaq/features/home/presentation/view/home_view.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../cart/presentation/views/cart_view.dart';
+import '../../../home/presentation/view/home_view.dart';
 
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_styles.dart';

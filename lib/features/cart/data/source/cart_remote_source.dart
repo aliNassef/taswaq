@@ -1,5 +1,5 @@
-import 'package:taswaq/core/services/database_service.dart';
-import 'package:taswaq/features/cart/data/models/cart_model.dart';
+import '../../../../core/services/database_service.dart';
+import '../models/cart_model.dart';
 import '../../../../core/api/end_ponits.dart';
 
 class CartRemoteSource {
