@@ -33,4 +33,12 @@ abstract class DatabaseService {
     required String userId,
     required String productId,
   });
+
+  Future<void> updateSubCollectionData({
+    required String path,
+    required String subCollectionName,
+    required String userId,
+    required String docId,
+    required Map<String, dynamic> data,
+  });
 }

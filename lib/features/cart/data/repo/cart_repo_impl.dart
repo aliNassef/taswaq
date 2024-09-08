@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
@@ -39,6 +41,23 @@ class CartRepoImpl extends CartRepo {
         productId: id,
       );
     } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
+  }
+
+  @override
+  Future<void> updateItemQuantity(
+      {required String id, required int quantity}) async {
+    try {
+      await databaseService.updateSubCollectionData(
+        path: EndPoints.users,
+        data: {ApiKey.quantity: quantity},
+        userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+        docId: id,
+        subCollectionName: EndPoints.carts,
+      );
+    } catch (e) {
+      log(e.toString());
       throw CustomException(errorMessage: e.toString());
     }
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/core/shared/widgets/constants.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/cart/presentation/cubits/get_cart_itms_cubit/get_cart_items_cubit.dart';
+import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:taswaq/features/cart/presentation/widgets/cart_list_items.dart';
 
 class CartViewBody extends StatelessWidget {
@@ -10,7 +10,7 @@ class CartViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GetCartItemsCubit, GetCartItemsState>(
+    return BlocBuilder<CartCubit, CartState>(
       buildWhen: (previous, current) =>
           current is GetCartItemsLoaded ||
           current is GetCartItemsFailure ||

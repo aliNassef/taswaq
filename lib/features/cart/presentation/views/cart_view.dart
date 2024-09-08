@@ -6,7 +6,7 @@ import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/cart/domain/repo/cart_repo.dart';
-import 'package:taswaq/features/cart/presentation/cubits/get_cart_itms_cubit/get_cart_items_cubit.dart';
+import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:taswaq/features/cart/presentation/widgets/cart_view_body.dart';
 
 class CartView extends StatelessWidget {
@@ -17,7 +17,7 @@ class CartView extends StatelessWidget {
     return Scaffold(
       appBar: buildCartAppBar(context),
       body: BlocProvider(
-        create: (context) => GetCartItemsCubit(
+        create: (context) => CartCubit(
           getIt<CartRepo>(),
         )..getCartItems(
             id: getIt<CacheHelper>().getData(key: ApiKey.userId),

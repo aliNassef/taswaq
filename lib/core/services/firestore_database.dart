@@ -78,4 +78,20 @@ class FirestoreDatabase implements DatabaseService {
         .doc(productId)
         .delete();
   }
+
+  @override
+  Future<void> updateSubCollectionData({
+    required String path,
+    required String userId,
+    required String subCollectionName,
+    required String docId,
+    required Map<String, dynamic> data,
+  }) async {
+    await firestore
+        .collection(path)
+        .doc(userId)
+        .collection(subCollectionName)
+        .doc(docId)
+        .update(data);
+  }
 }

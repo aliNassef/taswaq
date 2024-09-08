@@ -4,7 +4,7 @@ class CartEntity {
   final String title;
   final String image;
   final double price;
-  final int quantity;
+  int quantity;
   final int productId;
   final double discountPercentage;
 

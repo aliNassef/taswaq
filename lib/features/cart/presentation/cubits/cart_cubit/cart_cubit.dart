@@ -5,10 +5,10 @@ import 'package:meta/meta.dart';
 import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
 import 'package:taswaq/features/cart/domain/repo/cart_repo.dart';
 
-part 'get_cart_items_state.dart';
+part 'cart_state.dart';
 
-class GetCartItemsCubit extends Cubit<GetCartItemsState> {
-  GetCartItemsCubit(this._cartRepo) : super(GetCartItemsInitial());
+class CartCubit extends Cubit<CartState> {
+  CartCubit(this._cartRepo) : super(GetCartItemsInitial());
   final CartRepo _cartRepo;
 
   Future<void> getCartItems({required String id}) async {
@@ -35,5 +35,23 @@ class GetCartItemsCubit extends Cubit<GetCartItemsState> {
   Future<void> deleteCartItem({required String id}) async {
     await _cartRepo.deleteCartItem(id: id);
     emit(DeleteCartItemsSuccess());
+  }
+
+  Future<void> incrementQuantity(
+      {required String id, required int quantity}) async {
+    await _cartRepo.updateItemQuantity(
+      id: id,
+      quantity: quantity,
+    );
+    emit(IncrementQuantity());
+  }
+
+  Future<void> decrementQuantity(
+      {required String id, required int quantity}) async {
+    await _cartRepo.updateItemQuantity(
+      id: id,
+      quantity: quantity,
+    );
+    emit(DecrementQuantity());
   }
 }

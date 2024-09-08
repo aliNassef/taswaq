@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
+import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import 'package:taswaq/features/cart/presentation/widgets/title_and_delete_button.dart';
 import 'package:taswaq/features/product_deatails/presentation/widgets/counter_widget.dart';
 
@@ -72,10 +74,29 @@ class CartItem extends StatelessWidget {
                 ),
               ),
               const VerticalSpace(6),
-              CounterWidget(
-                quantity: 1,
-                decrement: () {},
-                increment: () {},
+              BlocBuilder<CartCubit, CartState>(
+                buildWhen: (previous, current) =>
+                    current is IncrementQuantity ||
+                    current is DecrementQuantity,
+                builder: (context, state) {
+                  return CounterWidget(
+                    quantity: instance.quantity,
+                    decrement: () {
+                      if (instance.quantity > 1) {
+                        instance.quantity--;
+                        context.read<CartCubit>().decrementQuantity(
+                            id: instance.productId.toString(),
+                            quantity: instance.quantity);
+                      }
+                    },
+                    increment: () {
+                      instance.quantity++;
+                      context.read<CartCubit>().incrementQuantity(
+                          id: instance.productId.toString(),
+                          quantity: instance.quantity);
+                    },
+                  );
+                },
               ),
             ],
           ),
