@@ -53,6 +53,7 @@ class CartItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CartItemTitleAndDeleteButton(
+                productId: instance.productId.toString(),
                 discountPercentage: instance.discountPercentage,
                 price: instance.price,
                 title: instance.title,

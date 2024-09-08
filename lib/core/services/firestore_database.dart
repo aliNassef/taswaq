@@ -63,4 +63,19 @@ class FirestoreDatabase implements DatabaseService {
       return snapshot.docs.map((doc) => doc.data()).toList();
     });
   }
+
+  @override
+  Future<void> deleteSubCollectionData({
+    required String path,
+    required String subCollectionName,
+    required String userId,
+    required String productId,
+  }) async {
+    await firestore
+        .collection(path)
+        .doc(userId)
+        .collection(subCollectionName)
+        .doc(productId)
+        .delete();
+  }
 }

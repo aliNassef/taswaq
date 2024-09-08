@@ -18,3 +18,4 @@ final class GetCartItemsFailure extends GetCartItemsState {
 
   GetCartItemsFailure({required this.errMessage});
 }
+final class DeleteCartItemsSuccess extends GetCartItemsState {}

@@ -119,7 +119,8 @@ setupGetIt() async {
   );
   getIt.registerSingleton<CartRepo>(
     CartRepoImpl(
-      getIt.get<CartRemoteSource>(),
+      cartRemoteSource: getIt.get<CartRemoteSource>(),
+      databaseService: getIt<DatabaseService>(),
     ),
   );
 }

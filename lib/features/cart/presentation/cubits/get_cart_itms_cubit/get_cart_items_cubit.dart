@@ -31,4 +31,9 @@ class GetCartItemsCubit extends Cubit<GetCartItemsState> {
           errMessage: 'Error occurred while fetching cart items'));
     }
   }
+
+  Future<void> deleteCartItem({required String id}) async {
+    await _cartRepo.deleteCartItem(id: id);
+    emit(DeleteCartItemsSuccess());
+  }
 }
