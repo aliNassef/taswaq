@@ -22,7 +22,7 @@ class ProductSectionGridView extends StatelessWidget {
           return Expanded(
             child: GridView.builder(
               padding: EdgeInsets.symmetric(
-                  vertical: 12.h, horizontal: kHorizantalpadding),
+                  vertical: 20.h, horizontal: kHorizantalpadding),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 12.h,

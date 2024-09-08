@@ -31,6 +31,7 @@ class CartView extends StatelessWidget {
 
   AppBar buildCartAppBar(BuildContext context) {
     return AppBar(
+      elevation: 0,
       backgroundColor: Colors.transparent,
       centerTitle: true,
       leading: IconButton(

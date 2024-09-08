@@ -35,6 +35,7 @@ class HomeViewBody extends StatelessWidget {
           onTap: () {},
         ),
         const ProductSectionGridView(),
+        const VerticalSpace(24),
       ],
     );
   }
