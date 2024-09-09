@@ -11,6 +11,7 @@ class CartCubit extends Cubit<CartState> {
   CartCubit(this._cartRepo) : super(GetCartItemsInitial());
   final CartRepo _cartRepo;
 
+  double total = 0;
   Future<void> getCartItems({required String id}) async {
     emit(GetCartItemsLoading());
     try {
@@ -21,6 +22,7 @@ class CartCubit extends Cubit<CartState> {
             emit(GetCartItemsFailure(errMessage: failure.errMessage));
           },
           (cartItems) {
+            calcTotal(cartItems);
             emit(GetCartItemsLoaded(cartItems: cartItems));
           },
         );
@@ -29,6 +31,13 @@ class CartCubit extends Cubit<CartState> {
       log('Error getting cart items: $error');
       emit(GetCartItemsFailure(
           errMessage: 'Error occurred while fetching cart items'));
+    }
+  }
+
+  void calcTotal(List<CartEntity> cartItems) {
+    total = 0;
+    for (var cartItem in cartItems) {
+      total += cartItem.price * cartItem.quantity;
     }
   }
 

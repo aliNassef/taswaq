@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/cart/presentation/cubits/cart_cubit/cart_cubit.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
@@ -50,17 +52,32 @@ class CartListItems extends StatelessWidget {
             ),
           )
         : Expanded(
-            child: ListView.separated(
-              itemCount: carts.length,
-              itemBuilder: (context, index) {
-                final cart = carts[index];
-                return CartItem(
-                  instance: cart,
-                );
-              },
-              separatorBuilder: (context, index) {
-                return const VerticalSpace(16);
-              },
+            child: Column(
+              children: [
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: carts.length,
+                    itemBuilder: (context, index) {
+                      final cart = carts[index];
+                      return CartItem(
+                        instance: cart,
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const VerticalSpace(16);
+                    },
+                  ),
+                ),
+                const VerticalSpace(24),
+                DefaultAppButton(
+                  text:
+                      'Checkout (${context.read<CartCubit>().total.round()} EGP)',
+                  backgroundColor: AppColors.blackColor,
+                  textColor: Colors.white,
+                  padding: 0,
+                ),
+                const VerticalSpace(24),
+              ],
             ),
           );
   }

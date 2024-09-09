@@ -15,6 +15,7 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: buildCartAppBar(context),
       body: BlocProvider(
         create: (context) => CartCubit(
