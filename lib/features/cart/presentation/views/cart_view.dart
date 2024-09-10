@@ -13,7 +13,6 @@ class CartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: BlocProvider(
         create: (context) => CartCubit(
           getIt<CartRepo>(),
@@ -21,6 +20,7 @@ class CartView extends StatelessWidget {
             id: getIt<CacheHelper>().getData(key: ApiKey.userId),
           ),
         child: const SafeArea(
+          bottom: false,
           child: CartViewBody(),
         ),
       ),

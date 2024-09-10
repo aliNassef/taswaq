@@ -68,7 +68,6 @@ class CartListItems extends StatelessWidget {
                     },
                   ),
                 ),
-                const VerticalSpace(24),
                 DefaultAppButton(
                   text:
                       'Checkout (${context.read<CartCubit>().total.round()} EGP)',
@@ -76,7 +75,6 @@ class CartListItems extends StatelessWidget {
                   textColor: Colors.white,
                   padding: 0,
                 ),
-                const VerticalSpace(24),
               ],
             ),
           );

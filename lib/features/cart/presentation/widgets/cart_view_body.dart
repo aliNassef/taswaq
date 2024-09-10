@@ -30,9 +30,9 @@ class CartViewBody extends StatelessWidget {
               if (state is GetCartItemsLoaded) {
                 return Padding(
                   padding: EdgeInsets.only(
-                      left: kHorizantalpadding,
-                      right: kHorizantalpadding,
-                      bottom: 30),
+                    left: kHorizantalpadding,
+                    right: kHorizantalpadding,
+                  ),
                   child: Column(
                     children: [
                       const VerticalSpace(12),
