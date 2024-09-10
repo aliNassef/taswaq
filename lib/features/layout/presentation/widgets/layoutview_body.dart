@@ -9,6 +9,7 @@ import '../../../home/presentation/view/home_view.dart';
 
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../wishlist/presentation/view/wishlist_view.dart';
 
 class LayoutViewBody extends StatefulWidget {
   const LayoutViewBody({super.key});
@@ -62,7 +63,7 @@ class _LayoutViewBodyState extends State<LayoutViewBody> {
     return [
       const HomeView(),
       const CartView(),
-      Container(),
+      const WishlistView(),
       Container(),
     ];
   }
