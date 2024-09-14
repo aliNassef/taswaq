@@ -7,7 +7,7 @@ class CartRemoteSource {
   CartRemoteSource({required this.databaseService});
 
   Stream<List<CartModel>> getUserCart({required String id}) {
-    final response = databaseService.getSubCollectionData(
+    final response = databaseService.getSubCollectionStreamData(
       path: EndPoints.users,
       subCollectionName: EndPoints.carts,
       docId: id,

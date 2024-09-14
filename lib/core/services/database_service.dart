@@ -21,7 +21,7 @@ abstract class DatabaseService {
     required String docuementId,
   });
 
-  Stream<List<Map<String, dynamic>>> getSubCollectionData({
+  Stream<List<Map<String, dynamic>>> getSubCollectionStreamData({
     required String path,
     required String subCollectionName,
     required String docId,
@@ -40,5 +40,10 @@ abstract class DatabaseService {
     required String userId,
     required String docId,
     required Map<String, dynamic> data,
+  });
+  Future<List<Map<String, dynamic>>> getSubCollectionData({
+    required String path,
+    required String subCollectionName,
+    required String docId,
   });
 }

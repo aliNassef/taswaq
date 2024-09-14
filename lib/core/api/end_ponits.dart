@@ -20,6 +20,8 @@ class EndPoints {
   static const carts = 'carts';
 
   static const users = 'users';
+
+  static const wishList = 'wishList';
 }
 
 class ApiKey {

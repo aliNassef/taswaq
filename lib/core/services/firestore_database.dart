@@ -51,7 +51,7 @@ class FirestoreDatabase implements DatabaseService {
   }
 
   @override
-  Stream<List<Map<String, dynamic>>> getSubCollectionData({
+  Stream<List<Map<String, dynamic>>> getSubCollectionStreamData({
     required String path,
     required String subCollectionName,
     required String docId,
@@ -93,5 +93,18 @@ class FirestoreDatabase implements DatabaseService {
         .collection(subCollectionName)
         .doc(docId)
         .update(data);
+  }
+
+  @override
+  Future<List<Map<String, dynamic>>> getSubCollectionData(
+      {required String path,
+      required String subCollectionName,
+      required String docId}) async {
+    var data = await firestore
+        .collection(path)
+        .doc(docId)
+        .collection(subCollectionName)
+        .get();
+    return data.docs.map((doc) => doc.data()).toList();
   }
 }
