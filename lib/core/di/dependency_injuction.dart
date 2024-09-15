@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:taswaq/features/wishlist/domain/repo/wishlist_repo.dart';
+import '../../features/wishlist/data/repo/wishlist_repo_impl.dart';
+import '../../features/wishlist/data/source/wishlist_remote_source.dart';
 import '../services/database_service.dart';
 import '../services/firebase_auth_service.dart';
 import '../services/firestore_database.dart';
@@ -43,6 +46,7 @@ setupGetIt() async {
   // home
   getIt.registerSingleton<HomeRemoteSource>(HomeRemoteSource(
     api: getIt<DioConsumer>(),
+    databaseService: getIt<DatabaseService>(),
   ));
   getIt.registerSingleton<HomeRepo>(
     HomeRepoImpl(homeRemoteSource: getIt<HomeRemoteSource>()),
@@ -75,6 +79,7 @@ setupGetIt() async {
   getIt.registerSingleton<ProductDetailsRemoteSource>(
     ProductDetailsRemoteSource(
       api: getIt<DioConsumer>(),
+      databaseService: getIt<DatabaseService>(),
     ),
   );
 
@@ -121,6 +126,18 @@ setupGetIt() async {
     CartRepoImpl(
       cartRemoteSource: getIt.get<CartRemoteSource>(),
       databaseService: getIt<DatabaseService>(),
+    ),
+  );
+
+  // wishlist
+  getIt.registerSingleton<WishlistRemoteSource>(
+    WishlistRemoteSource(
+      databaseService: getIt<DatabaseService>(),
+    ),
+  );
+  getIt.registerSingleton<WishlistRepo>(
+    WishlistRepoImpl(
+      wishlistRemoteSource: getIt<WishlistRemoteSource>(),
     ),
   );
 }

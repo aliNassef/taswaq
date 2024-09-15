@@ -46,4 +46,11 @@ abstract class DatabaseService {
     required String subCollectionName,
     required String docId,
   });
+
+  Future<bool> isProductExist({
+    required String path,
+    required String subCollectionName,
+    required String userId,
+    required String productId,
+  });
 }

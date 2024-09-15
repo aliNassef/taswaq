@@ -3,7 +3,7 @@ import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/core/services/database_service.dart';
 import 'package:taswaq/features/wishlist/data/model/wishlist_model.dart';
- 
+
 class WishlistRemoteSource {
   final DatabaseService databaseService;
   WishlistRemoteSource({required this.databaseService});
@@ -19,20 +19,20 @@ class WishlistRemoteSource {
   }
 
   Future<void> addProduct({required WishlistModel item}) async {
-    databaseService.addToSubCollection(
+    await databaseService.addToSubCollection(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
       docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
       data: item.toMap(),
     );
   }
+
   Future<void> deleteProduct({required String id}) async {
-    databaseService.deleteSubCollectionData(
+    await databaseService.deleteSubCollectionData(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
       userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
       productId: id,
     );
   }
-  
 }

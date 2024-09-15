@@ -96,15 +96,31 @@ class FirestoreDatabase implements DatabaseService {
   }
 
   @override
-  Future<List<Map<String, dynamic>>> getSubCollectionData(
-      {required String path,
-      required String subCollectionName,
-      required String docId}) async {
+  Future<List<Map<String, dynamic>>> getSubCollectionData({
+    required String path,
+    required String subCollectionName,
+    required String docId,
+  }) async {
     var data = await firestore
         .collection(path)
         .doc(docId)
         .collection(subCollectionName)
         .get();
     return data.docs.map((doc) => doc.data()).toList();
+  }
+
+  Future<bool> isProductExist({
+    required String path,
+    required String subCollectionName,
+    required String userId,
+    required String productId,
+  }) async {
+    var data = await firestore
+        .collection(path)
+        .doc(userId)
+        .collection(subCollectionName)
+        .doc(productId)
+        .get();
+    return data.exists;
   }
 }

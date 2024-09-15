@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/services/firestore_database.dart';
-import 'package:taswaq/features/wishlist/data/repo/wishlist_repo_impl.dart';
-import 'package:taswaq/features/wishlist/data/source/wishlist_remote_source.dart';
-import 'package:taswaq/features/wishlist/presentation/wishlist_cubit/wish_list_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart'; 
+import 'package:taswaq/features/wishlist/domain/repo/wishlist_repo.dart';
+import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
 
+import '../../../../core/di/dependency_injuction.dart';
 import '../widgets/wishlist_view_body.dart';
 
 class WishlistView extends StatelessWidget {
@@ -17,13 +16,8 @@ class WishlistView extends StatelessWidget {
       body: SafeArea(
         bottom: false,
         child: BlocProvider(
-          create: (context) => WishListCubit(
-            WishlistRepoImpl(
-              wishlistRemoteSource: WishlistRemoteSource(
-                databaseService: FirestoreDatabase(),
-              ),
-            ),
-          )..getWishListData(),
+          create: (context) =>
+              WishListCubit(getIt<WishlistRepo>())..getWishListData(),
           child: const WishlistViewBody(),
         ),
       ),

@@ -12,6 +12,7 @@ import '../source/product_details_remote_source.dart';
 
 class ProductDetailsRepoImpl extends ProductDetailsRepo {
   final ProductDetailsRemoteSource productDetailsRemoteSource;
+  //remove data base service and add logic in remote 
   final DatabaseService databaseService;
 
   ProductDetailsRepoImpl({
@@ -37,24 +38,12 @@ class ProductDetailsRepoImpl extends ProductDetailsRepo {
     required String userId,
     int? quantity,
   }) async {
-    // await databaseService.addData(
-    //   path: EndPoints.addToCart,
-    //   data: {
-    //     ApiKey.userId: userId,
-    //     ApiKey.id: product.id,
-    //     ApiKey.quantity: quantity,
-    //     ApiKey.discountPercentage: product.discountPercentage,
-    //     ApiKey.image: product.images![0],
-    //     ApiKey.price: product.price,
-    //     ApiKey.title: product.title,
-    //   },
-    // );
     await databaseService.addToSubCollection(
         path: EndPoints.users,
         subCollectionName: EndPoints.carts,
         docId: userId,
         data: {
-           ApiKey.id: product.id,
+          ApiKey.id: product.id,
           ApiKey.quantity: quantity,
           ApiKey.discountPercentage: product.discountPercentage,
           ApiKey.image: product.images![0],

@@ -2,35 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
+import 'package:taswaq/features/wishlist/domain/entity/wishlisst_entity.dart';
 import 'package:taswaq/features/wishlist/presentation/widgets/wish_item_image.dart';
 
 import 'wishitem_title_and_fav.dart';
 
 class WishItem extends StatelessWidget {
-  const WishItem({super.key});
-
+  const WishItem({super.key, required this.instance});
+  final WishlistEntity instance;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const WishItemImage(),
+        WishItemImage(
+          img: instance.image,
+        ),
         const HorizantalSpace(8),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const WishItemTitleAndFavButton(
-                productId: 1,
-                title: 'ali nassef',
+              WishItemTitleAndFavButton(
+                productId: instance.productId,
+                title: instance.title,
               ),
               Text(
-                '\${instance.price}',
+                '\$${instance.price}',
                 style: AppStyles.textStyle12SB
                     .copyWith(color: AppColors.blackColor),
               ),
               Text(
-                '\${(instance.price / (1 - (instance.discountPercentage / 100))).round()}',
+                '\$${(instance.price / (1 - (instance.discountPercentage / 100))).round()}',
                 style: AppStyles.textStyle10R.copyWith(
                   decoration: TextDecoration.lineThrough,
                   decorationColor: AppColors.gray150Color,
