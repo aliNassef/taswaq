@@ -18,4 +18,5 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       ),
     );
   }
+  
 }

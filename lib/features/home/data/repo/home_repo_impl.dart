@@ -29,4 +29,19 @@ class HomeRepoImpl extends HomeRepo {
       return Left(Failure(errMessage: e.errorModel.errorMessage));
     }
   }
+
+  @override
+  Future<void> addProductToWishList({required ProductEntity product}) async {
+    await homeRemoteSource.addProductToWishList(product: product);
+  }
+
+  @override
+  Future<bool> isProductInWishList({required String productId}) async {
+    return await homeRemoteSource.isProductInWishList(productId: productId);
+  }
+
+  @override
+  Future<void> deleteProductFromWishList({required String id}) async {
+    await homeRemoteSource.deleteProductFromWishList(id: id);
+  }
 }

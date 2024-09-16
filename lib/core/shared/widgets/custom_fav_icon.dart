@@ -6,8 +6,10 @@ class CustomFavIcon extends StatelessWidget {
   const CustomFavIcon({
     super.key,
     this.onTap,
+    this.isFav = false,
   });
   final void Function()? onTap;
+  final bool isFav;
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -16,10 +18,15 @@ class CustomFavIcon extends StatelessWidget {
         radius: 20.h,
         // backgroundColor: Colors.white,
         backgroundColor: AppColors.blackColor,
-        child: const Icon(
-          Icons.favorite_outline_rounded,
-          color: Colors.white,
-        ),
+        child: isFav
+            ? const Icon(
+                Icons.favorite_rounded,
+                color: Colors.red,
+              )
+            : const Icon(
+                Icons.favorite_outline_rounded,
+                color: Colors.white,
+              ),
       ),
     );
   }

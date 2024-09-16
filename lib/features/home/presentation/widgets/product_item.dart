@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/home/presentation/cubits/get_products_cubit/get_products_cubit.dart';
 import '../../../../core/shared/widgets/custom_fav_icon.dart';
 import '../../../product_deatails/presentation/views/product_details_view.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
@@ -17,8 +19,6 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // pass id here
-
         Navigator.pushNamed(
           context,
           ProductDetailsView.routeName,
@@ -36,8 +36,10 @@ class ProductItem extends StatelessWidget {
           children: [
             Stack(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
                   child: Image.network(
                     instance.thumbnail ?? '',
                     height: 138.h,
@@ -45,10 +47,25 @@ class ProductItem extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
-                Positioned(
-                  top: 8.h,
-                  right: 8.h,
-                  child: const CustomFavIcon(),
+                BlocBuilder<GetProductsCubit, GetProductsState>(
+                  buildWhen: (previous, current) => current is ToggleFavorite,
+                  builder: (context, state) {
+                    return Positioned(
+                      top: 8.h,
+                      right: 8.h,
+                      child: CustomFavIcon(
+                        isFav: context
+                            .read<GetProductsCubit>()
+                            .wishList
+                            .contains(instance.id),
+                        onTap: () async {
+                          context
+                              .read<GetProductsCubit>()
+                              .toggleFavorite(product: instance);
+                        },
+                      ),
+                    );
+                  },
                 )
               ],
             ),

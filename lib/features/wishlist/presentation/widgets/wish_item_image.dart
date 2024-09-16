@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WishItemImage extends StatelessWidget {
   const WishItemImage({
-    super.key, required this.img,
+    super.key,
+    required this.img,
   });
   final String img;
   @override
@@ -13,7 +14,7 @@ class WishItemImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Image.network(
-        'https://kawaiiai.com/wp-content/uploads/2022/09/gangaster-cat-7.jpg',
+        img,
         width: 120.w,
         height: 120.h,
         fit: BoxFit.fill,

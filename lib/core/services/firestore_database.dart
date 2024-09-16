@@ -109,6 +109,7 @@ class FirestoreDatabase implements DatabaseService {
     return data.docs.map((doc) => doc.data()).toList();
   }
 
+  @override
   Future<bool> isProductExist({
     required String path,
     required String subCollectionName,
