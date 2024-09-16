@@ -30,8 +30,10 @@ class PrdouctDetailsImages extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .32,
           ),
         ),
-        const Positioned(
-          child: ProductDetailsTopBar(),
+        Positioned(
+          child: ProductDetailsTopBar(
+            product: product,
+          ),
         ),
       ],
     );

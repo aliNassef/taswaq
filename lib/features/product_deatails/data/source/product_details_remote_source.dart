@@ -24,7 +24,31 @@ class ProductDetailsRemoteSource {
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
       docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
-      data: product.toJson(),
+      data: {
+        ApiKey.title: product.title,
+        ApiKey.price: product.price,
+        ApiKey.discountPercentage: product.discountPercentage,
+        ApiKey.image: product.images![0],
+        ApiKey.id: product.id,
+      },
+    );
+  }
+
+  Future<void> deleteProductFromWishList({required String id}) async {
+    await databaseService.deleteSubCollectionData(
+      path: EndPoints.users,
+      subCollectionName: EndPoints.wishList,
+      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      productId: id,
+    );
+  }
+
+  Future<bool> isProductInWishList({required String id}) async {
+    return await databaseService.isProductExist(
+      path: EndPoints.users,
+      subCollectionName: EndPoints.wishList,
+      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      productId: id,
     );
   }
 }

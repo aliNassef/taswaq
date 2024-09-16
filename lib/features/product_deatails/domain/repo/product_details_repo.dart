@@ -11,4 +11,9 @@ abstract class ProductDetailsRepo {
     required String userId,
     int? quantity,
   });
+  Future<void> addProductToWishList({required ProductDetailsEntity product});
+  Future<void> deleteProductFromWishList({required String id});
+  Future<bool> isProductExist({
+    required String id,
+  });
 }

@@ -18,3 +18,7 @@ final class GetProductDetaislFailure extends GetProductDetailsState {
 
   GetProductDetaislFailure({required this.errMessage});
 }
+
+final class ToggleFavoriteInitial extends GetProductDetailsState {}
+
+final class ToggleFavoriteSuccess extends GetProductDetailsState {}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../core/di/dependency_injuction.dart';
+ import '../../../../core/di/dependency_injuction.dart';
 import '../../domain/repo/product_details_repo.dart';
 import '../cubits/add_product_to_cart_cubit/add_product_to_cart_cubit.dart';
 import '../widgets/product_details_view_body.dart';
@@ -26,6 +26,7 @@ class ProductDetailsView extends StatelessWidget {
               getIt.get<ProductDetailsRepo>(),
             ),
           ),
+        
         ],
         child: const SafeArea(
           child: ProductDetailsViewBody(),

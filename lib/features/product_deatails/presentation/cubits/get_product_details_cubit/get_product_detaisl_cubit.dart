@@ -15,14 +15,37 @@ class GetProductDetailsCubit extends Cubit<GetProductDetailsState> {
     emit(GetProductDetaislLoading());
     final result = await _productDetailsRepo.getProductDetails(id: productId);
     result.fold(
-      (l) => emit(
-        GetProductDetaislFailure(errMessage: l.errMessage),
-      ),
-      (r) => emit(
+        (l) => emit(
+              GetProductDetaislFailure(errMessage: l.errMessage),
+            ), (r) async {
+      await init(productId: productId);
+      emit(
         GetProductDetaislLoaded(
           productDetailsEntity: r,
         ),
-      ),
-    );
+      );
+    });
+  }
+
+  bool isFav = false;
+
+  Future<void> init({required int productId}) async {
+    isFav = await _productDetailsRepo.isProductExist(id: productId.toString());
+  }
+
+  Future<void> toggleFavorite({
+    required ProductDetailsEntity product,
+  }) async {
+    bool isExist =
+        await _productDetailsRepo.isProductExist(id: product.id.toString());
+    if (isExist) {
+      await _productDetailsRepo.deleteProductFromWishList(
+          id: product.id.toString());
+      isFav = false;
+    } else {
+      await _productDetailsRepo.addProductToWishList(product: product);
+      isFav = true;
+    }
+    emit(ToggleFavoriteSuccess());
   }
 }

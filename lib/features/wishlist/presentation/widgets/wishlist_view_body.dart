@@ -24,6 +24,10 @@ class WishlistViewBody extends StatelessWidget {
               await cubit.getWishListData();
             },
             child: BlocBuilder<WishListCubit, WishListState>(
+              buildWhen: (previous, current) =>
+                  current is WishListSuccess ||
+                  current is WishListFailure ||
+                  current is WishListLoading,
               builder: (context, state) {
                 if (state is WishListSuccess) {
                   return ListView.separated(

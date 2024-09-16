@@ -12,7 +12,7 @@ import '../source/product_details_remote_source.dart';
 
 class ProductDetailsRepoImpl extends ProductDetailsRepo {
   final ProductDetailsRemoteSource productDetailsRemoteSource;
-  //remove data base service and add logic in remote 
+  //remove data base service and add logic in remote
   final DatabaseService databaseService;
 
   ProductDetailsRepoImpl({
@@ -50,5 +50,22 @@ class ProductDetailsRepoImpl extends ProductDetailsRepo {
           ApiKey.price: product.price,
           ApiKey.title: product.title,
         });
+  }
+
+  @override
+  Future<void> addProductToWishList(
+      {required ProductDetailsEntity product}) async {
+    await productDetailsRemoteSource.addProductToWishList(product: product);
+  }
+
+  @override
+  Future<void> deleteProductFromWishList({required String id}) async {
+    await productDetailsRemoteSource.deleteProductFromWishList(id: id);
+  }
+
+  @override
+
+  Future<bool> isProductExist({required String id}) async {
+    return await productDetailsRemoteSource.isProductInWishList(id: id);
   }
 }
