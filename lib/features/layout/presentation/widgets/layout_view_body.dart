@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
-import 'package:taswaq/features/cart/presentation/views/cart_view.dart';
-import 'package:taswaq/features/home/presentation/view/home_view.dart';
-import 'package:taswaq/features/layout/presentation/cubit/change_nav_cubit.dart';
-import 'package:taswaq/features/wishlist/presentation/view/wishlist_view.dart';
+import '../../../cart/presentation/views/cart_view.dart';
+import '../../../home/presentation/view/home_view.dart';
+import '../cubit/change_nav_cubit.dart';
+import '../../../wishlist/presentation/view/wishlist_view.dart';
 
 import 'bottom_nav_bar.dart';
 

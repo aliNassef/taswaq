@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/widgets/custom_fav_icon.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
+import '../../../../core/shared/widgets/custom_fav_icon.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../cubit/wish_list_cubit.dart';
 
 import '../../../../core/utils/app_styles.dart';
 

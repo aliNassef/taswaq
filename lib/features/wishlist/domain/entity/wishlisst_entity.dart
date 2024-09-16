@@ -1,4 +1,4 @@
-import 'package:taswaq/core/api/end_ponits.dart';
+import '../../../../core/api/end_ponits.dart';
 
 class WishlistEntity {
   final String title;

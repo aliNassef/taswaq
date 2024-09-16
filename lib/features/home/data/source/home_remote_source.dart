@@ -1,7 +1,7 @@
-import 'package:taswaq/core/cache/cache_helper.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/core/services/database_service.dart';
-import 'package:taswaq/features/home/domain/entities/product_entity/product_entity.dart';
+import '../../../../core/cache/cache_helper.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/services/database_service.dart';
+import '../../domain/entities/product_entity/product_entity.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';

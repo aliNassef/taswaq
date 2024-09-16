@@ -1,8 +1,8 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/core/cache/cache_helper.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/core/services/database_service.dart';
-import 'package:taswaq/features/wishlist/data/model/wishlist_model.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../../core/cache/cache_helper.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/services/database_service.dart';
+import '../model/wishlist_model.dart';
 
 class WishlistRemoteSource {
   final DatabaseService databaseService;

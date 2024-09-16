@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/wishlist/domain/entity/wishlisst_entity.dart';
-import 'package:taswaq/features/wishlist/presentation/widgets/wish_item_image.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../domain/entity/wishlisst_entity.dart';
+import 'wish_item_image.dart';
 
 import 'wishitem_title_and_fav.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/features/layout/presentation/cubit/change_nav_cubit.dart';
+import '../../../../core/utils/app_images.dart';
+import '../cubit/change_nav_cubit.dart';
 
 class BottomNavBarItem extends StatelessWidget {
   const BottomNavBarItem({super.key, required this.index, required this.icon});

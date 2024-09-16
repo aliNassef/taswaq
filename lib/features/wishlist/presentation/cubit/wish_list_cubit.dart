@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/wishlist/domain/repo/wishlist_repo.dart';
+import '../../domain/repo/wishlist_repo.dart';
 
 import '../../domain/entity/wishlisst_entity.dart';
 

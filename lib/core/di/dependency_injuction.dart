@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:taswaq/features/wishlist/domain/repo/wishlist_repo.dart';
+import '../../features/wishlist/domain/repo/wishlist_repo.dart';
 import '../../features/wishlist/data/repo/wishlist_repo_impl.dart';
 import '../../features/wishlist/data/source/wishlist_remote_source.dart';
 import '../services/database_service.dart';

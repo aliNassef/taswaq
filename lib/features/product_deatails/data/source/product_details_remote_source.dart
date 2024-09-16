@@ -1,6 +1,6 @@
-import 'package:taswaq/core/cache/cache_helper.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/core/services/database_service.dart';
+import '../../../../core/cache/cache_helper.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/services/database_service.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../domain/entity/product_detais_entity/product_details_entity.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/layout/presentation/cubit/change_nav_cubit.dart';
-import 'package:taswaq/features/layout/presentation/widgets/layout_view_body.dart';
+import '../cubit/change_nav_cubit.dart';
+import '../widgets/layout_view_body.dart';
 
 class LayoutView extends StatelessWidget {
   const LayoutView({super.key});

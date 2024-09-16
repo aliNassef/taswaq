@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/wishlist/presentation/widgets/wish_item.dart';
-import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
+import 'wish_item.dart';
+import '../cubit/wish_list_cubit.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import 'wishlist_topbar.dart';
 

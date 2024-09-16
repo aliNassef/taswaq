@@ -1,5 +1,5 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/wishlist/domain/entity/wishlisst_entity.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../domain/entity/wishlisst_entity.dart';
 
 class WishlistModel extends WishlistEntity {
   WishlistModel({

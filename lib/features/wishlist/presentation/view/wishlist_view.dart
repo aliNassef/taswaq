@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'; 
-import 'package:taswaq/features/wishlist/domain/repo/wishlist_repo.dart';
-import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
+import '../../domain/repo/wishlist_repo.dart';
+import '../cubit/wish_list_cubit.dart';
 
 import '../../../../core/di/dependency_injuction.dart';
 import '../widgets/wishlist_view_body.dart';
