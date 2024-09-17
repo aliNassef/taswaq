@@ -3,7 +3,6 @@ import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/errors/failure.dart';
-import '../model/wishlist_model.dart';
 import '../source/wishlist_remote_source.dart';
 import '../../domain/entity/wishlisst_entity.dart';
 import '../../domain/repo/wishlist_repo.dart';
@@ -13,10 +12,10 @@ class WishlistRepoImpl extends WishlistRepo {
   WishlistRepoImpl({required this.wishlistRemoteSource});
   @override
   Future<void> addProductToCart({
-    required WishlistModel product,
-    required String userId,
+    required WishlistEntity product,
+    required String id,
   }) async {
-    await wishlistRemoteSource.addProduct(item: product);
+    await wishlistRemoteSource.addProduct(item: product, id: id);
   }
 
   @override

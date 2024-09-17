@@ -19,3 +19,5 @@ final class WishListSuccess extends WishListState {
 final class WishListLoading extends WishListState {}
 
 final class WishListUpdated extends WishListState {}
+
+final class AddedToCartState extends WishListState {}

@@ -25,4 +25,12 @@ class WishListCubit extends Cubit<WishListState> {
     await wishListRepo.deleteItemFromWishList(id: id);
     emit(WishListUpdated());
   }
+
+  Future<void> addProductToCart({required WishlistEntity product}) async {
+    await wishListRepo.addProductToCart(
+      product: product,
+      id: product.productId.toString(),
+    );
+    emit(AddedToCartState());
+  }
 }

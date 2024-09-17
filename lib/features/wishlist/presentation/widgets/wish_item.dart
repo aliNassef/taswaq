@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/core/shared/functions/toast_dialog.dart';
+import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -43,11 +46,22 @@ class WishItem extends StatelessWidget {
                     color: AppColors.gray150Color,
                   ),
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.add_shopping_cart_sharp),
+                BlocListener<WishListCubit, WishListState>(
+                  listenWhen: (previous, current) =>
+                      current is AddedToCartState,
+                  listener: (context, state) {
+                    showToast(text: 'product added to cart successfully');
+                  },
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      onPressed: () {
+                        context
+                            .read<WishListCubit>()
+                            .addProductToCart(product: instance);
+                      },
+                      icon: const Icon(Icons.add_shopping_cart_sharp),
+                    ),
                   ),
                 ),
               ],

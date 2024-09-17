@@ -64,7 +64,6 @@ class ProductDetailsRepoImpl extends ProductDetailsRepo {
   }
 
   @override
-
   Future<bool> isProductExist({required String id}) async {
     return await productDetailsRemoteSource.isProductInWishList(id: id);
   }

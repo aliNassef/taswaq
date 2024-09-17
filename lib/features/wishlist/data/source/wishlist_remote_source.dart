@@ -2,6 +2,7 @@ import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/services/database_service.dart';
+import '../../domain/entity/wishlisst_entity.dart';
 import '../model/wishlist_model.dart';
 
 class WishlistRemoteSource {
@@ -18,12 +19,20 @@ class WishlistRemoteSource {
     return response.map((item) => WishlistModel.fromMap(item)).toList();
   }
 
-  Future<void> addProduct({required WishlistModel item}) async {
+  Future<void> addProduct(
+      {required WishlistEntity item, required String id}) async {
     await databaseService.addToSubCollection(
       path: EndPoints.users,
-      subCollectionName: EndPoints.wishList,
+      subCollectionName: EndPoints.carts,
       docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
-      data: item.toMap(),
+      data: {
+        ApiKey.id: int.parse(id),
+        ApiKey.quantity: 1,
+        ApiKey.discountPercentage: item.discountPercentage,
+        ApiKey.image: item.image,
+        ApiKey.price: item.price,
+        ApiKey.title: item.title,
+      },
     );
   }
 
