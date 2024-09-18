@@ -17,4 +17,12 @@ abstract class AppSvgs {
   static const String activeCartIcon = 'assets/svgs/active_cart_icon.svg';
   static const String activeProfileIcon = 'assets/svgs/active_profile_icon.svg';
   static const String activeFavIcon = 'assets/svgs/active_heart_icon.svg';
+  static const String logoutIcon = 'assets/svgs/logout.svg';
+  static const String shippingAddress = 'assets/svgs/shipping_address.svg';
+  static const String ordersIcon = 'assets/svgs/orders.svg';
+  static const String paymentMethod = 'assets/svgs/payment_method.svg';
+  static const String fqsIcon = 'assets/svgs/fqs.svg';
+  static const String policyIcon = 'assets/svgs/privacy.svg';
+  static const String termsIcon = 'assets/svgs/terms_condations.svg';
+  static const String lockIcon = 'assets/svgs/lock.svg';
 }

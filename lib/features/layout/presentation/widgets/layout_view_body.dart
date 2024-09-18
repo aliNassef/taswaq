@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_lazy_indexed_stack/flutter_lazy_indexed_stack.dart';
 import '../../../cart/presentation/views/cart_view.dart';
 import '../../../home/presentation/view/home_view.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import '../cubit/change_nav_cubit.dart';
 import '../../../wishlist/presentation/view/wishlist_view.dart';
 
@@ -14,7 +15,7 @@ class LayoutViewBody extends StatelessWidget {
     HomeView(),
     CartView(),
     WishlistView(),
-    SizedBox(),
+    ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

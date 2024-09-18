@@ -7,7 +7,6 @@ import 'firebase_options.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/di/dependency_injuction.dart';
 import 'taswaq.dart';
-
 import 'core/shared/widgets/custom_bloc_observer.dart';
 
 void main() async {

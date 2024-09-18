@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import '../../../../core/api/end_ponits.dart';
-import '../../../../core/services/database_service.dart';
 import '../../../../core/errors/exceptions.dart';
 
 import '../../../../core/errors/failure.dart';
@@ -12,12 +10,9 @@ import '../source/product_details_remote_source.dart';
 
 class ProductDetailsRepoImpl extends ProductDetailsRepo {
   final ProductDetailsRemoteSource productDetailsRemoteSource;
-  //remove data base service and add logic in remote
-  final DatabaseService databaseService;
 
   ProductDetailsRepoImpl({
     required this.productDetailsRemoteSource,
-    required this.databaseService,
   });
 
   @override
@@ -38,18 +33,11 @@ class ProductDetailsRepoImpl extends ProductDetailsRepo {
     required String userId,
     int? quantity,
   }) async {
-    await databaseService.addToSubCollection(
-        path: EndPoints.users,
-        subCollectionName: EndPoints.carts,
-        docId: userId,
-        data: {
-          ApiKey.id: product.id,
-          ApiKey.quantity: quantity,
-          ApiKey.discountPercentage: product.discountPercentage,
-          ApiKey.image: product.images![0],
-          ApiKey.price: product.price,
-          ApiKey.title: product.title,
-        });
+    await productDetailsRemoteSource.addProductToCart(
+      product: product,
+      userId: userId,
+      quantity: quantity,
+    );
   }
 
   @override

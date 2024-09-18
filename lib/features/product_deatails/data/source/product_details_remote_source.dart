@@ -51,4 +51,23 @@ class ProductDetailsRemoteSource {
       productId: id,
     );
   }
+
+  Future<void> addProductToCart({
+    required ProductDetailsEntity product,
+    required String userId,
+    int? quantity,
+  }) async {
+    databaseService.addToSubCollection(
+        path: EndPoints.users,
+        subCollectionName: EndPoints.carts,
+        docId: userId,
+        data: {
+          ApiKey.id: product.id,
+          ApiKey.quantity: quantity,
+          ApiKey.discountPercentage: product.discountPercentage,
+          ApiKey.image: product.images![0],
+          ApiKey.price: product.price,
+          ApiKey.title: product.title,
+        });
+  }
 }
