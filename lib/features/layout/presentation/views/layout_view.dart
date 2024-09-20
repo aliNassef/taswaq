@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../cubit/change_nav_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart'; 
+import '../manger/nav_bar_cubit/change_nav_cubit.dart';
 import '../widgets/layout_view_body.dart';
 
 class LayoutView extends StatelessWidget {

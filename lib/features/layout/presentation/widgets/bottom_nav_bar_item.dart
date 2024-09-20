@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/utils/app_images.dart';
-import '../cubit/change_nav_cubit.dart';
+import '../manger/nav_bar_cubit/change_nav_cubit.dart';
 
 class BottomNavBarItem extends StatelessWidget {
   const BottomNavBarItem({super.key, required this.index, required this.icon});

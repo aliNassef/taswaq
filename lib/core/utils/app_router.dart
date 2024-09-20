@@ -10,6 +10,7 @@ import '../../features/login/presentation/views/login_view.dart';
 import '../../features/product_deatails/presentation/views/product_details_view.dart';
 import '../../features/products/presentation/views/product_view.dart';
 import '../../features/search/presentation/views/search_view.dart';
+import '../shared/widgets/custom_no_internet_widget.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -63,6 +64,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const LayoutView();
+        },
+      );
+    case CustomNoInternetWidget.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const CustomNoInternetWidget();
         },
       );
     default:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/app_images.dart';
-import '../cubit/change_nav_cubit.dart';
+import '../manger/nav_bar_cubit/change_nav_cubit.dart';
 import 'bottom_nav_bar_item.dart';
  
 class BottomNavBar extends StatelessWidget {
