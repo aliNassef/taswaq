@@ -51,6 +51,7 @@ dependencies:
   persistent_bottom_nav_bar: ^6.2.1
   pretty_dio_logger: ^1.4.0
   readmore: ^3.0.0
+  sentry_flutter: ^8.9.0
   shared_preferences: ^2.3.1
   shimmer: ^3.0.0
   skeletonizer: ^1.4.2
