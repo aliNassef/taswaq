@@ -70,7 +70,9 @@ class ProfileListItems extends StatelessWidget {
           textAlign: TextAlign.left,
         ),
         ProfileListItem(
-          onTap: () {},
+          onTap: () {
+            
+          },
           img: AppSvgs.lockIcon,
           text: 'Change Password',
         ),

@@ -29,6 +29,8 @@ class ApiKey {
 
   static const name = 'name';
 
+  static const email = 'email';
+
   static const products = 'products';
 
   static const limit = 'limit';
@@ -129,5 +131,4 @@ class ApiKey {
 
   static const gender = 'gender';
 
-  static const email = 'email';
-}
+ }

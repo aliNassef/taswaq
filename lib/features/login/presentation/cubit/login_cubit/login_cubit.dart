@@ -34,6 +34,7 @@ class LoginCubit extends Cubit<LoginState> {
       (l) => emit(LoginFailure(errMessage: l.errMessage)),
       (r) {
         getIt<CacheHelper>().saveData(key: ApiKey.userId, value: r.id);
+        getIt<CacheHelper>().saveData(key: ApiKey.email, value: r.email);
         emit(LoginSuccess());
       },
     );

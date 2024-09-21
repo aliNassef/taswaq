@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/profile/data/repo/profile_repo_impl.dart';
+import '../../features/profile/data/source/profile_remote_source.dart';
+import '../../features/profile/domain/repo/profile_repo.dart';
 import '../../features/wishlist/domain/repo/wishlist_repo.dart';
 import '../../features/wishlist/data/repo/wishlist_repo_impl.dart';
 import '../../features/wishlist/data/source/wishlist_remote_source.dart';
@@ -136,6 +139,18 @@ setupGetIt() async {
   getIt.registerSingleton<WishlistRepo>(
     WishlistRepoImpl(
       wishlistRemoteSource: getIt<WishlistRemoteSource>(),
+    ),
+  );
+
+  // profile
+  getIt.registerSingleton<ProfileRemoteSource>(
+    ProfileRemoteSource(
+      getIt<FirebaseAuthService>(),
+    ),
+  );
+  getIt.registerSingleton<ProfileRepo>(
+    ProfileRepoImpl(
+      profileRemoteSource: getIt<ProfileRemoteSource>(),
     ),
   );
 }

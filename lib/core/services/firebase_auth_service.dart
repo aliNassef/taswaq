@@ -62,7 +62,11 @@ class FirebaseAuthService {
   }
 
   Future<void> signOut() async {
-    await FirebaseAuth.instance.signOut();
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      throw CustomException(errorMessage: 'something went wrong when log out');
+    }
   }
 
   Future<UserCredential> signInWithGoogle() async {
@@ -80,5 +84,17 @@ class FirebaseAuthService {
 
   static Future<void> deleteUser() async {
     await FirebaseAuth.instance.currentUser?.delete();
+  }
+
+  void changeUserPassword({required String newPassword}) async {
+    await FirebaseAuth.instance.currentUser?.updatePassword(newPassword);
+  }
+
+  Future<void> reAuthanticateUser(
+      {required String email, required String password}) async {
+    final credential =
+        EmailAuthProvider.credential(email: email, password: password);
+    await FirebaseAuth.instance.currentUser
+        ?.reauthenticateWithCredential(credential);
   }
 }
