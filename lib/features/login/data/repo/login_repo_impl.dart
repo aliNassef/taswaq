@@ -21,10 +21,23 @@ class LoginRepoImpl extends LoginRepo {
   Future<Either<Failure, UserEntity>> login(
       {required String email, required String password}) async {
     try {
-      final response =
+      final user =
           await loginRemoteSource.login(email: email, password: password);
-      var data = await getUserData(uid: response.uid);
-      return Right(data);
+      var userEntity = UserEntity(
+        email: user.email,
+        name: email,
+        id: user.uid,
+      );
+      var isUserExists = await dataBaseService.isUserExists(
+        path: EndPoints.users,
+        docuementId: user.uid,
+      );
+      if (isUserExists) {
+        await getUserData(uid: user.uid);
+      } else {
+        await addUserData(user: userEntity);
+      }
+      return Right(userEntity);
     } on CustomException catch (e) {
       return Left(Failure(errMessage: e.errorMessage));
     } catch (e) {

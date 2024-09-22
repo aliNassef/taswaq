@@ -43,7 +43,7 @@ class CacheHelper {
   }
 
 //! this method to check if local database contains {key}
-  Future<bool> containsKey({required String key}) async {
+  bool containsKey({required String key})   {
     return sharedPreferences.containsKey(key);
   }
 

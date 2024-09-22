@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/di/dependency_injuction.dart';
+import '../../../domain/entity/user_entity.dart';
 import '../../../domain/repo/login_repo.dart';
-
 import '../../../../../core/cache/cache_helper.dart';
-
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -33,8 +32,7 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (l) => emit(LoginFailure(errMessage: l.errMessage)),
       (r) {
-        getIt<CacheHelper>().saveData(key: ApiKey.userId, value: r.id);
-        getIt<CacheHelper>().saveData(key: ApiKey.email, value: r.email);
+        saveUserData(r);
         emit(LoginSuccess());
       },
     );
@@ -46,9 +44,17 @@ class LoginCubit extends Cubit<LoginState> {
     result.fold(
       (l) => emit(LoginFailure(errMessage: l.errMessage)),
       (r) {
-        getIt<CacheHelper>().saveData(key: ApiKey.userId, value: r.id);
+        saveUserData(r);
         emit(LoginSuccess());
       },
     );
+  }
+
+  // need to refactor
+  saveUserData(UserEntity user) {
+    getIt<CacheHelper>().saveData(key: ApiKey.userId, value: user.id);
+    getIt<CacheHelper>().saveData(key: ApiKey.email, value: user.email);
+    getIt<CacheHelper>().saveData(key: ApiKey.name, value: user.name);
+    getIt<CacheHelper>().saveData(key: ApiKey.isLoggedIn, value: true);
   }
 }

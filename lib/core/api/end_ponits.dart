@@ -25,6 +25,8 @@ class EndPoints {
 }
 
 class ApiKey {
+
+  static const isLoggedIn = 'isLoggedIn';
   static const token = 'token';
 
   static const name = 'name';

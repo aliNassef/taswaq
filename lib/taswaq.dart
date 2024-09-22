@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/core/api/end_ponits.dart';
+import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/shared/widgets/custom_no_internet_widget.dart';
 import 'package:taswaq/features/layout/presentation/manger/check_connectivity_bloc/connectivity_state.dart';
 import 'features/layout/presentation/manger/check_connectivity_bloc/connectivity_bloc.dart';
 import 'features/layout/presentation/views/layout_view.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_router.dart';
+import 'features/login/presentation/views/login_view.dart';
 
 class Taswaq extends StatelessWidget {
   const Taswaq({super.key});
@@ -41,7 +44,7 @@ class Taswaq extends StatelessWidget {
                   onGenerateRoute: onGenerateRoute,
                   initialRoute: state is ConnectivityFailure
                       ? CustomNoInternetWidget.routeName
-                      : LayoutView.routeName,
+                      : checkiFLoggedIn(),
                   theme: ThemeData(
                     appBarTheme: const AppBarTheme(
                       systemOverlayStyle: SystemUiOverlayStyle(),
@@ -58,5 +61,16 @@ class Taswaq extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String checkiFLoggedIn() {
+    bool isContainkey = CacheHelper().containsKey(key: ApiKey.isLoggedIn);
+    bool isLoggedIn = CacheHelper().getData(key: ApiKey.isLoggedIn) == true;
+
+    if (isContainkey && isLoggedIn) {
+      return LayoutView.routeName;
+    } else {
+      return LoginView.routeName;
+    }
   }
 }
