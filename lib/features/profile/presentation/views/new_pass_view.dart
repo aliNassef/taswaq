@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/profile/presentation/views/new_pass_view.dart';
+import 'package:taswaq/core/shared/widgets/constants.dart';
 
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../widgets/change_pass_form.dart';
 
-class ChangePassView extends StatelessWidget {
-  const ChangePassView({super.key});
-  static const routeName = '/changePass';
+class NewPassView extends StatelessWidget {
+  const NewPassView({super.key});
+  static const routeName = '/newPassView';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,17 +23,27 @@ class ChangePassView extends StatelessWidget {
           children: [
             const VerticalSpace(12),
             Text(
-              'Old Password',
+              'New Password',
               style: AppStyles.textStyle24B,
             ),
             Text(
-              'Enter old password to change the password.',
+              'Enter your new password and remember it.',
               style: AppStyles.textStyle14R
                   .copyWith(color: AppColors.gray150Color),
             ),
             const VerticalSpace(16),
             const ChangePassForm(
-              title: 'Password',
+              title: 'Password ',
+            ),
+            const VerticalSpace(8),
+            CustomTextFormField(
+              isPassword: true,
+              hintText: 'Enter your password',
+              controller: TextEditingController(),
+            ),
+            const VerticalSpace(16),
+            const ChangePassForm(
+              title: 'Confirm Password ',
             ),
             const VerticalSpace(8),
             CustomTextFormField(
@@ -44,11 +53,9 @@ class ChangePassView extends StatelessWidget {
             ),
             const VerticalSpace(24),
             DefaultAppButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, NewPassView.routeName);
-              },
+              onPressed: () {},
               padding: 0,
-              text: 'Continue',
+              text: 'Save',
               backgroundColor: AppColors.blackColor,
               textColor: Colors.white,
             ),
@@ -73,7 +80,7 @@ class ChangePassView extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                  text: '01/',
+                  text: '02/',
                   style: AppStyles.textStyle14SB
                       .copyWith(color: AppColors.blackColor),
                 ),

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
+import '../../features/profile/presentation/views/new_pass_view.dart';
 import '../../features/signup/presentation/views/signup_view.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
@@ -72,6 +73,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const ChangePassView();
+        },
+      );
+    case NewPassView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const NewPassView();
         },
       );
     case CustomNoInternetWidget.routeName:
