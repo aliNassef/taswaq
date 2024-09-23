@@ -9,13 +9,23 @@ class ProfileCubit extends Cubit<ProfileState> {
   final ProfileRepo _profileRepo;
   TextEditingController oldPassController = TextEditingController();
   TextEditingController newPassController = TextEditingController();
+  TextEditingController confirmNewPassController = TextEditingController();
   Future<void> logout() async {
     await _profileRepo.logout();
     emit(ProfileLogoutSuccess());
   }
 
   Future<void> checkPass({required String oldPassword}) async {
-    await _profileRepo.checkPass(oldPassword: oldPassword);
-    emit(ProfileCheckPassSuccess());
+    try {
+      await _profileRepo.checkPass(oldPassword: oldPassword);
+      emit(ProfileCheckPassSuccess());
+    } catch (e) {
+      emit(ProfileCheckPassFailure(errMessage: e.toString()));
+    }
+  }
+
+  Future<void> updateUserPassword({required String newPassword}) async {
+    await _profileRepo.updatePassword(newPassword: newPassword);
+    emit(ProfileUpdatePasswordSuccess());
   }
 }

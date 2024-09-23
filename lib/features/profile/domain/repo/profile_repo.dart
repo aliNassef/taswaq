@@ -3,6 +3,8 @@ abstract class ProfileRepo {
   Future<void> checkPass({
     required String oldPassword,
   });
-
+  Future<void> updatePassword({
+    required String newPassword,
+  });
   void removeUserData();
 }

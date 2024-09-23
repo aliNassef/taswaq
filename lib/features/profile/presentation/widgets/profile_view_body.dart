@@ -50,7 +50,6 @@ class ProfileViewBody extends StatelessWidget {
                   child: const LogoutDialog(),
                 ),
               );
-              // context.read<ProfileCubit>().logout();
             },
             child: SvgPicture.asset(AppSvgs.logoutIcon),
           ),

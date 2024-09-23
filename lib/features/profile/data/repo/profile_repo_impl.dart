@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
+import 'package:taswaq/core/errors/exceptions.dart';
 import 'package:taswaq/features/profile/data/source/profile_remote_source.dart';
 
 import '../../../../core/api/end_ponits.dart';
@@ -18,6 +19,7 @@ class ProfileRepoImpl extends ProfileRepo {
       log(
         e.toString(),
       );
+      throw CustomException(errorMessage: 'wrong password');
     }
   }
 
@@ -34,5 +36,10 @@ class ProfileRepoImpl extends ProfileRepo {
     getIt<CacheHelper>().clearData(key: ApiKey.email);
     getIt<CacheHelper>().clearData(key: ApiKey.name);
     getIt<CacheHelper>().clearData(key: ApiKey.isLoggedIn);
+  }
+
+  @override
+  Future<void> updatePassword({required String newPassword}) async {
+    await profileRemoteSource.updatePass(newPassword: newPassword);
   }
 }

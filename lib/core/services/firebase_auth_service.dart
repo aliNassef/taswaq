@@ -86,8 +86,12 @@ class FirebaseAuthService {
     await FirebaseAuth.instance.currentUser?.delete();
   }
 
-  void changeUserPassword({required String newPassword}) async {
-    await FirebaseAuth.instance.currentUser?.updatePassword(newPassword);
+  Future<void> changeUserPassword({required String newPassword}) async {
+    try {
+      await FirebaseAuth.instance.currentUser?.updatePassword(newPassword);
+    } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
   }
 
   Future<void> reAuthanticateUser(

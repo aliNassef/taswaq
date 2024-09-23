@@ -13,7 +13,12 @@ class ProfileRemoteSource {
 
   Future<void> checkPass({required String oldPassword}) async {
     await _firebaseAuthService.reAuthanticateUser(
-        email: getIt<CacheHelper>().getData(key: ApiKey.email),
-        password: oldPassword);
+      email: getIt<CacheHelper>().getData(key: ApiKey.email),
+      password: oldPassword,
+    );
+  }
+
+  Future<void> updatePass({required String newPassword}) async {
+    await _firebaseAuthService.changeUserPassword(newPassword: newPassword);
   }
 }
