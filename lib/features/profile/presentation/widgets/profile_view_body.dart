@@ -12,7 +12,6 @@ import 'package:taswaq/features/profile/presentation/widgets/profile_list_items.
 import '../../../../core/api/end_ponits.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../login/presentation/views/login_view.dart';
 import '../../domain/repo/profile_repo.dart';
 
 class ProfileViewBody extends StatelessWidget {

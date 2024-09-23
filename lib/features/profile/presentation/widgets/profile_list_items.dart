@@ -1,9 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
+import 'package:taswaq/features/profile/presentation/views/change_pass_view.dart';
 import 'package:taswaq/features/profile/presentation/widgets/profile_list_item.dart';
 
 class ProfileListItems extends StatelessWidget {
@@ -71,7 +71,7 @@ class ProfileListItems extends StatelessWidget {
         ),
         ProfileListItem(
           onTap: () {
-            
+            Navigator.pushNamed(context, ChangePassView.routeName);
           },
           img: AppSvgs.lockIcon,
           text: 'Change Password',

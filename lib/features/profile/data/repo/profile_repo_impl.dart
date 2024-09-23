@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:taswaq/core/cache/cache_helper.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/features/profile/data/source/profile_remote_source.dart';
@@ -10,8 +11,14 @@ class ProfileRepoImpl extends ProfileRepo {
 
   ProfileRepoImpl({required this.profileRemoteSource});
   @override
-  Future<void> checkPass({required String oldPassword}) {
-    throw UnimplementedError();
+  Future<void> checkPass({required String oldPassword}) async {
+    try {
+      await profileRemoteSource.checkPass(oldPassword: oldPassword);
+    } catch (e) {
+      log(
+        e.toString(),
+      );
+    }
   }
 
   @override

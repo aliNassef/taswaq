@@ -92,9 +92,13 @@ class FirebaseAuthService {
 
   Future<void> reAuthanticateUser(
       {required String email, required String password}) async {
-    final credential =
-        EmailAuthProvider.credential(email: email, password: password);
-    await FirebaseAuth.instance.currentUser
-        ?.reauthenticateWithCredential(credential);
+    try {
+      final credential =
+          EmailAuthProvider.credential(email: email, password: password);
+      await FirebaseAuth.instance.currentUser
+          ?.reauthenticateWithCredential(credential);
+    } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
   }
 }
