@@ -6,6 +6,8 @@ import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/profile/presentation/views/change_pass_view.dart';
 import 'package:taswaq/features/profile/presentation/widgets/profile_list_item.dart';
 
+import '../views/privacy_policy_view.dart';
+
 class ProfileListItems extends StatelessWidget {
   const ProfileListItems({
     super.key,
@@ -48,7 +50,9 @@ class ProfileListItems extends StatelessWidget {
           textAlign: TextAlign.left,
         ),
         ProfileListItem(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, PrivacyPolicyView.routeName);
+          },
           img: AppSvgs.policyIcon,
           text: 'Privacy Policy',
         ),

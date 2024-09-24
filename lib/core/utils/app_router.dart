@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:taswaq/features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
 import '../../features/profile/presentation/views/new_pass_view.dart';
 import '../../features/signup/presentation/views/signup_view.dart';
@@ -79,6 +80,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const NewPassView();
+        },
+      );
+
+    case PrivacyPolicyView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const PrivacyPolicyView();
         },
       );
     case CustomNoInternetWidget.routeName:
