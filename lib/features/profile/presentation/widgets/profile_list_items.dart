@@ -4,6 +4,7 @@ import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/profile/presentation/views/change_pass_view.dart';
+import 'package:taswaq/features/profile/presentation/views/faqs_view.dart';
 import 'package:taswaq/features/profile/presentation/views/terms_condations_view.dart';
 import 'package:taswaq/features/profile/presentation/widgets/profile_list_item.dart';
 
@@ -65,7 +66,9 @@ class ProfileListItems extends StatelessWidget {
           text: 'Terms & Conditions',
         ),
         ProfileListItem(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, FaqsView.routeName);
+          },
           img: AppSvgs.fqsIcon,
           text: 'FAQs',
         ),
