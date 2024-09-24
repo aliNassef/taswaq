@@ -4,6 +4,7 @@ import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
 import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/profile/presentation/views/change_pass_view.dart';
+import 'package:taswaq/features/profile/presentation/views/terms_condations_view.dart';
 import 'package:taswaq/features/profile/presentation/widgets/profile_list_item.dart';
 
 import '../views/privacy_policy_view.dart';
@@ -57,7 +58,9 @@ class ProfileListItems extends StatelessWidget {
           text: 'Privacy Policy',
         ),
         ProfileListItem(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, TermsCondationsView.routeName);
+          },
           img: AppSvgs.termsIcon,
           text: 'Terms & Conditions',
         ),

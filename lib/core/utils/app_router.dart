@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:taswaq/features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
 import '../../features/profile/presentation/views/new_pass_view.dart';
+import '../../features/profile/presentation/views/terms_condations_view.dart';
 import '../../features/signup/presentation/views/signup_view.dart';
 
 import '../../features/cart/presentation/views/cart_view.dart';
@@ -87,6 +88,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const PrivacyPolicyView();
+        },
+      );
+    case TermsCondationsView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const TermsCondationsView();
         },
       );
     case CustomNoInternetWidget.routeName:
