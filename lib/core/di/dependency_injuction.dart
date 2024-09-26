@@ -145,7 +145,8 @@ setupGetIt() async {
   // profile
   getIt.registerSingleton<ProfileRemoteSource>(
     ProfileRemoteSource(
-      getIt<FirebaseAuthService>(),
+      databaseService: getIt<DatabaseService>(),
+      firebaseAuthService: FirebaseAuthService(),
     ),
   );
   getIt.registerSingleton<ProfileRepo>(

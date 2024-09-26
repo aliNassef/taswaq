@@ -1,3 +1,8 @@
+import 'package:dartz/dartz.dart';
+
+import '../../../../core/errors/failure.dart';
+import '../entity/privacy_entity.dart';
+
 abstract class ProfileRepo {
   Future<void> logout();
   Future<void> checkPass({
@@ -7,4 +12,5 @@ abstract class ProfileRepo {
     required String newPassword,
   });
   void removeUserData();
+  Future<Either<Failure, PrivacyEntity>> getPrivacyData();
 }

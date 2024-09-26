@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/features/profile/domain/repo/profile_repo.dart';
 
+import '../../../domain/entity/privacy_entity.dart';
+
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
@@ -27,5 +29,18 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> updateUserPassword({required String newPassword}) async {
     await _profileRepo.updatePassword(newPassword: newPassword);
     emit(ProfileUpdatePasswordSuccess());
+  }
+
+  Future<void> getPrivacyData() async {
+    emit(ProfilePrivacyDataLoading());
+    final result = await _profileRepo.getPrivacyData();
+    result.fold(
+      (error) => emit(
+        ProfilePrivacyDataFailure(errMessage: error.errMessage),
+      ),
+      (data) => emit(
+        ProfilePrivacyDataSuccess(privacyData: data),
+      ),
+    );
   }
 }

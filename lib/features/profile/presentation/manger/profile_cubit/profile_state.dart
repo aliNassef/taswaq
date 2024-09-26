@@ -21,3 +21,17 @@ final class ProfileUpdatePasswordFailure extends ProfileState {
 
   ProfileUpdatePasswordFailure({required this.errMessage});
 }
+
+final class ProfilePrivacyDataLoading extends ProfileState {}
+
+final class ProfilePrivacyDataFailure extends ProfileState {
+  final String errMessage;
+
+  ProfilePrivacyDataFailure({required this.errMessage});
+}
+
+final class ProfilePrivacyDataSuccess extends ProfileState {
+  final PrivacyEntity privacyData;
+
+  ProfilePrivacyDataSuccess({required this.privacyData});
+}
