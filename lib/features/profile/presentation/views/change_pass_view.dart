@@ -13,7 +13,7 @@ import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';
-import '../widgets/change_pass_form.dart';
+import '../widgets/profile_form.dart';
 
 class ChangePassView extends StatelessWidget {
   const ChangePassView({super.key});
@@ -43,7 +43,7 @@ class ChangePassView extends StatelessWidget {
                       .copyWith(color: AppColors.gray150Color),
                 ),
                 const VerticalSpace(16),
-                const ChangePassForm(
+                const ProfileForm(
                   title: 'Password',
                 ),
                 const VerticalSpace(8),

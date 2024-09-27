@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
-
+import 'package:taswaq/features/profile/presentation/widgets/pricvacy_item.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -16,7 +15,7 @@ class PrivacyPolicyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildChangePassAppBar(),
+      appBar: buildPrivacyAppBar(),
       body: BlocProvider(
         create: (context) => ProfileCubit(
           getIt<ProfileRepo>(),
@@ -92,7 +91,7 @@ class PrivacyPolicyView extends StatelessWidget {
     );
   }
 
-  AppBar buildChangePassAppBar() {
+  AppBar buildPrivacyAppBar() {
     return AppBar(
       title: Text(
         'Privacy Policy',
@@ -100,31 +99,6 @@ class PrivacyPolicyView extends StatelessWidget {
       ),
       elevation: 0,
       backgroundColor: Colors.transparent,
-    );
-  }
-}
-
-class PrivacyItem extends StatelessWidget {
-  const PrivacyItem(
-      {super.key, required this.title, required this.description});
-  final String title;
-  final String description;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: AppStyles.textStyle14M,
-        ),
-        Text(
-          description,
-          style: AppStyles.textStyle14M.copyWith(
-            color: AppColors.gray150Color,
-          ),
-        ),
-      ],
     );
   }
 }

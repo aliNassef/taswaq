@@ -40,13 +40,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintStyle: AppStyles.textStyle12R.copyWith(
           color: AppColors.gray100Color,
         ),
-        border: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(12),
-          ),
-          borderSide: BorderSide(
-            color: AppColors.primaryColor,
-          ),
+        border: buildBorderStyle(
+          AppColors.gray50Color,
+        ),
+        enabledBorder: buildBorderStyle(
+          AppColors.gray50Color,
+        ),
+        focusedBorder: buildBorderStyle(
+          AppColors.primaryColor,
         ),
         suffixIcon: widget.isPassword
             ? IconButton(
@@ -66,6 +67,17 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                       ),
               )
             : const SizedBox(),
+      ),
+    );
+  }
+
+  OutlineInputBorder buildBorderStyle(Color color) {
+    return OutlineInputBorder(
+      borderRadius: const BorderRadius.all(
+        Radius.circular(12),
+      ),
+      borderSide: BorderSide(
+        color: color,
       ),
     );
   }

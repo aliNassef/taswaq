@@ -12,7 +12,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
-import '../widgets/change_pass_form.dart';
+import '../widgets/profile_form.dart';
 
 class NewPassView extends StatelessWidget {
   const NewPassView({super.key});
@@ -40,7 +40,7 @@ class NewPassView extends StatelessWidget {
                       .copyWith(color: AppColors.gray150Color),
                 ),
                 const VerticalSpace(16),
-                const ChangePassForm(
+                const ProfileForm(
                   title: 'Password ',
                 ),
                 const VerticalSpace(8),
@@ -50,7 +50,7 @@ class NewPassView extends StatelessWidget {
                   controller: context.read<ProfileCubit>().newPassController,
                 ),
                 const VerticalSpace(16),
-                const ChangePassForm(
+                const ProfileForm(
                   title: 'Confirm Password ',
                 ),
                 const VerticalSpace(8),
