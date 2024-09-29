@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/failure.dart';
 import '../entity/privacy_entity.dart';
+import '../entity/terms_entity.dart';
 
 abstract class ProfileRepo {
   Future<void> logout();
@@ -13,4 +14,5 @@ abstract class ProfileRepo {
   });
   void removeUserData();
   Future<Either<Failure, PrivacyEntity>> getPrivacyData();
+  Future<Either<Failure, TermsEntity>> getTermsData();
 }

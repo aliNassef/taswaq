@@ -23,6 +23,8 @@ class EndPoints {
 
   static const wishList = 'wishList';
   static const String privacyPolicy = 'privacy-policy';
+
+  static const String termsCondations = 'terms & condations';
 }
 
 class ApiKey {
@@ -141,4 +143,14 @@ class ApiKey {
   static const lastName = 'lastName';
 
   static const gender = 'gender';
+  static const String terms1 = 'terms1';
+  static const String terms2 = 'terms2';
+  static const String terms3 = 'terms3';
+  static const String terms4 = 'terms4';
+  static const String terms5 = 'terms5';
+  static const String terms6 = 'terms6';
+  static const String terms7 = 'terms7';
+  static const String terms8 = 'terms8';
+  static const String terms9 = 'terms9';
+  static const String terms10 = 'terms10';
 }

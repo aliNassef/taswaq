@@ -5,6 +5,7 @@ import 'package:taswaq/core/services/firebase_auth_service.dart';
 
 import '../../../../core/services/database_service.dart';
 import '../model/privacy_model.dart';
+import '../model/terms_model.dart';
 
 class ProfileRemoteSource {
   final FirebaseAuthService firebaseAuthService;
@@ -34,5 +35,12 @@ class ProfileRemoteSource {
       docuementId: '1',
     );
     return PrivacyModel.fromMap(response);
+  }
+  Future<TermsModel> getTermsData() async {
+    final response = await databaseService.getData(
+      path:EndPoints.termsCondations,
+      docuementId: '1',
+    );
+    return TermsModel.fromMap(response);
   }
 }

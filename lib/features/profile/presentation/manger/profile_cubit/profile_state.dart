@@ -35,3 +35,17 @@ final class ProfilePrivacyDataSuccess extends ProfileState {
 
   ProfilePrivacyDataSuccess({required this.privacyData});
 }
+
+final class ProfileTermsDataLoading extends ProfileState {}
+
+final class ProfileTermsDataSuccess extends ProfileState {
+  final TermsEntity entity;
+
+  ProfileTermsDataSuccess({required this.entity});
+}
+
+final class ProfileTermsDataFailure extends ProfileState {
+  final String errMessage;
+
+  ProfileTermsDataFailure({required this.errMessage});
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/features/profile/domain/entity/terms_entity.dart';
 import 'package:taswaq/features/profile/domain/repo/profile_repo.dart';
 
 import '../../../domain/entity/privacy_entity.dart';
@@ -40,6 +41,19 @@ class ProfileCubit extends Cubit<ProfileState> {
       ),
       (data) => emit(
         ProfilePrivacyDataSuccess(privacyData: data),
+      ),
+    );
+  }
+
+  Future<void> getTermsAndConditions() async {
+    emit(ProfilePrivacyDataLoading());
+    final result = await _profileRepo.getTermsData();
+    result.fold(
+      (error) => emit(
+        ProfileTermsDataFailure(errMessage: error.errMessage),
+      ),
+      (data) => emit(
+        ProfileTermsDataSuccess(entity: data),
       ),
     );
   }

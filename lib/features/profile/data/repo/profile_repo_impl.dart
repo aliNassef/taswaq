@@ -6,6 +6,7 @@ import 'package:taswaq/core/errors/exceptions.dart';
 import 'package:taswaq/core/errors/failure.dart';
 import 'package:taswaq/features/profile/data/source/profile_remote_source.dart';
 import 'package:taswaq/features/profile/domain/entity/privacy_entity.dart';
+import 'package:taswaq/features/profile/domain/entity/terms_entity.dart';
 
 import '../../../../core/api/end_ponits.dart';
 import '../../domain/repo/profile_repo.dart';
@@ -51,6 +52,15 @@ class ProfileRepoImpl extends ProfileRepo {
     try {
       final data = await profileRemoteSource.getPrivacyData();
       return Right(data);
+    } catch (e) {
+      return Left(Failure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, TermsEntity>> getTermsData() async {
+    try {
+      return Right(await profileRemoteSource.getTermsData());
     } catch (e) {
       return Left(Failure(errMessage: e.toString()));
     }
