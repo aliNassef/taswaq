@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
-import 'package:taswaq/features/profile/presentation/views/new_pass_view.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../manger/profile_cubit/profile_cubit.dart';
+import 'new_pass_view.dart';
 
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/shared/functions/build_error_message.dart';

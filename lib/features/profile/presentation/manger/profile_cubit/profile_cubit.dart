@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/profile/domain/entity/terms_entity.dart';
-import 'package:taswaq/features/profile/domain/repo/profile_repo.dart';
+import '../../../domain/entity/terms_entity.dart';
+import '../../../domain/repo/profile_repo.dart';
 
 import '../../../domain/entity/privacy_entity.dart';
 

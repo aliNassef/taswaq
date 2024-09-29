@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/shared/functions/toast_dialog.dart';
-import 'package:taswaq/features/wishlist/presentation/cubit/wish_list_cubit.dart';
+import '../../../../core/shared/functions/toast_dialog.dart';
+import '../cubit/wish_list_cubit.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

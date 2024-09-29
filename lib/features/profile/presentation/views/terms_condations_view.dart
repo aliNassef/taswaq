@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
-import 'package:taswaq/features/profile/presentation/widgets/terms_condation_item.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../manger/profile_cubit/profile_cubit.dart';
+import '../widgets/terms_condation_item.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_styles.dart';

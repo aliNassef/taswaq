@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
-import 'package:taswaq/features/profile/presentation/widgets/profile_view_body.dart';
+import '../manger/profile_cubit/profile_cubit.dart';
+import '../widgets/profile_view_body.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../domain/repo/profile_repo.dart';

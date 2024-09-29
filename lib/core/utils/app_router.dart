@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/profile/presentation/views/privacy_policy_view.dart';
+import '../../features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
 import '../../features/profile/presentation/views/faqs_view.dart';
 import '../../features/profile/presentation/views/new_pass_view.dart';

@@ -1,12 +1,12 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/cache/cache_helper.dart';
-import 'package:taswaq/core/di/dependency_injuction.dart';
-import 'package:taswaq/core/errors/exceptions.dart';
-import 'package:taswaq/core/errors/failure.dart';
-import 'package:taswaq/features/profile/data/source/profile_remote_source.dart';
-import 'package:taswaq/features/profile/domain/entity/privacy_entity.dart';
-import 'package:taswaq/features/profile/domain/entity/terms_entity.dart';
+import '../../../../core/cache/cache_helper.dart';
+import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/errors/exceptions.dart';
+import '../../../../core/errors/failure.dart';
+import '../source/profile_remote_source.dart';
+import '../../domain/entity/privacy_entity.dart';
+import '../../domain/entity/terms_entity.dart';
 
 import '../../../../core/api/end_ponits.dart';
 import '../../domain/repo/profile_repo.dart';

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/custom_text_form_field.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/drop_down_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/features/profile/presentation/widgets/profile_form.dart';
+import '../../../../core/shared/widgets/custom_text_form_field.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/drop_down_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../widgets/profile_form.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../widgets/phone_field.dart';

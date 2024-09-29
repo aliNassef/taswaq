@@ -6,9 +6,9 @@ import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';
 
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/features/profile/presentation/manger/profile_cubit/profile_cubit.dart';
-import 'package:taswaq/features/profile/presentation/widgets/logout_dialog.dart';
+import '../../../../core/utils/app_images.dart';
+import '../manger/profile_cubit/profile_cubit.dart';
+import 'logout_dialog.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({
