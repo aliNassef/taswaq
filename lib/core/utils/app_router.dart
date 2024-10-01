@@ -107,7 +107,7 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ShippingAddressView.routeName:
       return MaterialPageRoute(
         builder: (_) {
-          return const ShippingAddressView();
+          return ShippingAddressView();
         },
       );
     case CustomNoInternetWidget.routeName:

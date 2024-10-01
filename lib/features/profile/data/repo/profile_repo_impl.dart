@@ -4,6 +4,7 @@ import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/errors/failure.dart';
+import '../../domain/entity/address_entity.dart';
 import '../source/profile_remote_source.dart';
 import '../../domain/entity/privacy_entity.dart';
 import '../../domain/entity/terms_entity.dart';
@@ -63,6 +64,16 @@ class ProfileRepoImpl extends ProfileRepo {
       return Right(await profileRemoteSource.getTermsData());
     } catch (e) {
       return Left(Failure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<void> addUserAddress({required AddressEntity data}) async {
+    try {
+      await profileRemoteSource.addUserAddress(data: data.toMap());
+    } catch (e) {
+      log(e.toString());
+      throw CustomException(errorMessage: e.toString());
     }
   }
 }

@@ -25,6 +25,7 @@ class EndPoints {
   static const String privacyPolicy = 'privacy-policy';
 
   static const String termsCondations = 'terms & condations';
+  static const String address = 'address';
 }
 
 class ApiKey {
@@ -153,4 +154,10 @@ class ApiKey {
   static const String terms8 = 'terms8';
   static const String terms9 = 'terms9';
   static const String terms10 = 'terms10';
+
+  static const street = 'street';
+  static const phoneNumber = 'phoneNumber';
+
+  static const city = 'city';
+  static const postalCode = 'postalCode';
 }

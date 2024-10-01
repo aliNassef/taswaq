@@ -2,7 +2,6 @@ import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/services/firebase_auth_service.dart';
-
 import '../../../../core/services/database_service.dart';
 import '../model/privacy_model.dart';
 import '../model/terms_model.dart';
@@ -36,11 +35,21 @@ class ProfileRemoteSource {
     );
     return PrivacyModel.fromMap(response);
   }
+
   Future<TermsModel> getTermsData() async {
     final response = await databaseService.getData(
-      path:EndPoints.termsCondations,
+      path: EndPoints.termsCondations,
       docuementId: '1',
     );
     return TermsModel.fromMap(response);
+  }
+
+  Future<void> addUserAddress({required Map<String, dynamic> data}) async {
+    await databaseService.addToSubCollection(
+      path: EndPoints.users,
+      subCollectionName: EndPoints.address,
+      data: data,
+      docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+    );
   }
 }

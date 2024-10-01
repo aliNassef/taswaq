@@ -49,3 +49,13 @@ final class ProfileTermsDataFailure extends ProfileState {
 
   ProfileTermsDataFailure({required this.errMessage});
 }
+
+final class AddUserAddressLoading extends ProfileState {}
+
+final class AddUserAddressSuccess extends ProfileState {}
+
+final class AddUserAddressFailure extends ProfileState {
+  final String errMessage;
+
+  AddUserAddressFailure({required this.errMessage});
+}

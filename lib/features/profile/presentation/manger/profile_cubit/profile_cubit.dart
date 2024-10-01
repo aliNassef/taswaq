@@ -1,5 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/core/di/dependency_injuction.dart';
+import 'package:taswaq/features/profile/domain/entity/address_entity.dart';
+import '../../../../../core/api/end_ponits.dart';
+import '../../../../../core/cache/cache_helper.dart';
 import '../../../domain/entity/terms_entity.dart';
 import '../../../domain/repo/profile_repo.dart';
 
@@ -56,5 +62,30 @@ class ProfileCubit extends Cubit<ProfileState> {
         ProfileTermsDataSuccess(entity: data),
       ),
     );
+  }
+
+  // controllers for shipping address
+  TextEditingController fullName = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController city = TextEditingController();
+  TextEditingController streetName = TextEditingController();
+  TextEditingController postalCode = TextEditingController();
+  Future<void> addUserAddress() async {
+    try {
+      String id = getIt<CacheHelper>().getData(key: ApiKey.userId);
+      var data = AddressEntity(
+        name: fullName.text,
+        street: streetName.text,
+        phoneNumber: phoneNumber.text,
+        city: city.text,
+        postalCode: postalCode.text,
+        id: id,
+      );
+      await _profileRepo.addUserAddress(data: data);
+      emit(AddUserAddressSuccess());
+    } catch (e) {
+      log(e.toString());
+      emit(AddUserAddressFailure(errMessage: e.toString()));
+    }
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
@@ -6,13 +5,13 @@ import '../../../../core/utils/app_colors.dart';
 
 class PhoneField extends StatelessWidget {
   const PhoneField({
-    super.key,
+    super.key, required this.controller,
   });
-
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return IntlPhoneField(
-      controller: TextEditingController(),
+      controller:controller,
       decoration: const InputDecoration(
         contentPadding: EdgeInsets.all(22),
         focusColor: AppColors.primaryColor,
