@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/shared/widgets/custom_text_form_field.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import 'new_pass_view.dart';
-
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/shared/functions/build_error_message.dart';
-import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';
@@ -26,7 +25,8 @@ class ChangePassView extends StatelessWidget {
       ),
       child: Builder(builder: (context) {
         return Scaffold(
-          appBar: buildChangePassAppBar(),
+          appBar:
+              buildChangePassAppBar(title: 'Change Password', pageNum: '01'),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
@@ -87,38 +87,6 @@ class ChangePassView extends StatelessWidget {
           ),
         );
       }),
-    );
-  }
-
-  AppBar buildChangePassAppBar() {
-    return AppBar(
-      title: Text(
-        'Change Password',
-        style: AppStyles.textStyle14M,
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      actions: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding.w),
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: '01/',
-                  style: AppStyles.textStyle14SB
-                      .copyWith(color: AppColors.blackColor),
-                ),
-                TextSpan(
-                  text: '02',
-                  style: AppStyles.textStyle14SB
-                      .copyWith(color: AppColors.gray100Color),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

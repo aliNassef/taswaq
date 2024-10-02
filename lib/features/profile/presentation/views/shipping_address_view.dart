@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/core/shared/functions/toast_dialog.dart';
+import 'package:taswaq/core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/shared/widgets/custom_text_form_field.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
@@ -11,7 +12,6 @@ import '../../domain/repo/profile_repo.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import '../widgets/profile_form.dart';
 import '../../../../core/shared/widgets/constants.dart';
-import '../../../../core/utils/app_styles.dart';
 import '../widgets/phone_field.dart';
 
 class ShippingAddressView extends StatelessWidget {
@@ -20,7 +20,7 @@ class ShippingAddressView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAddressAppBar(),
+      appBar: buildCustomAppBar(title: 'Shipping Address'),
       body: BlocProvider(
         create: (context) => ProfileCubit(
           getIt<ProfileRepo>(),
@@ -128,15 +128,4 @@ class ShippingAddressView extends StatelessWidget {
     DropdownMenuItem(value: 'Tanta', child: Text('Tanta')),
     DropdownMenuItem(value: 'Ismailia', child: Text('Ismailia')),
   ];
-
-  AppBar buildAddressAppBar() {
-    return AppBar(
-      title: Text(
-        'Shipping Address',
-        style: AppStyles.textStyle14M,
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-    );
-  }
 }

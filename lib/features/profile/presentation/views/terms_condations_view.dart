@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import '../widgets/terms_condation_item.dart';
@@ -14,7 +15,7 @@ class TermsCondationsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildTermsCondationAppBar(),
+      appBar: buildCustomAppBar(title: 'Terms & Conditions'),
       body: BlocProvider(
         create: (context) => ProfileCubit(
           getIt<ProfileRepo>(),
@@ -94,17 +95,6 @@ class TermsCondationsView extends StatelessWidget {
           );
         }),
       ),
-    );
-  }
-
-  AppBar buildTermsCondationAppBar() {
-    return AppBar(
-      title: Text(
-        'Terms & Conditions',
-        style: AppStyles.textStyle14M,
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
     );
   }
 }

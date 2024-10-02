@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import '../widgets/pricvacy_item.dart';
 import '../../../../core/shared/widgets/constants.dart';
@@ -15,7 +16,7 @@ class PrivacyPolicyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildPrivacyAppBar(),
+      appBar: buildCustomAppBar(title: 'Privacy Policy'),
       body: BlocProvider(
         create: (context) => ProfileCubit(
           getIt<ProfileRepo>(),
@@ -88,17 +89,6 @@ class PrivacyPolicyView extends StatelessWidget {
           );
         }),
       ),
-    );
-  }
-
-  AppBar buildPrivacyAppBar() {
-    return AppBar(
-      title: Text(
-        'Privacy Policy',
-        style: AppStyles.textStyle14M,
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
     );
   }
 }

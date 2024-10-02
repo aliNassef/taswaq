@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:taswaq/core/shared/widgets/custom_app_bar.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 
 import '../../../../core/shared/widgets/constants.dart';
@@ -11,7 +12,7 @@ class FaqsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildChangePassAppBar(),
+      appBar: buildCustomAppBar(title: 'FAQs'),
       body: ListView.separated(
         padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
         itemBuilder: (cxt, index) {
@@ -20,17 +21,6 @@ class FaqsView extends StatelessWidget {
         separatorBuilder: (cxt, index) => const VerticalSpace(16),
         itemCount: 10,
       ),
-    );
-  }
-
-  AppBar buildChangePassAppBar() {
-    return AppBar(
-      title: Text(
-        'FAQs',
-        style: AppStyles.textStyle14M,
-      ),
-      elevation: 0,
-      backgroundColor: Colors.transparent,
     );
   }
 }
