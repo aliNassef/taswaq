@@ -1,8 +1,10 @@
+
 import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
-import '../../../../core/services/firebase_auth_service.dart';
+ import '../../../../core/services/firebase_auth_service.dart';
 import '../../../../core/services/database_service.dart';
+ import '../model/faqs_model.dart';
 import '../model/privacy_model.dart';
 import '../model/terms_model.dart';
 
@@ -51,5 +53,12 @@ class ProfileRemoteSource {
       data: data,
       docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
     );
+  }
+
+  Future<List<FaqsModel>> getFaqs() async {
+    final data = await databaseService.getDataWithoutId(
+      path: EndPoints.faqs,
+    );
+    return data.map((e) => FaqsModel.fromMap(e)).toList();
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/core/di/dependency_injuction.dart';
 import 'package:taswaq/features/profile/domain/entity/address_entity.dart';
+import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
 import '../../../../../core/api/end_ponits.dart';
 import '../../../../../core/cache/cache_helper.dart';
 import '../../../domain/entity/terms_entity.dart';
@@ -87,5 +88,18 @@ class ProfileCubit extends Cubit<ProfileState> {
       log(e.toString());
       emit(AddUserAddressFailure(errMessage: e.toString()));
     }
+  }
+
+  Future<void> getFaqs() async {
+    emit(ProfileFaqsLoading());
+    final result = await _profileRepo.getFaqs();
+    result.fold(
+      (error) => emit(
+        ProfileFaqsFailure(errMessage: error.errMessage),
+      ),
+      (data) => emit(
+        ProfileFaqsSuccess(faqs: data),
+      ),
+    );
   }
 }

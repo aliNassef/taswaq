@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
 
 import '../../../../core/errors/failure.dart';
 import '../entity/address_entity.dart';
@@ -17,4 +18,5 @@ abstract class ProfileRepo {
   Future<Either<Failure, PrivacyEntity>> getPrivacyData();
   Future<Either<Failure, TermsEntity>> getTermsData();
   Future<void> addUserAddress({required AddressEntity data});
+  Future<Either<Failure, List<FaqsEntity>>> getFaqs();
 }

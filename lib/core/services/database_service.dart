@@ -53,4 +53,5 @@ abstract class DatabaseService {
     required String userId,
     required String productId,
   });
+  Future<List<Map<String, dynamic>>> getDataWithoutId({required String path});
 }

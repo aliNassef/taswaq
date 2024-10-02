@@ -59,3 +59,17 @@ final class AddUserAddressFailure extends ProfileState {
 
   AddUserAddressFailure({required this.errMessage});
 }
+
+final class ProfileFaqsLoading extends ProfileState {}
+
+final class ProfileFaqsSuccess extends ProfileState {
+  final List<FaqsEntity> faqs;
+
+  ProfileFaqsSuccess({required this.faqs});
+}
+
+final class ProfileFaqsFailure extends ProfileState {
+  final String errMessage;
+
+  ProfileFaqsFailure({required this.errMessage});
+}

@@ -26,6 +26,7 @@ class EndPoints {
 
   static const String termsCondations = 'terms & condations';
   static const String address = 'address';
+  static const String faqs = 'fqs';
 }
 
 class ApiKey {
@@ -160,4 +161,8 @@ class ApiKey {
 
   static const city = 'city';
   static const postalCode = 'postalCode';
+
+  static const question = 'question';
+  static const answer = 'answer';
+
 }

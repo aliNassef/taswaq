@@ -124,4 +124,10 @@ class FirestoreDatabase implements DatabaseService {
         .get();
     return data.exists;
   }
+  
+  @override
+  Future<List<Map<String, dynamic>>> getDataWithoutId({required String path})async {
+    var data = await firestore.collection(path).get();
+    return data.docs.map((doc) => doc.data()).toList();
+  }
 }

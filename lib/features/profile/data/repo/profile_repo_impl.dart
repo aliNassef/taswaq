@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
+import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/errors/exceptions.dart';
@@ -74,6 +75,15 @@ class ProfileRepoImpl extends ProfileRepo {
     } catch (e) {
       log(e.toString());
       throw CustomException(errorMessage: e.toString());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<FaqsEntity>>> getFaqs() async{
+    try {
+      return Right(await profileRemoteSource.getFaqs());
+    } catch (e) {
+      return Left(Failure(errMessage: e.toString()));
     }
   }
 }
