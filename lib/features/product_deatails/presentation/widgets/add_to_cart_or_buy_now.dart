@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../core/api/end_ponits.dart';
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
@@ -58,7 +56,7 @@ class AddToCartOrBuyNow extends StatelessWidget {
               textColor: Colors.white,
               onPressed: () async {
                 context.read<AddProductToCartCubit>().addProductToCart(
-                      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+                      userId: getUserData().id!,
                       product: instance,
                     );
               },

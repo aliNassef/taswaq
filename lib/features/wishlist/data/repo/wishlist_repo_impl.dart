@@ -1,8 +1,6 @@
-import 'package:dartz/dartz.dart';
-import '../../../../core/api/end_ponits.dart';
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
+import 'package:dartz/dartz.dart'; 
 import '../../../../core/errors/failure.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../source/wishlist_remote_source.dart';
 import '../../domain/entity/wishlisst_entity.dart';
 import '../../domain/repo/wishlist_repo.dart';
@@ -29,7 +27,7 @@ class WishlistRepoImpl extends WishlistRepo {
   Future<Either<Failure, List<WishlistEntity>>> getWishListItems() async {
     try {
       var data = await wishlistRemoteSource.getData(
-          id: getIt<CacheHelper>().getData(key: ApiKey.userId));
+          id:getUserData().id!);
       return Right(data);
     } catch (e) {
       return Left(Failure(errMessage: e.toString()));

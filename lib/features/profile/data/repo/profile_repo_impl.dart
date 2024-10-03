@@ -38,9 +38,10 @@ class ProfileRepoImpl extends ProfileRepo {
   // need to refactor
   @override
   void removeUserData() {
-    getIt<CacheHelper>().clearData(key: ApiKey.userId);
-    getIt<CacheHelper>().clearData(key: ApiKey.email);
-    getIt<CacheHelper>().clearData(key: ApiKey.name);
+    // getIt<CacheHelper>().clearData(key: ApiKey.userId);
+    // getIt<CacheHelper>().clearData(key: ApiKey.email);
+    // getIt<CacheHelper>().clearData(key: ApiKey.name);
+    getIt<CacheHelper>().clearData(key: ApiKey.userData);
     getIt<CacheHelper>().clearData(key: ApiKey.isLoggedIn);
   }
 

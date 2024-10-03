@@ -1,6 +1,5 @@
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/services/database_service.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
 
 import '../../../../core/api/api_consumer.dart';
@@ -29,7 +28,7 @@ class HomeRemoteSource {
     await databaseService.addToSubCollection(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      docId: getUserData().id!,
       data: {
         ApiKey.title: product.title,
         ApiKey.price: product.price,
@@ -44,7 +43,7 @@ class HomeRemoteSource {
     return await databaseService.isProductExist(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      userId:getUserData().id!,
       productId: productId,
     );
   }
@@ -53,7 +52,7 @@ class HomeRemoteSource {
     await databaseService.deleteSubCollectionData(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      userId: getUserData().id!,
       productId: id,
     );
   }

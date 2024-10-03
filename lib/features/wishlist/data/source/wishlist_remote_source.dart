@@ -1,7 +1,6 @@
 import '../../../../core/api/end_ponits.dart';
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/services/database_service.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../../domain/entity/wishlisst_entity.dart';
 import '../model/wishlist_model.dart';
 
@@ -24,7 +23,7 @@ class WishlistRemoteSource {
     await databaseService.addToSubCollection(
       path: EndPoints.users,
       subCollectionName: EndPoints.carts,
-      docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      docId: getUserData().id!,
       data: {
         ApiKey.id: int.parse(id),
         ApiKey.quantity: 1,
@@ -40,7 +39,7 @@ class WishlistRemoteSource {
     await databaseService.deleteSubCollectionData(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      userId: getUserData().id!,
       productId: id,
     );
   }

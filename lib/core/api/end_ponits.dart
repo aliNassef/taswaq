@@ -38,7 +38,7 @@ class ApiKey {
   static const childrenPrivacy = 'ChildrenPrivacy';
   static const userRights = 'UserRights';
   static const updatesPrivacy = 'UpdatesPrivacy';
-
+  static const userData = 'userData';
   static const isLoggedIn = 'isLoggedIn';
   static const token = 'token';
 

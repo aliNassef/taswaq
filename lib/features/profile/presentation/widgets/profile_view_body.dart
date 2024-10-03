@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import 'profile_list_items.dart';
-import '../../../../core/api/end_ponits.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import 'user_info.dart';
 
@@ -13,8 +11,8 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = getIt<CacheHelper>().getData(key: ApiKey.name);
-    final email = getIt<CacheHelper>().getData(key: ApiKey.email);
+    final name = getUserData().name!;
+    final email = getUserData().email!;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

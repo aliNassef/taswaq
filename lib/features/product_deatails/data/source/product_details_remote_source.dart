@@ -1,11 +1,8 @@
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/services/database_service.dart';
-
 import '../../../../core/api/api_consumer.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
 import '../../domain/entity/product_detais_entity/product_details_entity.dart';
 import '../models/product_detsails_mode/product_details_model.dart';
-
 import '../../../../core/api/end_ponits.dart';
 
 class ProductDetailsRemoteSource {
@@ -23,7 +20,7 @@ class ProductDetailsRemoteSource {
     await databaseService.addToSubCollection(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      docId: getUserData().id!,
       data: {
         ApiKey.title: product.title,
         ApiKey.price: product.price,
@@ -38,7 +35,7 @@ class ProductDetailsRemoteSource {
     await databaseService.deleteSubCollectionData(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      userId: getUserData().id!,
       productId: id,
     );
   }
@@ -47,7 +44,7 @@ class ProductDetailsRemoteSource {
     return await databaseService.isProductExist(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      userId: getUserData().id!,
       productId: id,
     );
   }

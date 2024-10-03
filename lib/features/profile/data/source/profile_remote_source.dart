@@ -1,10 +1,8 @@
-
 import '../../../../core/api/end_ponits.dart';
-import '../../../../core/cache/cache_helper.dart';
-import '../../../../core/di/dependency_injuction.dart';
- import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/services/firebase_auth_service.dart';
 import '../../../../core/services/database_service.dart';
- import '../model/faqs_model.dart';
+import '../../../../core/shared/functions/get_user_data.dart';
+import '../model/faqs_model.dart';
 import '../model/privacy_model.dart';
 import '../model/terms_model.dart';
 
@@ -21,7 +19,7 @@ class ProfileRemoteSource {
 
   Future<void> checkPass({required String oldPassword}) async {
     await firebaseAuthService.reAuthanticateUser(
-      email: getIt<CacheHelper>().getData(key: ApiKey.email),
+      email: getUserData().email!,
       password: oldPassword,
     );
   }
@@ -51,7 +49,7 @@ class ProfileRemoteSource {
       path: EndPoints.users,
       subCollectionName: EndPoints.address,
       data: data,
-      docId: getIt<CacheHelper>().getData(key: ApiKey.userId),
+      docId: getUserData().id!,
     );
   }
 

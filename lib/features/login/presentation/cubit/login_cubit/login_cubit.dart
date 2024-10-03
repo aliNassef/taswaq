@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -52,9 +54,8 @@ class LoginCubit extends Cubit<LoginState> {
 
   // need to refactor
   saveUserData(UserEntity user) {
-    getIt<CacheHelper>().saveData(key: ApiKey.userId, value: user.id);
-    getIt<CacheHelper>().saveData(key: ApiKey.email, value: user.email);
-    getIt<CacheHelper>().saveData(key: ApiKey.name, value: user.name);
+    String jsonData = jsonEncode(user.toMap());
+    getIt<CacheHelper>().saveData(key: ApiKey.userData, value: jsonData); 
     getIt<CacheHelper>().saveData(key: ApiKey.isLoggedIn, value: true);
   }
 }
