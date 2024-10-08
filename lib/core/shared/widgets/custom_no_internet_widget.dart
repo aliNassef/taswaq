@@ -13,7 +13,10 @@ class CustomNoInternetWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset('assets/images/no_internet.json'),
+            Lottie.asset(
+              'assets/images/no_internet.json',
+              height: MediaQuery.of(context).size.height * .75,
+            ),
             Text(
               'No Internet Connection',
               style: AppStyles.textStyle24B,
