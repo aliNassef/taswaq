@@ -12,6 +12,7 @@ AppBar buildCustomAppBar({required String title}) {
     ),
     elevation: 0,
     backgroundColor: Colors.transparent,
+    centerTitle: true,
   );
 }
 
