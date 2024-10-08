@@ -7,7 +7,7 @@ import '../../../../core/utils/app_colors.dart';
 import '../manger/order_history_cubit/order_history_cubit.dart';
 import '../manger/order_history_cubit/order_history_state.dart';
 import '../widgets/chossing_case.dart';
-import 'order_item.dart';
+import 'order_list_items.dart';
 
 class OrderHistoryViewBody extends StatelessWidget {
   const OrderHistoryViewBody({
@@ -59,19 +59,5 @@ class OrderHistoryViewBody extends StatelessWidget {
 }
 
 /*
- extract to order history  view body 
+ fetch orders from server 
  */
-class OrdderListItems extends StatelessWidget {
-  const OrdderListItems({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        itemBuilder: (context, index) => const OrderItem(),
-        separatorBuilder: (context, index) => const VerticalSpace(16),
-        itemCount: 10,
-      ),
-    );
-  }
-}
