@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/profile/domain/entity/address_entity.dart';
-import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
+import '../../../domain/entity/address_entity.dart';
+import '../../../domain/entity/faqs_entity.dart';
 import '../../../../../core/shared/functions/get_user_data.dart';
 import '../../../domain/entity/terms_entity.dart';
 import '../../../domain/repo/profile_repo.dart';

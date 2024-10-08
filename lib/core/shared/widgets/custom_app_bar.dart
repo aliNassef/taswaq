@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/constants.dart';
+import 'constants.dart';
 
 import '../../utils/app_colors.dart';
 import '../../utils/app_styles.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
+import '../../domain/entity/faqs_entity.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

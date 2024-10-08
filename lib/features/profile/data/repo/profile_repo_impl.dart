@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
+import '../../domain/entity/faqs_entity.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/errors/exceptions.dart';

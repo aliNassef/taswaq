@@ -1,6 +1,5 @@
 import '../../../../../core/api/end_ponits.dart';
 import '../../../domain/entities/search_entity/search_entity.dart';
-
 import 'dimensions.dart';
 import 'meta.dart';
 import 'review.dart';

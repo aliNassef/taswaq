@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/features/profile/domain/entity/faqs_entity.dart';
+import '../entity/faqs_entity.dart';
 
 import '../../../../core/errors/failure.dart';
 import '../entity/address_entity.dart';
