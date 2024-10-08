@@ -1,5 +1,6 @@
 abstract class AppImages {
   static const String noCartItems = 'assets/images/no_cart_items.png';
+  static const String orderHistory = 'assets/images/order_history.png';
 }
 
 abstract class AppSvgs {

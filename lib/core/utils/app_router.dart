@@ -1,6 +1,6 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import '../../features/profile/presentation/views/order_history_view.dart';
 import '../../features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
 import '../../features/profile/presentation/views/faqs_view.dart';
@@ -8,7 +8,6 @@ import '../../features/profile/presentation/views/new_pass_view.dart';
 import '../../features/profile/presentation/views/shipping_address_view.dart';
 import '../../features/profile/presentation/views/terms_condations_view.dart';
 import '../../features/signup/presentation/views/signup_view.dart';
-
 import '../../features/cart/presentation/views/cart_view.dart';
 import '../../features/home/presentation/view/home_view.dart';
 import '../../features/layout/presentation/views/layout_view.dart';
@@ -107,7 +106,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case ShippingAddressView.routeName:
       return MaterialPageRoute(
         builder: (_) {
-          return ShippingAddressView();
+          return const ShippingAddressView();
+        },
+      );
+    case OrderHistoryView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const OrderHistoryView();
         },
       );
     case CustomNoInternetWidget.routeName:

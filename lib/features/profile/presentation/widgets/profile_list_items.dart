@@ -5,6 +5,7 @@ import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../views/change_pass_view.dart';
 import '../views/faqs_view.dart';
+import '../views/order_history_view.dart';
 import '../views/shipping_address_view.dart';
 import '../views/terms_condations_view.dart';
 import 'profile_list_item.dart';
@@ -43,7 +44,9 @@ class ProfileListItems extends StatelessWidget {
           text: 'Payment Method',
         ),
         ProfileListItem(
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, OrderHistoryView.routeName);
+          },
           img: AppSvgs.ordersIcon,
           text: 'Order History',
         ),
