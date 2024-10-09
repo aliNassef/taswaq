@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'cart_topbar.dart';
 import '../../../../core/shared/widgets/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../cubits/cart_cubit/cart_cubit.dart';
@@ -13,8 +12,6 @@ class CartViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const VerticalSpace(30),
-        const CartTopBar(),
         Expanded(
           child: BlocBuilder<CartCubit, CartState>(
             buildWhen: (previous, current) =>
