@@ -4,8 +4,9 @@ import 'constants.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_styles.dart';
 
-AppBar buildCustomAppBar({required String title}) {
+AppBar buildCustomAppBar({required String title, bool showBackButton = true}) {
   return AppBar(
+    automaticallyImplyLeading: showBackButton,
     title: Text(
       title,
       style: AppStyles.textStyle14M,

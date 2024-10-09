@@ -1,37 +1,22 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/shared/widgets/spacers.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/shared/widgets/custom_app_bar.dart';
 
-class WishListTopBar extends StatelessWidget {
+class WishListTopBar extends StatelessWidget implements PreferredSizeWidget {
   const WishListTopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: AppColors.blackColor,
-            ),
-          ),
-          const Spacer(),
-          Text(
-            'WishList',
-            style: AppStyles.textStyle14M.copyWith(
-              color: AppColors.blackColor,
-            ),
-          ),
-          HorizantalSpace(MediaQuery.sizeOf(context).width / 2 - 40)
-        ],
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(kToolbarHeight + 10),
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top + 30,
+        ),
+        child: buildCustomAppBar(title: 'Wishlist', showBackButton: false),
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight + 10);
 }
