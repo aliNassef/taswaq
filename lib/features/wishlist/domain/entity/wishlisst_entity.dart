@@ -7,7 +7,7 @@ class WishlistEntity {
   final String image;
   final int productId;
 
-  WishlistEntity({
+  const WishlistEntity({
     required this.title,
     required this.price,
     required this.discountPercentage,

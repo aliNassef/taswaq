@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+import '../../domain/entity/wishlisst_entity.dart';
 import 'empty_wishlist.dart';
 import 'wish_item.dart';
 import '../cubit/wish_list_cubit.dart';
@@ -22,7 +24,8 @@ class WishlistViewBody extends StatelessWidget {
             onRefresh: () async {
               await cubit.getWishListData();
             },
-            child: BlocBuilder<WishListCubit, WishListState>(
+            child: BlocConsumer<WishListCubit, WishListState>(
+              listener: (context, state) {},
               buildWhen: (previous, current) =>
                   current is WishListSuccess ||
                   current is WishListFailure ||
@@ -39,8 +42,22 @@ class WishlistViewBody extends StatelessWidget {
                           separatorBuilder: (context, index) =>
                               const VerticalSpace(10),
                         );
+                } else if (state is WishListFailure) {
+                  return Center(
+                    child: Text(state.errMessage),
+                  );
                 } else {
-                  return const SizedBox.shrink();
+                  return Skeletonizer(
+                    enabled: true,
+                    child: ListView.separated(
+                      itemBuilder: (context, index) => WishItem(
+                        instance: dumyData[index],
+                      ),
+                      itemCount: dumyData.length,
+                      separatorBuilder: (context, index) =>
+                          const VerticalSpace(10),
+                    ),
+                  );
                 }
               },
             ),
@@ -49,4 +66,28 @@ class WishlistViewBody extends StatelessWidget {
       ],
     );
   }
+
+  final List<WishlistEntity> dumyData = const [
+    WishlistEntity(
+      productId: 1,
+      price: 1,
+      title: "Product Title",
+      discountPercentage: 10,
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    ),
+    WishlistEntity(
+      productId: 1,
+      price: 1,
+      title: "Product Title",
+      discountPercentage: 10,
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    ),
+    WishlistEntity(
+      productId: 1,
+      price: 1,
+      title: "Product Title",
+      discountPercentage: 10,
+      image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+    ),
+  ];
 }
