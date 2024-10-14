@@ -27,4 +27,5 @@ abstract class AppSvgs {
   static const String policyIcon = 'assets/svgs/privacy.svg';
   static const String termsIcon = 'assets/svgs/terms_condations.svg';
   static const String lockIcon = 'assets/svgs/lock.svg';
+  static const String review = 'assets/svgs/review.svg';
 }

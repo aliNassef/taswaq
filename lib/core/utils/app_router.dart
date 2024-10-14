@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import '../../features/checkout/presentation/view/checkout_view.dart';
 import '../../features/profile/presentation/views/order_history_view.dart';
 import '../../features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
@@ -113,6 +114,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const OrderHistoryView();
+        },
+      );
+    case CheckoutView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const CheckoutView();
         },
       );
     case CustomNoInternetWidget.routeName:

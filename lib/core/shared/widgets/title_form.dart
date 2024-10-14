@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 
-class ProfileForm extends StatelessWidget {
-  const ProfileForm({super.key, required this.title});
+class TitleForm extends StatelessWidget {
+  const TitleForm({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {

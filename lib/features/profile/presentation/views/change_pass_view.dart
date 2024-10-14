@@ -5,6 +5,7 @@ import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/shared/widgets/custom_text_form_field.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
 import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/shared/widgets/title_form.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import 'new_pass_view.dart';
 import '../../../../core/di/dependency_injuction.dart';
@@ -12,8 +13,7 @@ import '../../../../core/shared/functions/build_error_message.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';
-import '../widgets/profile_form.dart';
-
+ 
 class ChangePassView extends StatelessWidget {
   const ChangePassView({super.key});
   static const routeName = '/changePass';
@@ -43,7 +43,7 @@ class ChangePassView extends StatelessWidget {
                       .copyWith(color: AppColors.gray150Color),
                 ),
                 const VerticalSpace(16),
-                const ProfileForm(
+                const TitleForm(
                   title: 'Password',
                 ),
                 const VerticalSpace(8),
