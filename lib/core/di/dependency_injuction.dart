@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import '../../features/checkout/data/repo/checkout_repo_impl.dart';
+import '../../features/checkout/data/source/checkout_remote_source.dart';
+import '../../features/checkout/domain/repo/checkout_repo.dart';
 import '../../features/profile/data/repo/profile_repo_impl.dart';
 import '../../features/profile/data/source/profile_remote_source.dart';
 import '../../features/profile/domain/repo/profile_repo.dart';
@@ -152,6 +155,17 @@ setupGetIt() async {
   getIt.registerSingleton<ProfileRepo>(
     ProfileRepoImpl(
       profileRemoteSource: getIt<ProfileRemoteSource>(),
+    ),
+  );
+  // checkout
+  getIt.registerSingleton<CheckoutRemoteSource>(
+    CheckoutRemoteSource(
+      databaseService: getIt<DatabaseService>(),
+    ),
+  );
+  getIt.registerSingleton<CheckoutRepo>(
+    CheckoutRepoImpl(
+      checkoutRemoteSource: getIt.get<CheckoutRemoteSource>(),
     ),
   );
 }

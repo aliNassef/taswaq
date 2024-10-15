@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import '../../features/checkout/presentation/view/checkout_review.dart';
 import '../../features/checkout/presentation/view/checkout_view.dart';
 import '../../features/profile/presentation/views/order_history_view.dart';
 import '../../features/profile/presentation/views/privacy_policy_view.dart';
@@ -120,6 +121,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const CheckoutView();
+        },
+      );
+    case CheckoutReviewView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const CheckoutReviewView();
         },
       );
     case CustomNoInternetWidget.routeName:

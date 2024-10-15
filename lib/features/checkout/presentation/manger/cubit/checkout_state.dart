@@ -13,8 +13,9 @@ class CheckoutState {
   const CheckoutState({required this.state, this.errMessage});
 
   CheckoutState copyWith({CheckoutStatus? state, String? errMessage}) {
-    return const CheckoutState(
-      state: CheckoutStatus.initial,
+    return CheckoutState(
+      state: state ?? this.state,
+      errMessage: errMessage ?? this.errMessage,
     );
   }
 }
