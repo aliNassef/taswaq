@@ -2,6 +2,7 @@ abstract class AppImages {
   static const String noCartItems = 'assets/images/no_cart_items.png';
   static const String orderHistory = 'assets/images/order_history.png';
   static const String wishlistEmpty = 'assets/images/wishlist_empty.png';
+  static const String orderPlaceholder = 'assets/images/order_placeholder.png';
 }
 
 abstract class AppSvgs {
