@@ -7,7 +7,7 @@ import '../cubits/add_product_to_cart_cubit/add_product_to_cart_cubit.dart';
 import 'add_to_cart_or_buy_now.dart';
 import 'discription_product_widget.dart';
 import 'list_of_tags.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';

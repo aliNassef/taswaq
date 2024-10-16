@@ -4,7 +4,7 @@ import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
 import '../widgets/terms_condation_item.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/profile_repo.dart';

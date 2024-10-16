@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../manger/profile_cubit/profile_cubit.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../domain/repo/profile_repo.dart';
 import '../widgets/faqs_item.dart';

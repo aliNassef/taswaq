@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import 'product_view_top_bar.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import 'products_grid_view.dart';
 
 class ProductViewBody extends StatelessWidget {

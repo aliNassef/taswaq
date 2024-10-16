@@ -17,7 +17,7 @@ void main() async {
   );
 
   await CacheHelper().init();
-  Bloc.observer = CustomBlocObserver();
+  Bloc.observer = CustomBlocObserver();      
   await setupGetIt();
   if (kReleaseMode) {
     await SentryFlutter.init(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';

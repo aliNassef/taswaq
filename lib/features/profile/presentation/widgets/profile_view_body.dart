@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/shared/functions/get_user_data.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import 'profile_list_items.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import 'user_info.dart';

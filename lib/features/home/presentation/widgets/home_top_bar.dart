@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../search/presentation/views/search_view.dart';

@@ -4,7 +4,7 @@ import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/features/checkout/presentation/view/preview_item_view.dart';
 import 'package:taswaq/features/checkout/presentation/widget/review_row_item.dart';
 
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../view/order_placced_successfuly_view.dart';

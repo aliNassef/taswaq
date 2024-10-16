@@ -5,7 +5,7 @@ import 'package:taswaq/core/shared/widgets/shipping_address_view_body.dart';
 import 'package:taswaq/features/checkout/presentation/view/checkout_review.dart';
 
 import '../../../../core/shared/functions/build_error_message.dart';
-import '../../../../core/shared/widgets/constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../manger/cubit/checkout_cubit.dart';
 import 'custom_stepper.dart';

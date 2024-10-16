@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubits/get_product_details_cubit/get_product_detaisl_cubit.dart';
- import '../../../../core/shared/widgets/constants.dart';
+ import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/custom_fav_icon.dart';
 import '../../domain/entity/product_detais_entity/product_details_entity.dart';
 
