@@ -6,6 +6,7 @@ import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
+import 'payment_view.dart';
 
 class OrderPlacedSuccessfuly extends StatelessWidget {
   const OrderPlacedSuccessfuly({super.key});
@@ -50,7 +51,9 @@ class OrderPlacedSuccessfuly extends StatelessWidget {
                 text: 'Continue Shopping',
                 backgroundColor: AppColors.blackColor,
                 textColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentView.routeName);
+                },
                 padding: 0,
               ),
             ],

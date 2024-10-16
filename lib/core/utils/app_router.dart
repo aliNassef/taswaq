@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/checkout/presentation/view/checkout_review.dart';
 import '../../features/checkout/presentation/view/checkout_view.dart';
 import '../../features/checkout/presentation/view/order_placced_successfuly_view.dart';
+import '../../features/checkout/presentation/view/payment_view.dart';
 import '../../features/checkout/presentation/view/preview_item_view.dart';
 import '../../features/profile/presentation/views/order_history_view.dart';
 import '../../features/profile/presentation/views/privacy_policy_view.dart';
@@ -141,6 +142,12 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const OrderPlacedSuccessfuly();
+        },
+      );
+    case PaymentView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const PaymentView();
         },
       );
     case CustomNoInternetWidget.routeName:
