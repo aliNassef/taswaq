@@ -1,3 +1,5 @@
+import '../../../../profile/domain/entity/address_entity.dart';
+
 enum CheckoutStatus { initial, loading, success, failure }
 
 extension CheckoutStateX on CheckoutState {
@@ -10,12 +12,15 @@ extension CheckoutStateX on CheckoutState {
 class CheckoutState {
   final CheckoutStatus state;
   final String? errMessage;
-  const CheckoutState({required this.state, this.errMessage});
+  final AddressEntity? address;
+  const CheckoutState({this.address, required this.state, this.errMessage});
 
-  CheckoutState copyWith({CheckoutStatus? state, String? errMessage}) {
+  CheckoutState copyWith(
+      {CheckoutStatus? state, String? errMessage, AddressEntity? address}) {
     return CheckoutState(
       state: state ?? this.state,
       errMessage: errMessage ?? this.errMessage,
+      address: address ?? this.address,
     );
   }
 }

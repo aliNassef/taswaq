@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/core/shared/widgets/default_app_button.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
+import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_cubit.dart';
+import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_state.dart';
 import 'package:taswaq/features/checkout/presentation/view/preview_item_view.dart';
 import 'package:taswaq/features/checkout/presentation/widget/review_row_item.dart';
 
@@ -17,96 +20,113 @@ class CheckoutReviewViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            const CustomStepper(),
-            ListTile(
-              contentPadding: EdgeInsets.zero,
-              onTap: () {
-                Navigator.pushNamed(context, PreviewItemView.routeName);
-              },
-              title: Text(
-                'Items (${checkoutProducts.length})',
-                style: AppStyles.textStyle14M.copyWith(
-                  color: AppColors.blackColor,
+    return BlocBuilder<CheckoutCubit, CheckoutState>(
+      builder: (context, state) {
+        if (state.isLoading || state.isInitial) {
+          return const Center(
+            child: CircularProgressIndicator.adaptive(),
+          );
+        }
+        if (state.isFailure) {
+          return Center(
+            child: Text(state.errMessage!),
+          );
+        }
+        final address = state.address!;
+        return SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const CustomStepper(),
+                ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  onTap: () {
+                    Navigator.pushNamed(context, PreviewItemView.routeName);
+                  },
+                  title: Text(
+                    'Items (${checkoutProducts.length})',
+                    style: AppStyles.textStyle14M.copyWith(
+                      color: AppColors.blackColor,
+                    ),
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios_rounded,
+                    size: 24,
+                  ),
                 ),
-              ),
-              trailing: const Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 24,
-              ),
+                const Divider(),
+                const VerticalSpace(16),
+                Text(
+                  'Shipping',
+                  style: AppStyles.textStyle16M.copyWith(
+                    color: AppColors.blackColor,
+                  ),
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'Full Name',
+                  value: address.name,
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'Mobile Number',
+                  value: '0${address.phoneNumber}',
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'City',
+                  value: address.city,
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'Street Address',
+                  value: address.street,
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'Postal Code',
+                  value: address.postalCode,
+                ),
+                const Divider(),
+                const VerticalSpace(16),
+                Text(
+                  'Order Info',
+                  style: AppStyles.textStyle16M.copyWith(
+                    color: AppColors.blackColor,
+                  ),
+                ),
+                const VerticalSpace(12),
+                ReviewRowItem(
+                  title: 'Total',
+                  value: '$total EGP',
+                ),
+                const VerticalSpace(12),
+                const ReviewRowItem(
+                  title: 'Shipping Cost',
+                  value: '20 EGP',
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * .2,
+                ),
+                DefaultAppButton(
+                  text: 'Place Order',
+                  backgroundColor: AppColors.blackColor,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    // add to order list -> new collection contain user id and orders data an user address
+                    Navigator.pushNamed(
+                        context, OrderPlacedSuccessfuly.routeName);
+                  },
+                  padding: 0,
+                )
+              ],
             ),
-            const Divider(),
-            const VerticalSpace(16),
-            Text(
-              'Shipping',
-              style: AppStyles.textStyle16M.copyWith(
-                color: AppColors.blackColor,
-              ),
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'Full Name',
-              value: 'ALi Nassef',
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'Mobile Number',
-              value: 'ALi Nassef',
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'City',
-              value: 'ALi Nassef',
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'Street Address',
-              value: 'ALi Nassef',
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'Postal Code',
-              value: 'ALi Nassef',
-            ),
-            const Divider(),
-            const VerticalSpace(16),
-            Text(
-              'Order Info',
-              style: AppStyles.textStyle16M.copyWith(
-                color: AppColors.blackColor,
-              ),
-            ),
-            const VerticalSpace(12),
-            ReviewRowItem(
-              title: 'Total',
-              value: '$total EGP',
-            ),
-            const VerticalSpace(12),
-            const ReviewRowItem(
-              title: 'Shipping Cost',
-              value: 'ALi Nassef',
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * .2,
-            ),
-            DefaultAppButton(
-              text: 'Place Order',
-              backgroundColor: AppColors.blackColor,
-              textColor: Colors.white,
-              onPressed: () {
-                Navigator.pushNamed(context, OrderPlacedSuccessfuly.routeName);
-              },
-              padding: 0,
-            )
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }

@@ -1,7 +1,5 @@
 import 'package:dartz/dartz.dart';
-
 import 'package:taswaq/core/errors/failure.dart';
-
 import '../../../profile/domain/entity/address_entity.dart';
 import '../../domain/repo/checkout_repo.dart';
 import '../source/checkout_remote_source.dart';
@@ -20,4 +18,26 @@ class CheckoutRepoImpl extends CheckoutRepo {
       return left(Failure(errMessage: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, AddressEntity>> getAddress() async {
+    try {
+      final data = await checkoutRemoteSource.getAddress();
+      return right(data);
+    } catch (e) {
+      return left(Failure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> addOrder() {
+    // TODO: implement addOrder
+    throw UnimplementedError();
+  }
 }
+/*
+ 
+isRecived 
+estimate date 
+totla price 
+*/

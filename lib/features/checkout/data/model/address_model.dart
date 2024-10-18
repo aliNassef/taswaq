@@ -22,6 +22,17 @@ class AddressModel extends AddressEntity {
     );
   }
 
+  
+  factory AddressModel.fromMap(Map<String, dynamic> map) {
+    return AddressModel(
+      name: map[ApiKey.name] ?? '',
+      street: map[ApiKey.street] ?? '',
+      phoneNumber: map[ApiKey.phoneNumber] ?? '',
+      city: map[ApiKey.city] ?? '',
+      postalCode: map[ApiKey.postalCode] ?? '',
+      id: map[ApiKey.id] ?? '',
+    );
+  }
   @override
   toMap() {
     return {

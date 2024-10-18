@@ -4,4 +4,6 @@ import '../../../profile/domain/entity/address_entity.dart';
 
 abstract class CheckoutRepo {
   Future<Either<Failure, void>> addAddress({required AddressEntity address});
+  Future<Either<Failure, AddressEntity>> getAddress();
+  Future<Either<Failure, void>> addOrder();
 }

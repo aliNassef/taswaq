@@ -38,4 +38,18 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       );
     }
   }
+
+  Future<void> getUserAddress() async {
+    emit(state.copyWith(state: CheckoutStatus.loading));
+    final data = await checkoutRepo.getAddress();
+    data.fold(
+      (error) => emit(
+        state.copyWith(
+            state: CheckoutStatus.failure, errMessage: error.errMessage),
+      ),
+      (address) => emit(
+        state.copyWith(state: CheckoutStatus.success, address: address),
+      ),
+    );
+  }
 }
