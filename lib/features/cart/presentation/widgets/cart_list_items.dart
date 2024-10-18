@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/core/utils/constants.dart';
 import 'package:taswaq/features/checkout/presentation/view/checkout_view.dart';
 import '../cubits/cart_cubit/cart_cubit.dart';
 import '../../../../core/shared/widgets/default_app_button.dart';
@@ -70,8 +71,12 @@ class CartListItems extends StatelessWidget {
                   ),
                 ),
                 DefaultAppButton(
-                  onPressed: () =>
-                      Navigator.of(context).pushNamed(CheckoutView.routeName),
+                  onPressed: () {
+                    if (carts.isNotEmpty) {
+                      checkoutProducts = carts;
+                      Navigator.of(context).pushNamed(CheckoutView.routeName);
+                    }
+                  },
                   text:
                       'Checkout (${context.read<CartCubit>().total.round()} EGP)',
                   backgroundColor: AppColors.blackColor,

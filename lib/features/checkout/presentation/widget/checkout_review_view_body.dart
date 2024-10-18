@@ -31,7 +31,7 @@ class CheckoutReviewViewBody extends StatelessWidget {
                 Navigator.pushNamed(context, PreviewItemView.routeName);
               },
               title: Text(
-                'Items (2)',
+                'Items (${checkoutProducts.length})',
                 style: AppStyles.textStyle14M.copyWith(
                   color: AppColors.blackColor,
                 ),
@@ -83,9 +83,9 @@ class CheckoutReviewViewBody extends StatelessWidget {
               ),
             ),
             const VerticalSpace(12),
-            const ReviewRowItem(
+            ReviewRowItem(
               title: 'Total',
-              value: 'ALi Nassef',
+              value: '$total EGP',
             ),
             const VerticalSpace(12),
             const ReviewRowItem(
