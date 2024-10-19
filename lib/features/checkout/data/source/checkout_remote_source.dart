@@ -34,7 +34,7 @@ class CheckoutRemoteSource {
       docId: getUserData().id!,
       subCollectionName: EndPoints.orders,
       path: EndPoints.users,
-      data: {},
+      data: order.toMap(),
     );
   }
 }

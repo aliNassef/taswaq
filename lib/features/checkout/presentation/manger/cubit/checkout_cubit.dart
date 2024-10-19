@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:taswaq/core/shared/functions/get_user_data.dart';
 
 import '../../../../profile/domain/entity/address_entity.dart';
+import '../../../domain/entity/order_entity.dart';
 import '../../../domain/repo/checkout_repo.dart';
 import 'checkout_state.dart';
 
@@ -49,6 +50,29 @@ class CheckoutCubit extends Cubit<CheckoutState> {
       ),
       (address) => emit(
         state.copyWith(state: CheckoutStatus.success, address: address),
+      ),
+    );
+  }
+
+  // add order cubit
+  Future<void> addOrder({required OrderEntity order}) async {
+    emit(state.copyWith(state: CheckoutStatus.loading));
+
+    final response = await checkoutRepo.addOrder(
+      order: order,
+    );
+    response.fold(
+      (failure) => emit(
+        state.copyWith(
+          state: CheckoutStatus.failure,
+          errMessage: failure.errMessage,
+        ),
+      ),
+      (r) => emit(
+        state.copyWith(
+          state: CheckoutStatus.addOrderSuccess,
+          order: order,
+        ),
       ),
     );
   }

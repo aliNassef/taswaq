@@ -1,12 +1,17 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/core/shared/functions/get_user_data.dart';
+import 'package:taswaq/core/shared/functions/toast_dialog.dart';
 import 'package:taswaq/core/shared/widgets/default_app_button.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
+import 'package:taswaq/features/checkout/domain/entity/order_entity.dart';
 import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_cubit.dart';
 import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_state.dart';
 import 'package:taswaq/features/checkout/presentation/view/preview_item_view.dart';
 import 'package:taswaq/features/checkout/presentation/widget/review_row_item.dart';
-
+import '../../../../core/shared/functions/build_error_message.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_styles.dart';
@@ -21,6 +26,7 @@ class CheckoutReviewViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckoutCubit, CheckoutState>(
+      buildWhen: (previous, current) => current != previous,
       builder: (context, state) {
         if (state.isLoading || state.isInitial) {
           return const Center(
@@ -111,16 +117,34 @@ class CheckoutReviewViewBody extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .2,
                 ),
-                DefaultAppButton(
-                  text: 'Place Order',
-                  backgroundColor: AppColors.blackColor,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    // add to order list -> new collection contain user id and orders data an user address
-                    Navigator.pushNamed(
-                        context, OrderPlacedSuccessfuly.routeName);
+                BlocListener<CheckoutCubit, CheckoutState>(
+                  listenWhen: (previous, current) => current != previous,
+                  listener: (context, state) {
+                    if (state.isFailure) {
+                      buildErrorMessage(context, errMessage: state.errMessage!);
+                    }
+                    if (state.isAddedOrderSuccess) {
+                      Navigator.pushNamed(
+                          context, OrderPlacedSuccessfuly.routeName);
+                      showToast(text: 'Order Placed Successfully');
+                    }
                   },
-                  padding: 0,
+                  child: DefaultAppButton(
+                    text: 'Place Order',
+                    backgroundColor: AppColors.blackColor,
+                    textColor: Colors.white,
+                    onPressed: () {
+                      final order = OrderEntity(
+                        id: getUserData().id!,
+                        orders: checkoutProducts,
+                        isRecived: false,
+                        address: address,
+                        totalPrice: total,
+                      );
+                      context.read<CheckoutCubit>().addOrder(order: order);
+                    },
+                    padding: 0,
+                  ),
                 )
               ],
             ),

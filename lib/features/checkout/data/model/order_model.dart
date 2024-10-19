@@ -1,21 +1,16 @@
 import 'package:taswaq/core/api/end_ponits.dart';
 import 'package:taswaq/features/cart/data/models/cart_model.dart';
-import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
 import 'package:taswaq/features/checkout/data/model/address_model.dart';
 
-class OrderModel {
-  final String id;
-  final List<CartEntity> orders;
-  final bool isRecived;
-  final AddressModel address;
-  final num totalPrice;
+import '../../domain/entity/order_entity.dart';
 
+class OrderModel extends OrderEntity {
   OrderModel({
-    required this.id,
-    required this.orders,
-    required this.isRecived,
-    required this.totalPrice,
-    required this.address,
+    required super.id,
+    required super.orders,
+    required super.isRecived,
+    required super.totalPrice,
+    required super.address,
   });
 
   factory OrderModel.fromMap(Map<String, dynamic> map) {
@@ -30,5 +25,25 @@ class OrderModel {
       totalPrice: map[ApiKey.total],
       address: AddressModel.fromMap(map[ApiKey.address]),
     );
+  }
+
+  factory OrderModel.fromEntity(OrderEntity entity){
+    return OrderModel(
+      id: entity.id,
+      orders: entity.orders,
+      isRecived: entity.isRecived,
+      totalPrice: entity.totalPrice,
+      address: entity.address,
+    );
+  }
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      ApiKey.id: id,
+      ApiKey.orders: orders.map((x) => x.toJson()).toList(),
+      ApiKey.isRecived: isRecived,
+      ApiKey.total: totalPrice,
+      ApiKey.address: address.toMap(),
+    };
   }
 }
