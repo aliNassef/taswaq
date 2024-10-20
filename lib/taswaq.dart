@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/splash/presentation/view/splash_view.dart';
 import 'core/api/end_ponits.dart';
 import 'core/cache/cache_helper.dart';
 import 'core/shared/widgets/custom_no_internet_widget.dart';
@@ -44,7 +45,7 @@ class Taswaq extends StatelessWidget {
                   onGenerateRoute: onGenerateRoute,
                   initialRoute: state is ConnectivityFailure
                       ? CustomNoInternetWidget.routeName
-                      : checkiFLoggedIn(),
+                      : SplashView.routeName,
                   theme: ThemeData(
                     appBarTheme: const AppBarTheme(
                       systemOverlayStyle: SystemUiOverlayStyle(),
@@ -61,16 +62,5 @@ class Taswaq extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String checkiFLoggedIn() {
-    bool isContainkey = CacheHelper().containsKey(key: ApiKey.isLoggedIn);
-    bool isLoggedIn = CacheHelper().getData(key: ApiKey.isLoggedIn) == true;
-
-    if (isContainkey && isLoggedIn) {
-      return LayoutView.routeName;
-    } else {
-      return LoginView.routeName;
-    }
   }
 }

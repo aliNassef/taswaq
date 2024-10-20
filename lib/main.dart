@@ -15,7 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+         
   await CacheHelper().init();
   Bloc.observer = CustomBlocObserver();      
   await setupGetIt();
