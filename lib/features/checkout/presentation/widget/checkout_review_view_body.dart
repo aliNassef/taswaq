@@ -24,7 +24,10 @@ class CheckoutReviewViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CheckoutCubit, CheckoutState>(
-      buildWhen: (previous, current) => current != previous,
+      buildWhen: (previous, current) =>
+          current.state == CheckoutStatus.success ||
+          current.state == CheckoutStatus.failure ||
+          current.state == CheckoutStatus.initial,
       builder: (context, state) {
         if (state.isLoading || state.isInitial) {
           return const Center(

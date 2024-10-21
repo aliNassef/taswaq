@@ -15,9 +15,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-         
+
   await CacheHelper().init();
-  Bloc.observer = CustomBlocObserver();      
+  Bloc.observer = CustomBlocObserver();
   await setupGetIt();
   if (kReleaseMode) {
     await SentryFlutter.init(
