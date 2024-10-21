@@ -4,11 +4,13 @@ import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
 
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
- import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_styles.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key, required this.instance});
+  const OrderItem(
+      {super.key, required this.instance, required this.currentPage});
   final CartEntity instance;
+  final int currentPage;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,11 +19,11 @@ class OrderItem extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: AppColors.redColor,
+            color: currentPage == 1 ? AppColors.redColor : Colors.blue,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
-            'Estimated time: 7 working days',
+            currentPage == 1 ? 'Estimated time: 7 working days' : 'Finished',
             style: AppStyles.textStyle10SB.copyWith(
               color: Colors.white,
             ),

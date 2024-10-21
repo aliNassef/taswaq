@@ -20,5 +20,5 @@ abstract class ProfileRepo {
   Future<Either<Failure, TermsEntity>> getTermsData();
   Future<void> addUserAddress({required AddressEntity data});
   Future<Either<Failure, List<FaqsEntity>>> getFaqs();
-  Future<Either<Failure, OrderEntity>> getUserOrders();
+  Future<Either<Failure, List<OrderEntity>>> getUserOrders();
 }

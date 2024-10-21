@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/core/shared/functions/get_user_data.dart';
 import 'package:taswaq/core/shared/functions/toast_dialog.dart';
 import 'package:taswaq/core/shared/widgets/default_app_button.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
@@ -136,7 +135,7 @@ class CheckoutReviewViewBody extends StatelessWidget {
                     textColor: Colors.white,
                     onPressed: () {
                       final order = OrderEntity(
-                        id: getUserData().id!,
+                        id: DateTime.now().toString(),
                         orders: checkoutProducts,
                         isRecived: false,
                         address: address,
@@ -154,4 +153,4 @@ class CheckoutReviewViewBody extends StatelessWidget {
       },
     );
   }
-}
+}     

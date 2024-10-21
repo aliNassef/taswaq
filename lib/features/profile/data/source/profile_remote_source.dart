@@ -61,12 +61,13 @@ class ProfileRemoteSource {
     return data.map((e) => FaqsModel.fromMap(e)).toList();
   }
 
-  Future<OrderModel> getUserOrders() async {
+  Future<List<OrderModel>> getUserOrders() async {
     final data = await databaseService.getSubCollectionData(
       path: EndPoints.users,
       subCollectionName: EndPoints.orders,
       docId: getUserData().id!,
     );
-    return OrderModel.fromMap(data.first);
+    return data.map((e) => OrderModel.fromMap(e)).toList();
   }
 }
+// 

@@ -5,14 +5,13 @@ import 'package:taswaq/features/checkout/data/model/address_model.dart';
 import '../../domain/entity/order_entity.dart';
 
 class OrderModel extends OrderEntity {
-  final bool isRecived;
   final double totalPrice;
   final AddressModel address;
 
   OrderModel({
     required super.id,
     required super.orders,
-    required this.isRecived,
+    required super.isReceived,
     required this.totalPrice,
     required this.address,
   });
@@ -25,7 +24,7 @@ class OrderModel extends OrderEntity {
           (x) => CartModel.fromJson(x),
         ),
       ),
-      isRecived: map[ApiKey.isRecived],
+      isReceived: map[ApiKey.isRecived],
       totalPrice: map[ApiKey.total],
       address: AddressModel.fromMap(map[ApiKey.address]),
     );
@@ -36,7 +35,7 @@ class OrderModel extends OrderEntity {
     return {
       ApiKey.id: id,
       ApiKey.orders: orders.map((x) => x.toJson()).toList(),
-      ApiKey.isRecived: isRecived,
+      ApiKey.isRecived: isReceived,
       ApiKey.total: totalPrice,
       ApiKey.address: address.toMap(),
     };

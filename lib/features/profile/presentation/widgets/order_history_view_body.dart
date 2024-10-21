@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
+import 'package:taswaq/features/profile/domain/entity/order_entity.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/constants.dart';
@@ -22,34 +25,67 @@ class OrderHistoryViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late List<OrderEntity> orders;
+    List<CartEntity> completedOrders = [];
+    List<CartEntity> ongoingOrders = [];
+
     return BlocConsumer<OrderHistoryCubit, OrderHistoryState>(
       buildWhen: (previous, current) =>
           current is OrderHistoryChangePage ||
           current is OrderHistoryLoading ||
           current is OrderHistorySuccess ||
           current is OrderHistoryFailure,
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is OrderHistoryChangePage) {
+          orders = state.orderHistory;
+          completedOrders = [];
+          ongoingOrders = [];
+          for (int i = 0; i < orders.toList().length; i++) {
+            if (orders[i].isReceived == true) {
+              completedOrders.addAll(orders[i].orders);
+            } else {
+              ongoingOrders.addAll(orders[i].orders);
+            }
+          }
+        }
+        // list of order entity loop if completed or pending
+        if (state is OrderHistorySuccess) {
+          orders = state.orderHistory;
+          completedOrders = [];
+          ongoingOrders = [];
+          for (int i = 0; i < orders.toList().length; i++) {
+            if (orders[i].isReceived == true) {
+              completedOrders.addAll(orders[i].orders);
+            } else {
+              ongoingOrders.addAll(orders[i].orders);
+            }
+          }
+        }
+      },
       builder: (context, state) {
         if (state is OrderHistoryFailure) {
           return const Center(
             child: Text('Failed to get orders'),
           );
         }
-        if (state is OrderHistorySuccess) {
+        if (state is OrderHistorySuccess || state is OrderHistoryChangePage) {
           final cubit = context.read<OrderHistoryCubit>();
-          final orders = state.orderHistory;
+          // is receved  && is Pending
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
             child: Column(
               children: [
                 const VerticalSpace(16),
                 ChossingCase(
+                  order: orders,
                   page: cubit.currentPage,
                 ),
                 const VerticalSpace(24),
-                orders.orders.isNotEmpty
+                orders.isNotEmpty
                     ? OrdderListItems(
-                        orders: orders,
+                        currentPage: cubit.currentPage,
+                        completedOrders: completedOrders,
+                        ongoingOrders: ongoingOrders,
                       )
                     : Column(
                         children: [
@@ -78,17 +114,16 @@ class OrderHistoryViewBody extends StatelessWidget {
             ),
           );
         }
-        return Expanded(
-          child: ListView.separated(
-            itemBuilder: (context, index) => Skeletonizer(
-              enabled: true,
-              child: OrderItem(
-                instance: dummyData[index],
-              ),
+        return ListView.separated(
+          itemBuilder: (context, index) => Skeletonizer(
+            enabled: true,
+            child: OrderItem(
+              currentPage: 1,
+              instance: dummyData[index],
             ),
-            separatorBuilder: (context, index) => const VerticalSpace(16),
-            itemCount: dummyData.length,
           ),
+          separatorBuilder: (context, index) => const VerticalSpace(16),
+          itemCount: dummyData.length,
         );
       },
     );

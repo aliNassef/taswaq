@@ -90,9 +90,10 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, OrderEntity>> getUserOrders() async {
+  Future<Either<Failure, List<OrderEntity>>> getUserOrders() async {
     try {
       final data = await profileRemoteSource.getUserOrders();
+      log(data[0].orders[0].title.toString());
       return Right(data);
     } catch (e) {
       return Left(Failure(errMessage: e.toString()));

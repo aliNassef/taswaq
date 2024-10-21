@@ -3,10 +3,12 @@ import '../../../cart/domain/entities/cart_entity.dart';
 class OrderEntity {
   final String id;
   final List<CartEntity> orders;
+  final bool isReceived;
 
   OrderEntity({
     required this.id,
     required this.orders,
+    this.isReceived = false,
   });
 
   factory OrderEntity.fromMap(Map<String, dynamic> map) {
@@ -17,6 +19,7 @@ class OrderEntity {
           (x) => CartEntity.fromJson(x),
         ),
       ),
+      isReceived: map['isReceived'] ?? false,
     );
   }
 
@@ -24,6 +27,7 @@ class OrderEntity {
     return {
       'id': id,
       'orders': orders.map((x) => x.toJson()).toList(),
+      'isReceived': isReceived,
     };
   }
 }

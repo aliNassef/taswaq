@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/profile/domain/entity/order_entity.dart';
 
 import '../../../../core/shared/widgets/spacers.dart';
+import '../../../cart/domain/entities/cart_entity.dart';
 import 'order_item.dart';
 
 class OrdderListItems extends StatelessWidget {
-  const OrdderListItems({super.key, required this.orders});
-  final OrderEntity orders;
+  const OrdderListItems({
+    super.key,
+    required this.currentPage,
+    required this.completedOrders,
+    required this.ongoingOrders,
+  });
+  final int currentPage;
+  final List<CartEntity> completedOrders;
+  final List<CartEntity> ongoingOrders;
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.separated(
         itemBuilder: (context, index) => OrderItem(
-          instance: orders.orders[index],
+          currentPage: currentPage,
+          instance:
+              currentPage == 1 ? ongoingOrders[index] : completedOrders[index],
         ),
         separatorBuilder: (context, index) => const VerticalSpace(16),
-        itemCount: orders.orders.length,
+        itemCount:
+            currentPage == 1 ? ongoingOrders.length : completedOrders.length,
       ),
     );
   }
