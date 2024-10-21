@@ -7,6 +7,8 @@ import 'package:taswaq/core/utils/app_styles.dart';
 import 'package:taswaq/features/onboarding/domain/entity/onboarding_entity.dart';
 import 'package:taswaq/features/onboarding/presentation/widgets/app_logo.dart';
 
+import '../../../login/presentation/views/login_view.dart';
+
 class PageViewItemData extends StatelessWidget {
   const PageViewItemData({
     super.key,
@@ -57,10 +59,16 @@ class PageViewItemData extends StatelessWidget {
                           ),
                     Visibility(
                       visible: currentPage != 2,
-                      child: Text(
-                        'Skip for now',
-                        style: AppStyles.textStyle14M.copyWith(
-                          color: AppColors.primaryColor,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(
+                              context, LoginView.routeName);
+                        },
+                        child: Text(
+                          'Skip for now',
+                          style: AppStyles.textStyle14M.copyWith(
+                            color: AppColors.primaryColor,
+                          ),
                         ),
                       ),
                     ),
