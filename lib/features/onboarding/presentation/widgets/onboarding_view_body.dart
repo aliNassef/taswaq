@@ -1,80 +1,76 @@
-
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:taswaq/core/shared/widgets/default_app_button.dart';
 import 'package:taswaq/core/shared/widgets/spacers.dart';
 import 'package:taswaq/core/utils/app_colors.dart';
 import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/core/utils/constants.dart';
-import 'package:taswaq/features/onboarding/presentation/widgets/app_logo.dart';
+import 'package:taswaq/features/login/presentation/views/login_view.dart';
+import 'package:taswaq/features/onboarding/domain/entity/onboarding_entity.dart';
+import 'package:taswaq/features/onboarding/presentation/widgets/pageview_items.dart';
 
-class OnboardingViewBody extends StatelessWidget {
-  const OnboardingViewBody({
-    super.key,
-  });
+import '../../../../core/utils/constants.dart';
 
+class OnboardingViewBody extends StatefulWidget {
+  const OnboardingViewBody({super.key});
+
+  @override
+  State<OnboardingViewBody> createState() => _OnboardingViewBodyState();
+}
+
+class _OnboardingViewBodyState extends State<OnboardingViewBody> {
+  late PageController pageController;
+  int currentIndex = 0;
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(
+      initialPage: 0,
+    );
+    pageController.addListener(() {
+      currentIndex = pageController.page!.round();
+      setState(() {});
+    });
+  }
+
+// ******* ALi Nassef Ibrahem Ahmed Shabana *******
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
       child: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * .55,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32.0),
-              color: const Color(0xffF4FDFA),
-              image: const DecorationImage(
-                image: AssetImage(AppImages.onboarding1),
-              ),
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const AppLogo(),
-                      Text(
-                        'Skip for now',
-                        style: AppStyles.textStyle14M.copyWith(
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              ],
+          Expanded(
+            child: PageView.builder(
+              controller: pageController,
+              itemBuilder: (context, index) {
+                return PageViewItemData(
+                  pageController: pageController,
+                  currentPage: currentIndex,
+                  instance: onboardingData[index],
+                );
+              },
+              itemCount: 3,
             ),
           ),
-          const VerticalSpace(24),
-          Text(
-            'Explore a wide range of products',
-            style: AppStyles.textStyle24B.copyWith(
-              color: AppColors.blackColor,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const VerticalSpace(16),
-          Text(
-            'Explore a wide range of products at your fingertips. QuickMart offers an extensive collection to suit your needs.',
-            style: AppStyles.textStyle14R.copyWith(
-              color: AppColors.gray150Color,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const VerticalSpace(24),
-          const DefaultAppButton(
-            text: 'Next',
+          DefaultAppButton(
+            onPressed: () {
+              if (currentIndex == 2) {
+                Navigator.pushReplacementNamed(context, LoginView.routeName);
+              } else {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeIn,
+                );
+              }
+            },
+            text: currentIndex == 2 ? 'Get Started' : 'Next',
             backgroundColor: AppColors.blackColor,
             textColor: Colors.white,
             padding: 0,
           ),
-          const VerticalSpace(24),
+          const VerticalSpace(16),
           DotsIndicator(
+            position: currentIndex,
             decorator: const DotsDecorator(
               spacing: EdgeInsets.all(4),
               color: AppColors.gray100Color,
@@ -82,8 +78,30 @@ class OnboardingViewBody extends StatelessWidget {
             ),
             dotsCount: 3,
           ),
+          const VerticalSpace(16),
         ],
       ),
     );
   }
+
+  List<OnboardingEntity> onboardingData = [
+    OnboardingEntity(
+      title: 'Explore a wide range of products',
+      description:
+          'Explore a wide range of products at your fingertips. QuickMart offers an extensive collection to suit your needs.',
+      image: AppImages.onboarding1,
+    ),
+    OnboardingEntity(
+      title: 'Unlock exclusive offers and discounts',
+      description:
+          'Get access to limited-time deals and special promotions available only to our valued customers.',
+      image: AppImages.onboarding2,
+    ),
+    OnboardingEntity(
+      title: 'Safe and secure payments',
+      description:
+          ' QuickMart employs industry-leading encryption and trusted payment gateways to safeguard your financial information.',
+      image: AppImages.onboarding3,
+    ),
+  ];
 }
