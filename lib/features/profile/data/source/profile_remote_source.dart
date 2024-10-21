@@ -3,6 +3,7 @@ import '../../../../core/services/firebase_auth_service.dart';
 import '../../../../core/services/database_service.dart';
 import '../../../../core/shared/functions/get_user_data.dart';
 import '../model/faqs_model.dart';
+import '../model/order_model.dart';
 import '../model/privacy_model.dart';
 import '../model/terms_model.dart';
 
@@ -58,5 +59,14 @@ class ProfileRemoteSource {
       path: EndPoints.faqs,
     );
     return data.map((e) => FaqsModel.fromMap(e)).toList();
+  }
+
+  Future<OrderModel> getUserOrders() async {
+    final data = await databaseService.getSubCollectionData(
+      path: EndPoints.users,
+      subCollectionName: EndPoints.orders,
+      docId: getUserData().id!,
+    );
+    return OrderModel.fromMap(data.first);
   }
 }

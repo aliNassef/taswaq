@@ -5,6 +5,7 @@ import '../../features/checkout/presentation/view/checkout_view.dart';
 import '../../features/checkout/presentation/view/order_placced_successfuly_view.dart';
 import '../../features/checkout/presentation/view/payment_view.dart';
 import '../../features/checkout/presentation/view/preview_item_view.dart';
+import '../../features/onboarding/presentation/view/onboading_view.dart';
 import '../../features/profile/presentation/views/order_history_view.dart';
 import '../../features/profile/presentation/views/privacy_policy_view.dart';
 import '../../features/profile/presentation/views/change_pass_view.dart';
@@ -155,6 +156,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (_) {
           return const SplashView();
+        },
+      );
+
+    case OnboardingView.routeName:
+      return MaterialPageRoute(
+        builder: (_) {
+          return const OnboardingView();
         },
       );
     case CustomNoInternetWidget.routeName:

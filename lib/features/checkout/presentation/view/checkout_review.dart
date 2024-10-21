@@ -10,6 +10,7 @@ class CheckoutReviewView extends StatelessWidget {
   const CheckoutReviewView({super.key});
   static const routeName = 'checkout_review';
   @override
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildCustomAppBar(title: 'Checkout Review'),

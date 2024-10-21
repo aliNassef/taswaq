@@ -5,7 +5,7 @@ import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../layout/presentation/views/layout_view.dart';
-import '../../../login/presentation/views/login_view.dart';
+import '../../../onboarding/presentation/view/onboading_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -60,7 +60,7 @@ class _SplashViewState extends State<SplashView> {
     if (isContainkey && isLoggedIn) {
       Navigator.pushReplacementNamed(context, LayoutView.routeName);
     } else {
-      Navigator.pushReplacementNamed(context, LoginView.routeName);
+      Navigator.pushReplacementNamed(context, OnboardingView.routeName);
     }
   }
 }

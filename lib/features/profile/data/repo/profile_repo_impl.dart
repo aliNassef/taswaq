@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:dartz/dartz.dart';
+import 'package:taswaq/features/profile/domain/entity/order_entity.dart';
 import '../../domain/entity/faqs_entity.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/di/dependency_injuction.dart';
@@ -80,9 +81,19 @@ class ProfileRepoImpl extends ProfileRepo {
   }
 
   @override
-  Future<Either<Failure, List<FaqsEntity>>> getFaqs() async{
+  Future<Either<Failure, List<FaqsEntity>>> getFaqs() async {
     try {
       return Right(await profileRemoteSource.getFaqs());
+    } catch (e) {
+      return Left(Failure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, OrderEntity>> getUserOrders() async {
+    try {
+      final data = await profileRemoteSource.getUserOrders();
+      return Right(data);
     } catch (e) {
       return Left(Failure(errMessage: e.toString()));
     }

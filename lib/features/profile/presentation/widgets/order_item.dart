@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
 
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_images.dart';
-import '../../../../core/utils/app_styles.dart';
+ import '../../../../core/utils/app_styles.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key});
-
+  const OrderItem({super.key, required this.instance});
+  final CartEntity instance;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,11 +32,11 @@ class OrderItem extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Colors.amberAccent,
+                color: Colors.teal,
                 borderRadius: BorderRadius.all(Radius.circular(12)),
               ),
-              child: Image.asset(
-                AppImages.orderHistory,
+              child: Image.network(
+                instance.image,
                 height: 120.h,
                 width: 120.w,
                 fit: BoxFit.fill,
@@ -44,26 +44,30 @@ class OrderItem extends StatelessWidget {
             ),
             const HorizantalSpace(8),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'data',
+                  instance.title,
                   style: AppStyles.textStyle14M.copyWith(
                     color: AppColors.blackColor,
                   ),
                 ),
                 Text(
-                  'data',
+                  '${instance.price} EGP',
                   style: AppStyles.textStyle12SB,
                 ),
                 Text(
-                  'data',
+                  '${(instance.price / (1 - (instance.discountPercentage / 100))).round()} EGP',
                   style: AppStyles.textStyle10R.copyWith(
                     color: AppColors.gray150Color,
                     decoration: TextDecoration.lineThrough,
                     decorationThickness: 2,
                     decorationColor: AppColors.grayColor,
                   ),
+                ),
+                Text(
+                  'amount : ${instance.quantity}',
+                  style: AppStyles.textStyle12SB,
                 ),
               ],
             )

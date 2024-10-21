@@ -5,6 +5,9 @@ abstract class AppImages {
   static const String orderPlaceholder = 'assets/images/order_placeholder.png';
   static const String quickSign = 'assets/images/quick_sign.png';
   static const String quickMarket = 'assets/images/uickMart.png';
+  static const onboarding1 = 'assets/images/onboarding1.png';
+  static const onboarding2 = 'assets/images/onboarding2.png';
+  static const onboarding3 = 'assets/images/onboarding3.png';
 }
 
 abstract class AppSvgs {

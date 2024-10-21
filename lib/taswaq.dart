@@ -4,15 +4,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taswaq/features/splash/presentation/view/splash_view.dart';
-import 'core/api/end_ponits.dart';
-import 'core/cache/cache_helper.dart';
 import 'core/shared/widgets/custom_no_internet_widget.dart';
 import 'features/layout/presentation/manger/check_connectivity_bloc/connectivity_state.dart';
 import 'features/layout/presentation/manger/check_connectivity_bloc/connectivity_bloc.dart';
-import 'features/layout/presentation/views/layout_view.dart';
 import 'core/utils/app_colors.dart';
 import 'core/utils/app_router.dart';
-import 'features/login/presentation/views/login_view.dart';
 
 class Taswaq extends StatelessWidget {
   const Taswaq({super.key});
