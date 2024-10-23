@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/splash/presentation/view/splash_view.dart';
+import 'features/splash/presentation/view/splash_view.dart';
 import 'core/shared/widgets/custom_no_internet_widget.dart';
 import 'features/layout/presentation/manger/check_connectivity_bloc/connectivity_state.dart';
 import 'features/layout/presentation/manger/check_connectivity_bloc/connectivity_bloc.dart';

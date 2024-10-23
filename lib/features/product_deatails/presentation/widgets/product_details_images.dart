@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'product_details_top_bar.dart';
+
 import '../../domain/entity/product_detais_entity/product_details_entity.dart';
+import 'product_details_top_bar.dart';
 
 class PrdouctDetailsImages extends StatelessWidget {
   const PrdouctDetailsImages({

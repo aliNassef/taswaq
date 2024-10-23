@@ -1,11 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_styles.dart';
-import 'package:taswaq/features/onboarding/domain/entity/onboarding_entity.dart';
-import 'package:taswaq/features/onboarding/presentation/widgets/app_logo.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_styles.dart';
+import '../../domain/entity/onboarding_entity.dart';
+import 'app_logo.dart';
 
 import '../../../login/presentation/views/login_view.dart';
 

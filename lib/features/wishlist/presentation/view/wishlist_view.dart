@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/wishlist/presentation/widgets/wishlist_topbar.dart';
+import '../widgets/wishlist_topbar.dart';
 import '../../domain/repo/wishlist_repo.dart';
 import '../cubit/wish_list_cubit.dart';
 

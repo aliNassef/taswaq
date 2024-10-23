@@ -1,4 +1,4 @@
-import 'package:taswaq/features/profile/domain/entity/address_entity.dart';
+import '../../../profile/domain/entity/address_entity.dart';
 
 import '../../../cart/domain/entities/cart_entity.dart';
 import '../../data/model/address_model.dart';

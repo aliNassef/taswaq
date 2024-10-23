@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/core/utils/app_images.dart';
+import '../../../../core/utils/app_images.dart';
 
 import '../../../../core/shared/widgets/spacers.dart';
 

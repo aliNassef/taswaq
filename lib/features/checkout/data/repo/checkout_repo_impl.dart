@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:taswaq/core/errors/failure.dart';
-import 'package:taswaq/features/checkout/data/model/order_model.dart';
-import 'package:taswaq/features/checkout/domain/entity/order_entity.dart';
+import '../../../../core/errors/failure.dart';
+import '../model/order_model.dart';
+import '../../domain/entity/order_entity.dart';
 import '../../../profile/domain/entity/address_entity.dart';
 import '../../domain/repo/checkout_repo.dart';
 import '../source/checkout_remote_source.dart';

@@ -1,9 +1,8 @@
- 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:taswaq/features/cart/domain/entities/cart_entity.dart';
-import 'package:taswaq/features/profile/domain/entity/order_entity.dart';
+import '../../../cart/domain/entities/cart_entity.dart';
+import '../../domain/entity/order_entity.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/constants.dart';

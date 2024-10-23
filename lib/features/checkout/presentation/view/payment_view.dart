@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/services/paymob_manger/paymob_manger.dart';
+import '../../../../core/services/paymob_manger/paymob_manger.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class PaymentView extends StatefulWidget {

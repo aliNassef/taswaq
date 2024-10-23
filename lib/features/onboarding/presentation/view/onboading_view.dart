@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/features/onboarding/presentation/widgets/onboarding_view_body.dart';
+import '../widgets/onboarding_view_body.dart';
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});

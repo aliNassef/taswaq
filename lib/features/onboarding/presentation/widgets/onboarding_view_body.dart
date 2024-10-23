@@ -1,12 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
-import 'package:taswaq/core/utils/app_colors.dart';
-import 'package:taswaq/core/utils/app_images.dart';
-import 'package:taswaq/features/login/presentation/views/login_view.dart';
-import 'package:taswaq/features/onboarding/domain/entity/onboarding_entity.dart';
-import 'package:taswaq/features/onboarding/presentation/widgets/pageview_items.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_images.dart';
+import '../../../login/presentation/views/login_view.dart';
+import '../../domain/entity/onboarding_entity.dart';
+import 'pageview_items.dart';
 
 import '../../../../core/utils/constants.dart';
 

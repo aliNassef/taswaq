@@ -1,6 +1,6 @@
-import 'package:taswaq/core/api/end_ponits.dart';
-import 'package:taswaq/features/cart/data/models/cart_model.dart';
-import 'package:taswaq/features/checkout/data/model/address_model.dart';
+import '../../../../core/api/end_ponits.dart';
+import '../../../cart/data/models/cart_model.dart';
+import 'address_model.dart';
 
 import '../../domain/entity/order_entity.dart';
 

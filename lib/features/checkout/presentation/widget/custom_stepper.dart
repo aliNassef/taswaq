@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:taswaq/features/checkout/presentation/widget/custom_dvider.dart';
+import 'custom_dvider.dart';
 import '../../../../core/utils/app_images.dart';
 import 'step_item.dart';
 

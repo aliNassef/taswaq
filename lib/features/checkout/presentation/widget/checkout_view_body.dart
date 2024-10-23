@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_state.dart';
-import 'package:taswaq/core/shared/widgets/shipping_address_view_body.dart';
-import 'package:taswaq/features/checkout/presentation/view/checkout_review.dart';
+import '../manger/cubit/checkout_state.dart';
+import '../../../../core/shared/widgets/shipping_address_view_body.dart';
+import '../view/checkout_review.dart';
 
 import '../../../../core/shared/functions/build_error_message.dart';
 import '../../../../core/utils/constants.dart';

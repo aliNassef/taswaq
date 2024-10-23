@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:taswaq/features/checkout/presentation/manger/cubit/checkout_cubit.dart';
+import '../manger/cubit/checkout_cubit.dart';
 import '../../../../core/di/dependency_injuction.dart';
 import '../../../../core/shared/widgets/custom_app_bar.dart';
 import '../../domain/repo/checkout_repo.dart';

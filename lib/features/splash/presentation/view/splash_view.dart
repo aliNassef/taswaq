@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/spacers.dart';
+import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/utils/app_images.dart';

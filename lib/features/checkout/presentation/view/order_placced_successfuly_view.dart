@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:taswaq/core/shared/widgets/default_app_button.dart';
-import 'package:taswaq/core/utils/app_images.dart';
+import '../../../../core/shared/widgets/default_app_button.dart';
+import '../../../../core/utils/app_images.dart';
 
 import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
