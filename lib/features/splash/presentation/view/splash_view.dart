@@ -20,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(milliseconds: 300),
+      const Duration(milliseconds: 600),
       () => checkiFLoggedIn(),
     );
   }

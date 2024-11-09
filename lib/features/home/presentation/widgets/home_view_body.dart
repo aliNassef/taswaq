@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taswaq/features/home/presentation/view/all_products_view.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/constants.dart';
 import 'categories_header.dart';
@@ -45,7 +46,9 @@ class HomeViewBody extends StatelessWidget {
               const VerticalSpace(24),
               HeaderRow(
                 title: 'Latest Products',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AllProductsView.routeName);
+                },
               ),
               // const VerticalSpace(24),
             ],

@@ -87,11 +87,16 @@ class ProductDetailsContent extends StatelessWidget {
                   );
                 },
               ),
-              const Spacer(),
+              const Spacer(
+                flex: 2,
+              ),
               AddToCartOrBuyNow(
                 instance: instance,
               ),
-              const VerticalSpace(30),
+              const Spacer(
+                flex: 1,
+              ),
+              // const VerticalSpace(30),
             ],
           ),
         ),

@@ -7,6 +7,7 @@ import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../../home/presentation/view/all_products_view.dart';
 import '../cubit/wish_list_cubit.dart';
 
 class EmptyWishList extends StatelessWidget {
@@ -53,8 +54,9 @@ class EmptyWishList extends StatelessWidget {
               ),
               const VerticalSpace(16),
               DefaultAppButton(
-                onPressed: () {},
-                
+                onPressed: () {
+                  Navigator.pushNamed(context, AllProductsView.routeName);
+                },
                 text: 'Express Products',
                 backgroundColor: AppColors.blackColor,
                 textColor: Colors.white,

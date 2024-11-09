@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:taswaq/features/home/presentation/view/all_products_view.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../checkout/presentation/view/checkout_view.dart';
 import '../cubits/cart_cubit/cart_cubit.dart';
@@ -44,7 +45,9 @@ class CartListItems extends StatelessWidget {
               const VerticalSpace(24),
               DefaultAppButton(
                 padding: 0,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AllProductsView.routeName);
+                },
                 text: 'Explore Products',
                 backgroundColor: AppColors.blackColor,
                 textColor: Colors.white,
