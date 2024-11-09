@@ -29,6 +29,8 @@ class EndPoints {
   static const String faqs = 'fqs';
 
   static const String orders = 'orders';
+
+  static const String offers = 'offers';
 }
 
 class ApiKey {

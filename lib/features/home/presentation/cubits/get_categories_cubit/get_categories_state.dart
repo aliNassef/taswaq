@@ -30,3 +30,21 @@ final class GetCategoriesLoading extends GetCategoriesState {
   @override
   List<Object?> get props => [];
 }
+
+final class GetOffersLoading extends GetCategoriesState {
+  @override
+  List<Object?> get props => [];
+}
+
+final class GetOffersLoaded extends GetCategoriesState {
+  final List<String> images;
+
+  GetOffersLoaded({required this.images});
+  @override
+  List<Object?> get props => [images];
+}
+
+final class GetOffersFailure extends GetCategoriesState {
+  final String errMessage;
+  GetOffersFailure({required this.errMessage});
+}

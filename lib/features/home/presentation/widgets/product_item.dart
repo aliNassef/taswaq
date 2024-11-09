@@ -51,8 +51,8 @@ class ProductItem extends StatelessWidget {
                   buildWhen: (previous, current) => current is ToggleFavorite,
                   builder: (context, state) {
                     return Positioned(
-                      top: 8.h,
-                      right: 8.h,
+                      top: 2.h,
+                      right: 0.h,
                       child: CustomFavIcon(
                         isFav: context
                             .read<GetProductsCubit>()

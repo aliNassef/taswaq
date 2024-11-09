@@ -1,9 +1,12 @@
+import 'package:taswaq/core/errors/exceptions.dart';
+
 import '../../../../core/services/database_service.dart';
 import '../../../../core/shared/functions/get_user_data.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';
+import '../models/offers/offer_model.dart';
 import '../models/product_model/product_model.dart';
 
 class HomeRemoteSource {
@@ -43,7 +46,7 @@ class HomeRemoteSource {
     return await databaseService.isProductExist(
       path: EndPoints.users,
       subCollectionName: EndPoints.wishList,
-      userId:getUserData().id!,
+      userId: getUserData().id!,
       productId: productId,
     );
   }
@@ -55,5 +58,16 @@ class HomeRemoteSource {
       userId: getUserData().id!,
       productId: id,
     );
+  }
+
+  Future<OfferModel> getOffers() async {
+    try {
+      final response = await databaseService.getDataWithoutId(
+        path: EndPoints.offers,
+      );
+      return OfferModel.fromJson(response.first);
+    } catch (e) {
+      throw CustomException(errorMessage: 'something went wrong');
+    }
   }
 }

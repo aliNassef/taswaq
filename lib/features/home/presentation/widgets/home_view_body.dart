@@ -18,7 +18,6 @@ class HomeViewBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         const SliverToBoxAdapter(
-          
           child: Column(
             children: [
               VerticalSpace(30),
@@ -59,28 +58,5 @@ class HomeViewBody extends StatelessWidget {
         ),
       ],
     );
-
-    // return Column(
-    //   children: [
-    //     Padding(
-    //       padding: EdgeInsets.symmetric(vertical: 20.h),
-    //       child: HeaderRow(
-    //         title: 'Categories',
-    //         onTap: () {},
-    //       ),
-    //     ),
-    //     const Padding(
-    //       padding: EdgeInsets.only(left: 8, right: 8),
-    //       child: CategoriesHorizantalList(),
-    //     ),
-    //     const VerticalSpace(24),
-    //     HeaderRow(
-    //       title: 'Latest Products',
-    //       onTap: () {},
-    //     ),
-    //     const ProductSectionGridView(),
-    //     //  const VerticalSpace(24),
-    //   ],
-    // );
   }
 }

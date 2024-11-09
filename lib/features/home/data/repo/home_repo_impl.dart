@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:taswaq/features/home/domain/entities/offer_entity/offer_entity.dart';
 import '../../../../core/errors/failure.dart';
 import '../source/home_remote_source.dart';
 import '../../domain/entities/product_entity/product_entity.dart';
@@ -43,5 +44,15 @@ class HomeRepoImpl extends HomeRepo {
   @override
   Future<void> deleteProductFromWishList({required String id}) async {
     await homeRemoteSource.deleteProductFromWishList(id: id);
+  }
+
+  @override
+  Future<Either<Failure, OfferEntity>> getoffers() async {
+    try {
+      final data = await homeRemoteSource.getOffers();
+      return right(data.toEntity());
+    } on CustomException catch (e) {
+      return left(Failure(errMessage: e.errorMessage));
+    }
   }
 }

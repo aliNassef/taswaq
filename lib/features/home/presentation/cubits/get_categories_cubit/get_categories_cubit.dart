@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/repo/home_repo.dart';
-
 import 'get_categories_state.dart';
 
 class GetCategoriesCubit extends Cubit<GetCategoriesState> {
@@ -18,5 +17,17 @@ class GetCategoriesCubit extends Cubit<GetCategoriesState> {
       ),
     );
   }
-  
+
+  Future<void> getOffers() async {
+    emit(GetOffersLoading());
+    final response = await _homeRepo.getoffers();
+    response.fold(
+      (failure) => emit(
+        GetOffersFailure(errMessage: failure.errMessage),
+      ),
+      (images) => emit(
+        GetOffersLoaded(images: images.images),
+      ),
+    );
+  }
 }
