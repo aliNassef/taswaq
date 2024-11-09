@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../../../../core/services/paymob_manger/paymob_manger.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../../../core/utils/constants.dart';
 
 class PaymentView extends StatefulWidget {
   const PaymentView({super.key});
@@ -21,12 +25,15 @@ class _PaymentViewState extends State<PaymentView> {
   }
 
   void _loadPaymentUrl() async {
+
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
+
         NavigationDelegate(
           onProgress: (int progress) {},
+
           onPageStarted: (String url) {},
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
@@ -36,9 +43,12 @@ class _PaymentViewState extends State<PaymentView> {
             }
             return NavigationDecision.navigate;
           },
+
         ),
       );
-    String paymentKey = await PaymobManager().getPaymentKey(100, 'EGP');
+    log(total.toString());
+    String paymentKey =
+        await PaymobManager().getPaymentKey(total.toInt(), 'EGP');
 
     setState(() {
       url = paymentKey;

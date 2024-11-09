@@ -34,4 +34,5 @@ abstract class AppSvgs {
   static const String termsIcon = 'assets/svgs/terms_condations.svg';
   static const String lockIcon = 'assets/svgs/lock.svg';
   static const String review = 'assets/svgs/review.svg';
+  static const String logo = 'assets/svgs/logo.svg';
 }

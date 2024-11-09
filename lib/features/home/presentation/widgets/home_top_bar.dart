@@ -5,7 +5,6 @@ import '../../../../core/shared/widgets/spacers.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../search/presentation/views/search_view.dart';
 import '../../../../core/utils/app_images.dart';
-import '../../../../core/utils/app_styles.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
@@ -17,9 +16,8 @@ class HomeTopBar extends StatelessWidget {
           EdgeInsets.symmetric(vertical: 12.h, horizontal: kHorizantalpadding),
       child: Row(
         children: [
-          Text(
-            'Taswaq',
-            style: AppStyles.textStyle16SB,
+          SvgPicture.asset(
+            AppSvgs.logo,
           ),
           const Spacer(),
           IconButton(
@@ -28,11 +26,11 @@ class HomeTopBar extends StatelessWidget {
             },
             icon: SvgPicture.asset(
               AppSvgs.searchIcon,
-              width: 32.w,
-              height: 32.h,
+              width: 24.w,
+              height: 24.h,
             ),
           ),
-          const HorizantalSpace(12),
+          const HorizantalSpace(6),
           InkWell(
             onTap: () {},
             child: ClipRRect(

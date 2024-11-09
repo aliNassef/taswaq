@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/constants.dart';
 import '../../../checkout/presentation/view/checkout_view.dart';
 import '../cubits/cart_cubit/cart_cubit.dart';
@@ -18,40 +17,39 @@ class CartListItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return carts.isEmpty
-        ? Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  AppImages.noCartItems,
-                  fit: BoxFit.cover,
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const VerticalSpace(50),
+              Image.asset(
+                AppImages.noCartItems,
+                fit: BoxFit.cover,
+                width: MediaQuery.sizeOf(context).width,
+              ),
+              Text(
+                'Your cart is empty',
+                style: AppStyles.textStyle24B.copyWith(
+                  color: AppColors.blackColor,
                 ),
-                Text(
-                  'Your cart is empty',
-                  style: AppStyles.textStyle24B.copyWith(
-                    color: AppColors.blackColor,
-                  ),
-                  textAlign: TextAlign.center,
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Looks like you have not added anything in your cart. Go ahead and explore top categories.',
+                style: AppStyles.textStyle14R.copyWith(
+                  color: AppColors.gray150Color,
                 ),
-                Text(
-                  'Looks like you have not added anything in your cart. Go ahead and explore top categories.',
-                  style: AppStyles.textStyle14R.copyWith(
-                    color: AppColors.gray150Color,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-                const VerticalSpace(24),
-                DefaultAppButton(
-                  padding: 0,
-                  onPressed: () {},
-                  text: 'Explore Products',
-                  backgroundColor: AppColors.blackColor,
-                  textColor: Colors.white,
-                )
-              ],
-            ),
+                textAlign: TextAlign.center,
+              ),
+              const VerticalSpace(24),
+              DefaultAppButton(
+                padding: 0,
+                onPressed: () {},
+                text: 'Explore Products',
+                backgroundColor: AppColors.blackColor,
+                textColor: Colors.white,
+              )
+            ],
           )
         : Expanded(
             child: Column(
@@ -74,6 +72,7 @@ class CartListItems extends StatelessWidget {
                   onPressed: () {
                     if (carts.isNotEmpty) {
                       checkoutProducts = carts;
+                      total = context.read<CartCubit>().total;
                       Navigator.of(context).pushNamed(CheckoutView.routeName);
                     }
                   },

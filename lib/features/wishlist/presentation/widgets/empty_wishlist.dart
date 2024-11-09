@@ -31,10 +31,12 @@ class EmptyWishList extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const VerticalSpace(50),
               Image.asset(
                 AppImages.wishlistEmpty,
-                height: MediaQuery.sizeOf(context).height * .3,
+                // height: MediaQuery.sizeOf(context).height * .3,
                 width: double.infinity,
+                fit: BoxFit.cover,
               ),
               Text(
                 'Your wishlist is empty',
@@ -50,7 +52,9 @@ class EmptyWishList extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const VerticalSpace(16),
-              const DefaultAppButton(
+              DefaultAppButton(
+                onPressed: () {},
+                
                 text: 'Express Products',
                 backgroundColor: AppColors.blackColor,
                 textColor: Colors.white,

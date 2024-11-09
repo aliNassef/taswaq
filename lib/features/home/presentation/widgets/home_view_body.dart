@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/shared/widgets/spacers.dart';
+import '../../../../core/utils/constants.dart';
 import 'categories_header.dart';
 import 'categories_horizantl_list.dart';
 import 'home_top_bar.dart';
@@ -14,29 +15,72 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const HomeTopBar(),
-        const OfferHorizantalList(),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 20.h),
-          child: HeaderRow(
-            title: 'Categories',
-            onTap: () {},
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(
+          
+          child: Column(
+            children: [
+              VerticalSpace(30),
+              HomeTopBar(),
+            ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 8, right: 8),
-          child: CategoriesHorizantalList(),
+        const SliverToBoxAdapter(
+          child: OfferHorizantalList(),
         ),
-        const VerticalSpace(24),
-        HeaderRow(
-          title: 'Latest Products',
-          onTap: () {},
+        SliverToBoxAdapter(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.h),
+                child: HeaderRow(
+                  title: 'Categories',
+                  onTap: () {},
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                child: CategoriesHorizantalList(),
+              ),
+              const VerticalSpace(24),
+              HeaderRow(
+                title: 'Latest Products',
+                onTap: () {},
+              ),
+              // const VerticalSpace(24),
+            ],
+          ),
         ),
-        const ProductSectionGridView(),
-        //  const VerticalSpace(24),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              vertical: 20.h, horizontal: kHorizantalpadding),
+          sliver: const ProductSectionGridView(),
+        ),
       ],
     );
+
+    // return Column(
+    //   children: [
+    //     Padding(
+    //       padding: EdgeInsets.symmetric(vertical: 20.h),
+    //       child: HeaderRow(
+    //         title: 'Categories',
+    //         onTap: () {},
+    //       ),
+    //     ),
+    //     const Padding(
+    //       padding: EdgeInsets.only(left: 8, right: 8),
+    //       child: CategoriesHorizantalList(),
+    //     ),
+    //     const VerticalSpace(24),
+    //     HeaderRow(
+    //       title: 'Latest Products',
+    //       onTap: () {},
+    //     ),
+    //     const ProductSectionGridView(),
+    //     //  const VerticalSpace(24),
+    //   ],
+    // );
   }
 }

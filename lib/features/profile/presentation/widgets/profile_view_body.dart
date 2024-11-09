@@ -17,7 +17,7 @@ class ProfileViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        const VerticalSpace(8),
+        const VerticalSpace(30),
         UserInfo(name: name, email: email),
         const VerticalSpace(16),
         Expanded(

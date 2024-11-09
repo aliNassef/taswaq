@@ -21,11 +21,11 @@ class CategoriesHorizantalList extends StatelessWidget {
         }
         if (state is GetCategoriesLoaded) {
           return SizedBox(
-            height: 80.h,
+            height: 60.h,
             width: MediaQuery.sizeOf(context).width,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.categories.length,
               separatorBuilder: (context, index) => const HorizantalSpace(10),
               itemBuilder: (context, index) => CategoryItem(
                 categoryName: state.categories[index],
@@ -34,7 +34,7 @@ class CategoriesHorizantalList extends StatelessWidget {
           );
         }
         return SizedBox(
-          height: 80.h,
+          height: 60.h,
           width: MediaQuery.sizeOf(context).width,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,

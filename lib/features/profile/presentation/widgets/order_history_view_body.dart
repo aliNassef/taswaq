@@ -101,7 +101,8 @@ class OrderHistoryViewBody extends StatelessWidget {
                           ),
                         ],
                       ),
-                const DefaultAppButton(
+                DefaultAppButton(
+                  onPressed: () {},
                   text: 'View Products',
                   backgroundColor: AppColors.blackColor,
                   textColor: Colors.white,
