@@ -6,21 +6,10 @@ import 'package:skeletonizer/skeletonizer.dart';
 import 'package:taswaq/features/home/presentation/cubits/get_categories_cubit/get_categories_cubit.dart';
 import '../cubits/get_categories_cubit/get_categories_state.dart';
 
-class OfferHorizantalList extends StatefulWidget {
+class OfferHorizantalList extends StatelessWidget {
   const OfferHorizantalList({
     super.key,
   });
-
-  @override
-  State<OfferHorizantalList> createState() => _OfferHorizantalListState();
-}
-
-class _OfferHorizantalListState extends State<OfferHorizantalList> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<GetCategoriesCubit>().getOffers();
-  }
 
   @override
   Widget build(BuildContext context) {

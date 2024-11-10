@@ -1,4 +1,5 @@
-import 'package:dartz/dartz.dart'; 
+import 'package:dartz/dartz.dart';
+import 'package:taswaq/core/errors/exceptions.dart';
 import '../../../../core/errors/failure.dart';
 import '../../../../core/shared/functions/get_user_data.dart';
 import '../source/wishlist_remote_source.dart';
@@ -27,9 +28,10 @@ class WishlistRepoImpl extends WishlistRepo {
   Future<Either<Failure, List<WishlistEntity>>> getWishListItems() async {
     try {
       var data = await wishlistRemoteSource.getData(
-          id:getUserData().id!);
+        id: getUserData().id!,
+      );
       return Right(data);
-    } catch (e) {
+    } on CustomException catch (e) {
       return Left(Failure(errMessage: e.toString()));
     }
   }

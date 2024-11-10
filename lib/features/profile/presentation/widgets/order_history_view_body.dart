@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import 'package:taswaq/features/home/presentation/view/all_products_view.dart';
 import '../../../cart/domain/entities/cart_entity.dart';
 import '../../domain/entity/order_entity.dart';
 import '../../../../core/shared/widgets/spacers.dart';
@@ -102,7 +103,9 @@ class OrderHistoryViewBody extends StatelessWidget {
                         ],
                       ),
                 DefaultAppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AllProductsView.routeName);
+                  },
                   text: 'View Products',
                   backgroundColor: AppColors.blackColor,
                   textColor: Colors.white,

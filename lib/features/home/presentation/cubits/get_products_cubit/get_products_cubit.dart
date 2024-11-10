@@ -14,14 +14,16 @@ class GetProductsCubit extends Cubit<GetProductsState> {
     data.fold((error) => emit(GetProductsFailure(errMessage: error.errMessage)),
         (listOfProducts) async {
       // need refactor here
-      await Future.forEach(listOfProducts, (product) async {
-        bool isInWishList =
-            await isProductInWishList(productId: product.id.toString());
-
-        if (isInWishList) {
-          wishList.add(product.id!);
-        }
-      });
+      // final wishListResults = await Future.wait(
+      //   listOfProducts.map(
+      //     (product) async {
+      //       bool isInWishList =
+      //           await isProductInWishList(productId: product.id.toString());
+      //       return isInWishList ? product.id : null;
+      //     },
+      //   ),
+      // );
+      // wishList = Set.from(wishListResults);
       emit(
         GetProductsLoaded(
           productList: listOfProducts,

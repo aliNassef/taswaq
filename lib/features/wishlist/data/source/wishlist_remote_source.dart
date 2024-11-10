@@ -1,4 +1,5 @@
 import '../../../../core/api/end_ponits.dart';
+import '../../../../core/errors/exceptions.dart';
 import '../../../../core/services/database_service.dart';
 import '../../../../core/shared/functions/get_user_data.dart';
 import '../../domain/entity/wishlisst_entity.dart';
@@ -9,13 +10,17 @@ class WishlistRemoteSource {
   WishlistRemoteSource({required this.databaseService});
 
   Future<List<WishlistModel>> getData({required String id}) async {
-    final response = await databaseService.getSubCollectionData(
-      path: EndPoints.users,
-      subCollectionName: EndPoints.wishList,
-      docId: id,
-    );
+    try {
+      final response = await databaseService.getSubCollectionData(
+        path: EndPoints.users,
+        subCollectionName: EndPoints.wishList,
+        docId: id,
+      );
 
-    return response.map((item) => WishlistModel.fromMap(item)).toList();
+      return response.map((item) => WishlistModel.fromMap(item)).toList();
+    } catch (e) {
+      throw CustomException(errorMessage: e.toString());
+    }
   }
 
   Future<void> addProduct(

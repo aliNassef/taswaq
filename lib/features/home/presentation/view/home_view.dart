@@ -20,12 +20,12 @@ class HomeView extends StatelessWidget {
           BlocProvider(
             create: (context) => GetProductsCubit(
               getIt.get<HomeRepo>(),
-            )..getProducts(),
+            ),
           ),
           BlocProvider(
             create: (context) => GetCategoriesCubit(
               getIt.get<HomeRepo>(),
-            )..getCategories(),
+            ),
           ),
         ],
         child: const SafeArea(

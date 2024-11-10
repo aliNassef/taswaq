@@ -15,6 +15,10 @@ class CategoriesHorizantalList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetCategoriesCubit, GetCategoriesState>(
+      buildWhen: (previous, current) =>
+          current is GetCategoriesLoaded ||
+          current is GetCategoriesFailure ||
+          current is GetCategoriesLoading,
       builder: (context, state) {
         if (state is GetCategoriesFailure) {
           return Text(state.errMessage);

@@ -19,7 +19,7 @@ class OrderItem extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
-            color: currentPage == 1 ? AppColors.redColor : Colors.blue,
+            color: currentPage == 1 ? const Color(0xffDD5D65) : Colors.blue,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
@@ -33,9 +33,9 @@ class OrderItem extends StatelessWidget {
         Row(
           children: [
             Container(
-              decoration: const BoxDecoration(
-                color: Colors.teal,
-                borderRadius: BorderRadius.all(Radius.circular(12)),
+              decoration: BoxDecoration(
+                color: Colors.grey[300]!,
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
               ),
               child: Image.network(
                 instance.image,
