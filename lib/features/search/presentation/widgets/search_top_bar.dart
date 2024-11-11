@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../../../core/utils/app_images.dart';
 
 class SearchTopBar extends StatelessWidget {
   const SearchTopBar({super.key});
@@ -11,10 +10,7 @@ class SearchTopBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          'Taswaq',
-          style: AppStyles.textStyle16SB.copyWith(color: AppColors.blackColor),
-        ),
+        SvgPicture.asset(AppSvgs.logo),
         IconButton(
           padding: EdgeInsets.zero,
           onPressed: () {

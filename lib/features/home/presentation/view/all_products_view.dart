@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/di/dependency_injuction.dart';
+import '../../../../core/utils/app_styles.dart';
 import '../../domain/repo/home_repo.dart';
 import '../cubits/get_products_cubit/get_products_cubit.dart';
 import '../widgets/all_products_view_body.dart';
@@ -12,7 +13,10 @@ class AllProductsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('All Products'),
+        title: Text(
+          'Products',
+          style: AppStyles.textStyle14M,
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
