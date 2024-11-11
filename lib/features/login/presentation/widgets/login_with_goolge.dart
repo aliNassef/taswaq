@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../core/utils/constants.dart';
 import '../../../../core/shared/widgets/spacers.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_images.dart';
@@ -14,12 +13,12 @@ class LoginWithGoogle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
         context.read<LoginCubit>().loginWithGoogle();
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
+        // margin: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
         height: 60.h,
         width: MediaQuery.sizeOf(context).width,
         alignment: Alignment.center,
