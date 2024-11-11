@@ -116,16 +116,19 @@ class OrderHistoryViewBody extends StatelessWidget {
             ),
           );
         }
-        return ListView.separated(
-          itemBuilder: (context, index) => Skeletonizer(
-            enabled: true,
-            child: OrderItem(
-              currentPage: 1,
-              instance: dummyData[index],
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: kHorizantalpadding),
+          child: ListView.separated(
+            itemBuilder: (context, index) => Skeletonizer(
+              enabled: true,
+              child: OrderItem(
+                currentPage: 1,
+                instance: dummyData[index],
+              ),
             ),
+            separatorBuilder: (context, index) => const VerticalSpace(16),
+            itemCount: dummyData.length,
           ),
-          separatorBuilder: (context, index) => const VerticalSpace(16),
-          itemCount: dummyData.length,
         );
       },
     );
