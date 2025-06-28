@@ -26,9 +26,9 @@ class _HomeViewBodyState extends State<HomeViewBody> {
   void initState() {
     super.initState();
     Future.wait([
+      context.read<GetCategoriesCubit>().getOffers(),
       context.read<GetCategoriesCubit>().getCategories(),
       context.read<GetProductsCubit>().getProducts(),
-      // context.read<GetCategoriesCubit>().getOffers(),
     ]);
   }
 

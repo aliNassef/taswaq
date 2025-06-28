@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => GetCategoriesCubit(
-              getIt.get<HomeRepo>()..getoffers(),
+              getIt.get<HomeRepo>(),
             ),
           ),
         ],
